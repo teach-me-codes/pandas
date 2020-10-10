@@ -1,0 +1,1970 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.0.2">
+    
+    
+      
+        <title>Indexing - Pandas Tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.38780c08.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f72e892.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#data-iteration-and-indexing" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Pandas Tutorials" class="md-header-nav__button md-logo" aria-label="Pandas Tutorials">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Pandas Tutorials
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Indexing
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Pandas Tutorials" class="md-nav__button md-logo" aria-label="Pandas Tutorials">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Pandas Tutorials
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../pandas/" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../DataFrame/dataframe/" class="md-nav__link">
+      Dataframe
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Indexing
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Indexing
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setting-name-column-as-index" class="md-nav__link">
+    Setting Name column as index
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-frame-item-iteration" class="md-nav__link">
+    Data Frame item iteration
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Frame item iteration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iterrows" class="md-nav__link">
+    iterrows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iteritems" class="md-nav__link">
+    iteritems
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indexing-data" class="md-nav__link">
+    Indexing Data
+  </a>
+  
+    <nav class="md-nav" aria-label="Indexing Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loc-and-iloc" class="md-nav__link">
+    loc and iloc :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-filters" class="md-nav__link">
+    Data Filters
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Filters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dictionary-to-dataframe" class="md-nav__link">
+    Dictionary to DataFrame
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Explor/explor/" class="md-nav__link">
+      Data Exploration
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../GroupBy/groupby/" class="md-nav__link">
+      GroupBy
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Lambda/lambda/" class="md-nav__link">
+      Lambda Transform
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setting-name-column-as-index" class="md-nav__link">
+    Setting Name column as index
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-frame-item-iteration" class="md-nav__link">
+    Data Frame item iteration
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Frame item iteration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iterrows" class="md-nav__link">
+    iterrows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iteritems" class="md-nav__link">
+    iteritems
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indexing-data" class="md-nav__link">
+    Indexing Data
+  </a>
+  
+    <nav class="md-nav" aria-label="Indexing Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loc-and-iloc" class="md-nav__link">
+    loc and iloc :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-filters" class="md-nav__link">
+    Data Filters
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Filters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dictionary-to-dataframe" class="md-nav__link">
+    Dictionary to DataFrame
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="data-iteration-and-indexing">Data Iteration and Indexing</h1>
+<hr />
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">pandas</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">pd</span>
+<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">numpy</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">np</span>
+<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">seaborn</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">sns</span>
+<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">plt</span>
+<span style="color: #555555">%</span>matplotlib inline
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>titanic <span style="color: #555555">=</span> pd<span style="color: #555555">.</span>read_csv(<span style="color: #CC3300">&#39;data/titanic.csv&#39;</span>)
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>titanic<span style="color: #555555">.</span>head()
+</code></pre></div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PassengerId</th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Braund, Mr. Owen Harris</td>
+      <td>male</td>
+      <td>22.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>A/5 21171</td>
+      <td>7.2500</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
+      <td>female</td>
+      <td>38.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>PC 17599</td>
+      <td>71.2833</td>
+      <td>C85</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>1</td>
+      <td>3</td>
+      <td>Heikkinen, Miss. Laina</td>
+      <td>female</td>
+      <td>26.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>STON/O2. 3101282</td>
+      <td>7.9250</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Futrelle, Mrs. Jacques Heath (Lily May Peel)</td>
+      <td>female</td>
+      <td>35.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>113803</td>
+      <td>53.1000</td>
+      <td>C123</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Allen, Mr. William Henry</td>
+      <td>male</td>
+      <td>35.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>373450</td>
+      <td>8.0500</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<hr />
+<h3 id="setting-name-column-as-index">Setting Name column as index</h3>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>titanic_df1 <span style="color: #555555">=</span> titanic<span style="color: #555555">.</span>copy(deep <span style="color: #555555">=</span><span style="color: #006699; font-weight: bold">True</span>)
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>titanic_df1 <span style="color: #555555">=</span> titanic<span style="color: #555555">.</span>set_index(<span style="color: #CC3300">&#39;Name&#39;</span>)
+titanic_df1<span style="color: #555555">.</span>head(<span style="color: #FF6600">5</span>)
+</code></pre></div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PassengerId</th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Braund, Mr. Owen Harris</th>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>22.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>A/5 21171</td>
+      <td>7.2500</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Cumings, Mrs. John Bradley (Florence Briggs Thayer)</th>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>female</td>
+      <td>38.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>PC 17599</td>
+      <td>71.2833</td>
+      <td>C85</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>Heikkinen, Miss. Laina</th>
+      <td>3</td>
+      <td>1</td>
+      <td>3</td>
+      <td>female</td>
+      <td>26.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>STON/O2. 3101282</td>
+      <td>7.9250</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Futrelle, Mrs. Jacques Heath (Lily May Peel)</th>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>female</td>
+      <td>35.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>113803</td>
+      <td>53.1000</td>
+      <td>C123</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Allen, Mr. William Henry</th>
+      <td>5</td>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>35.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>373450</td>
+      <td>8.0500</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<hr />
+<h2 id="data-frame-item-iteration">Data Frame item iteration</h2>
+<hr />
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>sample <span style="color: #555555">=</span> titanic_df1[<span style="color: #FF6600">0</span>:<span style="color: #FF6600">5</span>]
+</code></pre></div>
+
+
+<h5 id="iterrows"><code>iterrows</code></h5>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #006699; font-weight: bold">for</span> index,row <span style="color: #000000; font-weight: bold">in</span> sample<span style="color: #555555">.</span>iterrows():
+    <span style="color: #336666">print</span>(index,<span style="color: #336666">list</span>(row))
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>Braund, Mr. Owen Harris [1, 0, 3, &#39;male&#39;, 22.0, 1, 0, &#39;A/5 21171&#39;, 7.25, nan, &#39;S&#39;]
+Cumings, Mrs. John Bradley (Florence Briggs Thayer) [2, 1, 1, &#39;female&#39;, 38.0, 1, 0, &#39;PC 17599&#39;, 71.2833, &#39;C85&#39;, &#39;C&#39;]
+Heikkinen, Miss. Laina [3, 1, 3, &#39;female&#39;, 26.0, 0, 0, &#39;STON/O2. 3101282&#39;, 7.925, nan, &#39;S&#39;]
+Futrelle, Mrs. Jacques Heath (Lily May Peel) [4, 1, 1, &#39;female&#39;, 35.0, 1, 0, &#39;113803&#39;, 53.1, &#39;C123&#39;, &#39;S&#39;]
+Allen, Mr. William Henry [5, 0, 3, &#39;male&#39;, 35.0, 0, 0, &#39;373450&#39;, 8.05, nan, &#39;S&#39;]
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #006699; font-weight: bold">for</span> index,row <span style="color: #000000; font-weight: bold">in</span> sample<span style="color: #555555">.</span>iterrows():
+    <span style="color: #336666">print</span>(index,row[<span style="color: #CC3300">&#39;Sex&#39;</span>],row[<span style="color: #CC3300">&#39;Age&#39;</span>])
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>Braund, Mr. Owen Harris male 22.0
+Cumings, Mrs. John Bradley (Florence Briggs Thayer) female 38.0
+Heikkinen, Miss. Laina female 26.0
+Futrelle, Mrs. Jacques Heath (Lily May Peel) female 35.0
+Allen, Mr. William Henry male 35.0
+</code></pre></div>
+
+
+<h4 id="iteritems"><code>iteritems</code></h4>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #006699; font-weight: bold">for</span> index,row <span style="color: #000000; font-weight: bold">in</span> sample<span style="color: #555555">.</span>T<span style="color: #555555">.</span>iteritems():
+    <span style="color: #336666">print</span>(index,<span style="color: #336666">list</span>(row))
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>Braund, Mr. Owen Harris [1, 0, 3, &#39;male&#39;, 22.0, 1, 0, &#39;A/5 21171&#39;, 7.25, nan, &#39;S&#39;]
+Cumings, Mrs. John Bradley (Florence Briggs Thayer) [2, 1, 1, &#39;female&#39;, 38.0, 1, 0, &#39;PC 17599&#39;, 71.2833, &#39;C85&#39;, &#39;C&#39;]
+Heikkinen, Miss. Laina [3, 1, 3, &#39;female&#39;, 26.0, 0, 0, &#39;STON/O2. 3101282&#39;, 7.925, nan, &#39;S&#39;]
+Futrelle, Mrs. Jacques Heath (Lily May Peel) [4, 1, 1, &#39;female&#39;, 35.0, 1, 0, &#39;113803&#39;, 53.1, &#39;C123&#39;, &#39;S&#39;]
+Allen, Mr. William Henry [5, 0, 3, &#39;male&#39;, 35.0, 0, 0, &#39;373450&#39;, 8.05, nan, &#39;S&#39;]
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #006699; font-weight: bold">for</span> index,row <span style="color: #000000; font-weight: bold">in</span> sample<span style="color: #555555">.</span>iteritems():
+    <span style="color: #336666">print</span>(index,row[<span style="color: #FF6600">0</span>],row[<span style="color: #FF6600">1</span>],row[<span style="color: #FF6600">2</span>])
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>PassengerId 1 2 3
+Survived 0 1 1
+Pclass 3 1 3
+Sex male female female
+Age 22.0 38.0 26.0
+SibSp 1 1 0
+Parch 0 0 0
+Ticket A/5 21171 PC 17599 STON/O2. 3101282
+Fare 7.25 71.2833 7.925
+Cabin nan C85 nan
+Embarked S C S
+</code></pre></div>
+
+
+<hr />
+<h2 id="indexing-data">Indexing Data</h2>
+<p>Source: <a href="https://www.shanelynn.ie/select-pandas-dataframe-rows-and-columns-using-iloc-loc-and-ix/">Using iloc, loc, &amp; ix to select rows and columns in Pandas DataFrames</a></p>
+<h3 id="loc-and-iloc"><code>loc</code> and <code>iloc</code> :</h3>
+<p>The iloc indexer for Pandas Dataframe is used for integer-location based indexing / selection by position.</p>
+<p>The Pandas loc indexer can be used with DataFrames for two different use cases:</p>
+<ul>
+<li>a.) Selecting rows by label/index</li>
+<li>b.) Selecting rows with a boolean / conditional lookup</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>sample<span style="color: #555555">.</span>iloc[<span style="color: #FF6600">0</span>:<span style="color: #FF6600">2</span>,:]
+</code></pre></div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PassengerId</th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Braund, Mr. Owen Harris</th>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>22.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>A/5 21171</td>
+      <td>7.2500</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Cumings, Mrs. John Bradley (Florence Briggs Thayer)</th>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>female</td>
+      <td>38.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>PC 17599</td>
+      <td>71.2833</td>
+      <td>C85</td>
+      <td>C</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>sample<span style="color: #555555">.</span>iloc[<span style="color: #FF6600">1</span>,<span style="color: #FF6600">0</span>:<span style="color: #FF6600">3</span>]
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>PassengerId    2
+Survived       1
+Pclass         1
+Name: Cumings, Mrs. John Bradley (Florence Briggs Thayer), dtype: object
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>sample<span style="color: #555555">.</span>loc[:,<span style="color: #CC3300">&#39;Survived&#39;</span>: <span style="color: #CC3300">&#39;Ticket&#39;</span>]
+</code></pre></div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Braund, Mr. Owen Harris</th>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>22.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>A/5 21171</td>
+    </tr>
+    <tr>
+      <th>Cumings, Mrs. John Bradley (Florence Briggs Thayer)</th>
+      <td>1</td>
+      <td>1</td>
+      <td>female</td>
+      <td>38.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>PC 17599</td>
+    </tr>
+    <tr>
+      <th>Heikkinen, Miss. Laina</th>
+      <td>1</td>
+      <td>3</td>
+      <td>female</td>
+      <td>26.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>STON/O2. 3101282</td>
+    </tr>
+    <tr>
+      <th>Futrelle, Mrs. Jacques Heath (Lily May Peel)</th>
+      <td>1</td>
+      <td>1</td>
+      <td>female</td>
+      <td>35.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>113803</td>
+    </tr>
+    <tr>
+      <th>Allen, Mr. William Henry</th>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>35.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>373450</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>sample<span style="color: #555555">.</span>loc[<span style="color: #CC3300">&#39;Braund, Mr. Owen Harris&#39;</span>,:]
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>PassengerId            1
+Survived               0
+Pclass                 3
+Sex                 male
+Age                   22
+SibSp                  1
+Parch                  0
+Ticket         A/5 21171
+Fare                7.25
+Cabin                NaN
+Embarked               S
+Name: Braund, Mr. Owen Harris, dtype: object
+</code></pre></div>
+
+
+<hr />
+<h3 id="data-filters">Data Filters</h3>
+<hr />
+<h4 id="dictionary-to-dataframe">Dictionary to DataFrame</h4>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>data <span style="color: #555555">=</span> {<span style="color: #CC3300">&#39;country&#39;</span>: [<span style="color: #CC3300">&#39;Belgium&#39;</span>, <span style="color: #CC3300">&#39;France&#39;</span>, <span style="color: #CC3300">&#39;Germany&#39;</span>, <span style="color: #CC3300">&#39;Netherlands&#39;</span>, <span style="color: #CC3300">&#39;United Kingdom&#39;</span>],
+        <span style="color: #CC3300">&#39;population&#39;</span>: [<span style="color: #FF6600">11.3</span>, <span style="color: #FF6600">64.3</span>, <span style="color: #FF6600">81.3</span>, <span style="color: #FF6600">16.9</span>, <span style="color: #FF6600">64.9</span>],
+        <span style="color: #CC3300">&#39;area&#39;</span>: [<span style="color: #FF6600">30510</span>, <span style="color: #FF6600">671308</span>, <span style="color: #FF6600">357050</span>, <span style="color: #FF6600">41526</span>, <span style="color: #FF6600">244820</span>],
+        <span style="color: #CC3300">&#39;capital&#39;</span>: [<span style="color: #CC3300">&#39;Brussels&#39;</span>, <span style="color: #CC3300">&#39;Paris&#39;</span>, <span style="color: #CC3300">&#39;Berlin&#39;</span>, <span style="color: #CC3300">&#39;Amsterdam&#39;</span>, <span style="color: #CC3300">&#39;London&#39;</span>]}
+
+
+
+countries <span style="color: #555555">=</span> pd<span style="color: #555555">.</span>DataFrame(data)
+countries
+</code></pre></div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>population</th>
+      <th>area</th>
+      <th>capital</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Belgium</td>
+      <td>11.3</td>
+      <td>30510</td>
+      <td>Brussels</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>France</td>
+      <td>64.3</td>
+      <td>671308</td>
+      <td>Paris</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Germany</td>
+      <td>81.3</td>
+      <td>357050</td>
+      <td>Berlin</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Netherlands</td>
+      <td>16.9</td>
+      <td>41526</td>
+      <td>Amsterdam</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>United Kingdom</td>
+      <td>64.9</td>
+      <td>244820</td>
+      <td>London</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>countries <span style="color: #555555">=</span> countries<span style="color: #555555">.</span>set_index(<span style="color: #CC3300">&#39;country&#39;</span>)
+countries
+</code></pre></div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>population</th>
+      <th>area</th>
+      <th>capital</th>
+    </tr>
+    <tr>
+      <th>country</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Belgium</th>
+      <td>11.3</td>
+      <td>30510</td>
+      <td>Brussels</td>
+    </tr>
+    <tr>
+      <th>France</th>
+      <td>64.3</td>
+      <td>671308</td>
+      <td>Paris</td>
+    </tr>
+    <tr>
+      <th>Germany</th>
+      <td>81.3</td>
+      <td>357050</td>
+      <td>Berlin</td>
+    </tr>
+    <tr>
+      <th>Netherlands</th>
+      <td>16.9</td>
+      <td>41526</td>
+      <td>Amsterdam</td>
+    </tr>
+    <tr>
+      <th>United Kingdom</th>
+      <td>64.9</td>
+      <td>244820</td>
+      <td>London</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>countries[<span style="color: #CC3300">&#39;area&#39;</span>]
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>country
+Belgium            30510
+France            671308
+Germany           357050
+Netherlands        41526
+United Kingdom    244820
+Name: area, dtype: int64
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>countries[[<span style="color: #CC3300">&#39;area&#39;</span>, <span style="color: #CC3300">&#39;population&#39;</span>]]
+</code></pre></div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>area</th>
+      <th>population</th>
+    </tr>
+    <tr>
+      <th>country</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Belgium</th>
+      <td>30510</td>
+      <td>11.3</td>
+    </tr>
+    <tr>
+      <th>France</th>
+      <td>671308</td>
+      <td>64.3</td>
+    </tr>
+    <tr>
+      <th>Germany</th>
+      <td>357050</td>
+      <td>81.3</td>
+    </tr>
+    <tr>
+      <th>Netherlands</th>
+      <td>41526</td>
+      <td>16.9</td>
+    </tr>
+    <tr>
+      <th>United Kingdom</th>
+      <td>244820</td>
+      <td>64.9</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>countries[<span style="color: #CC3300">&#39;France&#39;</span>:<span style="color: #CC3300">&#39;Netherlands&#39;</span>]
+</code></pre></div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>population</th>
+      <th>area</th>
+      <th>capital</th>
+    </tr>
+    <tr>
+      <th>country</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>France</th>
+      <td>64.3</td>
+      <td>671308</td>
+      <td>Paris</td>
+    </tr>
+    <tr>
+      <th>Germany</th>
+      <td>81.3</td>
+      <td>357050</td>
+      <td>Berlin</td>
+    </tr>
+    <tr>
+      <th>Netherlands</th>
+      <td>16.9</td>
+      <td>41526</td>
+      <td>Amsterdam</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>countries<span style="color: #555555">.</span>loc[<span style="color: #CC3300">&#39;Germany&#39;</span>, <span style="color: #CC3300">&#39;area&#39;</span>]
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>357050
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>countries<span style="color: #555555">.</span>loc[<span style="color: #CC3300">&#39;France&#39;</span>:<span style="color: #CC3300">&#39;Germany&#39;</span>, [<span style="color: #CC3300">&#39;area&#39;</span>, <span style="color: #CC3300">&#39;population&#39;</span>]]
+</code></pre></div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>area</th>
+      <th>population</th>
+    </tr>
+    <tr>
+      <th>country</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>France</th>
+      <td>671308</td>
+      <td>64.3</td>
+    </tr>
+    <tr>
+      <th>Germany</th>
+      <td>357050</td>
+      <td>81.3</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>countries<span style="color: #555555">.</span>iloc[<span style="color: #FF6600">0</span>:<span style="color: #FF6600">2</span>,<span style="color: #FF6600">1</span>:<span style="color: #FF6600">3</span>]
+</code></pre></div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>area</th>
+      <th>capital</th>
+    </tr>
+    <tr>
+      <th>country</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Belgium</th>
+      <td>30510</td>
+      <td>Brussels</td>
+    </tr>
+    <tr>
+      <th>France</th>
+      <td>671308</td>
+      <td>Paris</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>countries2 <span style="color: #555555">=</span> countries<span style="color: #555555">.</span>copy()
+countries2<span style="color: #555555">.</span>loc[<span style="color: #CC3300">&#39;Belgium&#39;</span>:<span style="color: #CC3300">&#39;Germany&#39;</span>, <span style="color: #CC3300">&#39;population&#39;</span>] <span style="color: #555555">=</span> <span style="color: #FF6600">10</span>
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>countries2
+</code></pre></div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>population</th>
+      <th>area</th>
+      <th>capital</th>
+    </tr>
+    <tr>
+      <th>country</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Belgium</th>
+      <td>10.0</td>
+      <td>30510</td>
+      <td>Brussels</td>
+    </tr>
+    <tr>
+      <th>France</th>
+      <td>10.0</td>
+      <td>671308</td>
+      <td>Paris</td>
+    </tr>
+    <tr>
+      <th>Germany</th>
+      <td>10.0</td>
+      <td>357050</td>
+      <td>Berlin</td>
+    </tr>
+    <tr>
+      <th>Netherlands</th>
+      <td>16.9</td>
+      <td>41526</td>
+      <td>Amsterdam</td>
+    </tr>
+    <tr>
+      <th>United Kingdom</th>
+      <td>64.9</td>
+      <td>244820</td>
+      <td>London</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>countries[<span style="color: #CC3300">&#39;area&#39;</span>] <span style="color: #555555">&gt;</span> <span style="color: #FF6600">100000</span>
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>country
+Belgium           False
+France             True
+Germany            True
+Netherlands       False
+United Kingdom     True
+Name: area, dtype: bool
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>countries[countries[<span style="color: #CC3300">&#39;area&#39;</span>] <span style="color: #555555">&gt;</span> <span style="color: #FF6600">100000</span>]
+</code></pre></div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>population</th>
+      <th>area</th>
+      <th>capital</th>
+    </tr>
+    <tr>
+      <th>country</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>France</th>
+      <td>64.3</td>
+      <td>671308</td>
+      <td>Paris</td>
+    </tr>
+    <tr>
+      <th>Germany</th>
+      <td>81.3</td>
+      <td>357050</td>
+      <td>Berlin</td>
+    </tr>
+    <tr>
+      <th>United Kingdom</th>
+      <td>64.9</td>
+      <td>244820</td>
+      <td>London</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<hr />
+<div class="alert alert-success">
+    <b>EXERCISE</b>: Add a column `density` with the population density (note: population column is expressed in millions)
+</div>
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>countries[<span style="color: #CC3300">&#39;density&#39;</span>] <span style="color: #555555">=</span> countries[<span style="color: #CC3300">&#39;population&#39;</span>]<span style="color: #555555">*</span><span style="color: #FF6600">1000000</span> <span style="color: #555555">/</span> countries[<span style="color: #CC3300">&#39;area&#39;</span>]
+countries
+</code></pre></div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>population</th>
+      <th>area</th>
+      <th>capital</th>
+      <th>density</th>
+    </tr>
+    <tr>
+      <th>country</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Belgium</th>
+      <td>11.3</td>
+      <td>30510</td>
+      <td>Brussels</td>
+      <td>370.370370</td>
+    </tr>
+    <tr>
+      <th>France</th>
+      <td>64.3</td>
+      <td>671308</td>
+      <td>Paris</td>
+      <td>95.783158</td>
+    </tr>
+    <tr>
+      <th>Germany</th>
+      <td>81.3</td>
+      <td>357050</td>
+      <td>Berlin</td>
+      <td>227.699202</td>
+    </tr>
+    <tr>
+      <th>Netherlands</th>
+      <td>16.9</td>
+      <td>41526</td>
+      <td>Amsterdam</td>
+      <td>406.973944</td>
+    </tr>
+    <tr>
+      <th>United Kingdom</th>
+      <td>64.9</td>
+      <td>244820</td>
+      <td>London</td>
+      <td>265.092721</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="alert alert-success">
+    <b>EXERCISE</b>: Select the capital and the population column of those countries where the density is larger than 300
+</div>
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>countries<span style="color: #555555">.</span>loc[countries[<span style="color: #CC3300">&#39;density&#39;</span>] <span style="color: #555555">&gt;</span> <span style="color: #FF6600">300</span>, [<span style="color: #CC3300">&#39;capital&#39;</span>, <span style="color: #CC3300">&#39;population&#39;</span>]]
+</code></pre></div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>capital</th>
+      <th>population</th>
+    </tr>
+    <tr>
+      <th>country</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Belgium</th>
+      <td>Brussels</td>
+      <td>11.3</td>
+    </tr>
+    <tr>
+      <th>Netherlands</th>
+      <td>Amsterdam</td>
+      <td>16.9</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="alert alert-success">
+    <b>EXERCISE</b>: Add a column 'density_ratio' with the ratio of the density to the mean density
+</div>
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>countries[<span style="color: #CC3300">&#39;density_ratio&#39;</span>] <span style="color: #555555">=</span> countries[<span style="color: #CC3300">&#39;density&#39;</span>] <span style="color: #555555">/</span> countries[<span style="color: #CC3300">&#39;density&#39;</span>]<span style="color: #555555">.</span>mean()
+countries
+</code></pre></div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>population</th>
+      <th>area</th>
+      <th>capital</th>
+      <th>density</th>
+      <th>density_ratio</th>
+    </tr>
+    <tr>
+      <th>country</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Belgium</th>
+      <td>11.3</td>
+      <td>30510</td>
+      <td>Brussels</td>
+      <td>370.370370</td>
+      <td>1.355755</td>
+    </tr>
+    <tr>
+      <th>France</th>
+      <td>64.3</td>
+      <td>671308</td>
+      <td>Paris</td>
+      <td>95.783158</td>
+      <td>0.350618</td>
+    </tr>
+    <tr>
+      <th>Germany</th>
+      <td>81.3</td>
+      <td>357050</td>
+      <td>Berlin</td>
+      <td>227.699202</td>
+      <td>0.833502</td>
+    </tr>
+    <tr>
+      <th>Netherlands</th>
+      <td>16.9</td>
+      <td>41526</td>
+      <td>Amsterdam</td>
+      <td>406.973944</td>
+      <td>1.489744</td>
+    </tr>
+    <tr>
+      <th>United Kingdom</th>
+      <td>64.9</td>
+      <td>244820</td>
+      <td>London</td>
+      <td>265.092721</td>
+      <td>0.970382</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="alert alert-success">
+    <b>EXERCISE</b>: Change the capital of the UK to Cambridge
+</div>
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>countries<span style="color: #555555">.</span>loc[<span style="color: #CC3300">&#39;United Kingdom&#39;</span>, <span style="color: #CC3300">&#39;capital&#39;</span>] <span style="color: #555555">=</span> <span style="color: #CC3300">&#39;Cambridge&#39;</span>
+countries
+</code></pre></div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>population</th>
+      <th>area</th>
+      <th>capital</th>
+      <th>density</th>
+      <th>density_ratio</th>
+    </tr>
+    <tr>
+      <th>country</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Belgium</th>
+      <td>11.3</td>
+      <td>30510</td>
+      <td>Brussels</td>
+      <td>370.370370</td>
+      <td>1.355755</td>
+    </tr>
+    <tr>
+      <th>France</th>
+      <td>64.3</td>
+      <td>671308</td>
+      <td>Paris</td>
+      <td>95.783158</td>
+      <td>0.350618</td>
+    </tr>
+    <tr>
+      <th>Germany</th>
+      <td>81.3</td>
+      <td>357050</td>
+      <td>Berlin</td>
+      <td>227.699202</td>
+      <td>0.833502</td>
+    </tr>
+    <tr>
+      <th>Netherlands</th>
+      <td>16.9</td>
+      <td>41526</td>
+      <td>Amsterdam</td>
+      <td>406.973944</td>
+      <td>1.489744</td>
+    </tr>
+    <tr>
+      <th>United Kingdom</th>
+      <td>64.9</td>
+      <td>244820</td>
+      <td>Cambridge</td>
+      <td>265.092721</td>
+      <td>0.970382</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="alert alert-success">
+    <b>EXERCISE</b>: Select all countries whose population density is between 100 and 300 people/km²
+</div>
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>countries[(countries[<span style="color: #CC3300">&#39;density&#39;</span>] <span style="color: #555555">&gt;</span> <span style="color: #FF6600">100</span>) <span style="color: #555555">&amp;</span> (countries[<span style="color: #CC3300">&#39;density&#39;</span>] <span style="color: #555555">&lt;</span> <span style="color: #FF6600">300</span>)]
+</code></pre></div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>population</th>
+      <th>area</th>
+      <th>capital</th>
+      <th>density</th>
+      <th>density_ratio</th>
+    </tr>
+    <tr>
+      <th>country</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Germany</th>
+      <td>81.3</td>
+      <td>357050</td>
+      <td>Berlin</td>
+      <td>227.699202</td>
+      <td>0.833502</td>
+    </tr>
+    <tr>
+      <th>United Kingdom</th>
+      <td>64.9</td>
+      <td>244820</td>
+      <td>Cambridge</td>
+      <td>265.092721</td>
+      <td>0.970382</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../../DataFrame/dataframe/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Dataframe
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../../Explor/explor/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Data Exploration
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.77e55a48.min.js"></script>
+      <script src="../../assets/javascripts/bundle.9554a270.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>
