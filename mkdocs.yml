@@ -37,13 +37,14 @@ markdown_extensions:
 nav:
 - Home: index.md
 - Introduction: pandas.md
-- Dataframe: DataFrame/dataframe.md
-- Indexing: Indexing/Indexing.md
-- Data Exploration: Explor/explor.md
-- GroupBy: GroupBy/groupby.md
-- Lambda Transform : Lambda/lambda.md
+- Dataframe Introduction: DataFrame/dataframe.md
+- Data Visualization: Visualization/visual.md
+- Iteration, Indexing and Filter: Indexing/indexing.md
+- Apply and Lambda Transform: Explor/explor.md
+- GroupBy and Aggregate, Transform: GroupBy/groupby.md
+- Concat, Merge and Join : Lambda/lambda.md
  
  
- 
+
  
  

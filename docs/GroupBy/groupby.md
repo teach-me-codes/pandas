@@ -1,7 +1,10 @@
 
-# Data Handeling: Groupby, Merge, Split
+## Groupby and Aggregation (Split-Apply-Combine):
 
--------------
+This notebook will provide a walkthrough for data **splitting** (mapping) with ```groupby()```, **apply** some action (e.g.,```count(), sum(), mean(), std()```) and finally **combine** through ```aggregation(), transform()``` action (reduction). 
+
+Read more about these functionality from [Pydata documentation for Group by (split-apply-combine)](https://pandas.pydata.org/docs/user_guide/groupby.html)[1].
+Some parts of this notebook are taken from [EuroScipy 2016 Pandas Tutorial by Joris Van den Bossche and Nicholas Devenish](https://github.com/jorisvandenbossche/pandas-tutorial)[2]
 
 
 ```python
@@ -18,19 +21,8 @@ sns.set()
 
 ```python
 titanic = pd.read_csv('data/titanic.csv')
-```
-
-### Setting Name column as index
-
-
-```python
-titanic_df1 = titanic.copy(deep =True)
-```
-
-
-```python
-titanic_df1 = titanic.set_index('Name')
-titanic_df1.head(2)
+titanic = titanic.set_index('Name')
+titanic.head(2)
 ```
 
 
@@ -116,13 +108,8 @@ titanic_df1.head(2)
 
 
 
------------
-
-## Group By : ```groupby.aggregate()```, ```groupby.size()```,```groupby.mean()```,
-
------------
-
-### The groupby operation (split-apply-combine)
+#### The groupby operation (split-apply-combine)
+is followed by multiple functionality e.g., ```groupby.aggregate()```,```groupby.count()``` ```groupby.size()```,```groupby.mean()```. 
 
 The "group by" concept: we want to **apply the same function on subsets of your dataframe, based on some key to split the dataframe in subsets**
 
@@ -135,11 +122,14 @@ This operation is also referred to as the "split-apply-combine" operation, invol
 <img src="plots/splitApplyCombine.png">
 
 
+#### 1. Simple Groupby and aggregate example:
+Lets create a sample dataframe to operate ```groupby()``` followed by ```size()``` and ```aggregate()``` with ```np.sum()``` seperately.
+
 
 ```python
 df = pd.DataFrame({'key':['A','B','C','A','B','C','A','B','C'],
                    'data': [0, 5, 10, 5, 10, 15, 10, 15, 20]})
-df
+df.head(2)
 ```
 
 
@@ -178,51 +168,40 @@ df
       <td>B</td>
       <td>5</td>
     </tr>
-    <tr>
-      <th>2</th>
-      <td>C</td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>A</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>B</td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>C</td>
-      <td>15</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>A</td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>B</td>
-      <td>15</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>C</td>
-      <td>20</td>
-    </tr>
   </tbody>
 </table>
 </div>
 
 
 
+The ```groupby()``` operation followed by ```size()``` does not return a ```DataFrame``` object, it becomes a pandas ```Series``` object.
+
 
 ```python
-df.groupby('key').aggregate(np.sum)
+result = df.groupby('key').size()
+print("Object type:", type(result))
+print(result)
 ```
+
+    Object type: <class 'pandas.core.series.Series'>
+    key
+    A    3
+    B    3
+    C    3
+    dtype: int64
+    
+
+The ```groupby()``` operation followed by ```aggregate()``` returns a ```DataFrame``` object.
+
+
+```python
+result = df.groupby('key').aggregate(np.sum)
+print("object type:", type(result))
+result
+```
+
+    object type: <class 'pandas.core.frame.DataFrame'>
+    
 
 
 
@@ -271,11 +250,15 @@ df.groupby('key').aggregate(np.sum)
 
 
 
-### Exercise with Titanic Dataset
+#### 2. Exercise with Titanic Dataset
+
+<div class="alert alert-success">
+    <b>EXERCISE</b>: Using groupby(), calculate the total number for each sex catagory.
+</div>
 
 
 ```python
-titanic_df1.groupby('Sex').size()
+titanic.groupby('Sex').size()
 ```
 
 
@@ -294,7 +277,7 @@ titanic_df1.groupby('Sex').size()
 
 
 ```python
-titanic_df1.groupby('Sex')['Age'].mean()
+titanic.groupby('Sex')['Age'].mean()
 ```
 
 
@@ -307,15 +290,13 @@ titanic_df1.groupby('Sex')['Age'].mean()
 
 
 
-----------
-
 <div class="alert alert-success">
     <b>EXERCISE</b>: Calculate the average survival ratio for all passengers.
 </div>
 
 
 ```python
-titanic_df1['Survived'].sum() / len(titanic_df1['Survived'])
+titanic['Survived'].sum() / len(titanic['Survived'])
 ```
 
 
@@ -325,15 +306,13 @@ titanic_df1['Survived'].sum() / len(titanic_df1['Survived'])
 
 
 
--------------
-
 <div class="alert alert-success">
     <b>EXERCISE</b>: Calculate this survival ratio for all passengers younger that 25 (remember: filtering/boolean indexing).
 </div>
 
 
 ```python
-df25 = titanic_df1[titanic_df1['Age'] <= 25]
+df25 = titanic[titanic_df1['Age'] <= 25]
 df25['Survived'].sum() / len(df25['Survived'])
 ```
 
@@ -343,8 +322,6 @@ df25['Survived'].sum() / len(df25['Survived'])
     0.4119601328903654
 
 
-
------------
 
 <div class="alert alert-success">
     <b>EXERCISE</b>: Is there a difference in this survival ratio between the sexes? (tip: write the above calculation of the survival ratio as a function)
@@ -358,7 +335,7 @@ def survival_ratio(survived):
 
 
 ```python
-titanic_df1.groupby('Sex')['Survived'].aggregate(survival_ratio)
+titanic.groupby('Sex')['Survived'].aggregate(survival_ratio)
 ```
 
 
@@ -371,29 +348,21 @@ titanic_df1.groupby('Sex')['Survived'].aggregate(survival_ratio)
 
 
 
------------
-
 <div class="alert alert-success">
     <b>EXERCISE</b>: Make a bar plot of the survival ratio for the different classes ('Pclass' column).
 </div>
 
 
 ```python
-titanic_df1.groupby('Pclass')['Survived'].aggregate(survival_ratio).plot(kind='bar')
+titanic.groupby('Pclass')['Survived'].aggregate(survival_ratio).plot(kind='bar')
+pass
 ```
 
 
+![png](output_23_0.png)
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x7fb321d163c8>
-
-
-
-
-![png](output_30_1.png)
-
-
-## Advanced Groupby Operations
+#### 3. Some advanced groupby operations
 
 <div class="alert alert-success">
     <b>EXERCISE</b>: Find data for age distribution.
@@ -401,35 +370,17 @@ titanic_df1.groupby('Pclass')['Survived'].aggregate(survival_ratio).plot(kind='b
 
 
 ```python
-type(10//2)
-```
-
-
-
-
-    int
-
-
-
-
-```python
-df = titanic_df1.copy(deep =True)
+df = titanic.copy(deep =True)
 ```
 
 
 ```python
-df.groupby(df.Age//10 * 10).size().plot(kind='bar',figsize = [10,10])
+df.groupby(df.Age//10 * 10).size().plot(kind='bar',figsize = [6,4])
+pass
 ```
 
 
-
-
-    <matplotlib.axes._subplots.AxesSubplot at 0x7fb31d63f2b0>
-
-
-
-
-![png](output_35_1.png)
+![png](output_27_0.png)
 
 
 <div class="alert alert-success">
@@ -439,18 +390,12 @@ df.groupby(df.Age//10 * 10).size().plot(kind='bar',figsize = [10,10])
 
 ```python
 Male = df[df['Sex'] == 'male']
-Male.groupby(Male.Age // 10 * 10).size().plot(kind='bar',figsize = [10,10])
+Male.groupby(Male.Age // 10 * 10).size().plot(kind='bar',figsize = [6,4])
+pass
 ```
 
 
-
-
-    <matplotlib.axes._subplots.AxesSubplot at 0x7fb31d524dd8>
-
-
-
-
-![png](output_37_1.png)
+![png](output_29_0.png)
 
 
 <div class="alert alert-success">
@@ -475,7 +420,7 @@ Fare50.groupby([ 'Sex']).size()
 
 
 ```python
-Fare50.groupby(['Age', 'Sex','Survived']).size()
+Fare50.groupby(['Age', 'Sex','Survived']).size().head(4)
 ```
 
 
@@ -486,76 +431,18 @@ Fare50.groupby(['Age', 'Sex','Survived']).size()
     2.00   female  0           1
     4.00   male    1           1
     11.00  male    1           1
-    14.00  female  1           1
-    15.00  female  1           1
-    16.00  female  1           2
-    17.00  female  1           2
-           male    1           1
-    18.00  female  1           3
-           male    0           2
-    19.00  female  1           1
-           male    0           2
-    21.00  female  1           2
-           male    0           3
-    22.00  female  1           3
-           male    0           1
-    23.00  female  1           2
-           male    1           1
-    24.00  female  1           5
-           male    0           3
-    25.00  female  0           1
-           male    1           2
-    26.00  female  1           1
-           male    1           1
-    27.00  male    0           1
-                   1           2
-    28.00  male    0           2
-    29.00  female  1           1
-           male    0           1
-                              ..
-    45.00  female  1           1
-           male    0           1
-    46.00  male    0           2
-    47.00  female  1           1
-           male    0           1
-    48.00  female  1           1
-           male    1           2
-    49.00  female  1           1
-           male    0           1
-                   1           2
-    50.00  female  1           1
-           male    0           2
-                   1           1
-    51.00  female  1           1
-           male    0           1
-    52.00  female  1           2
-           male    0           1
-    53.00  female  1           1
-    54.00  female  1           2
-           male    0           2
-    56.00  female  1           1
-    58.00  female  1           2
-           male    0           1
-    60.00  female  1           1
-           male    1           1
-    62.00  female  1           1
-    63.00  female  1           1
-    64.00  male    0           1
-    65.00  male    0           1
-    70.00  male    0           1
-    Length: 87, dtype: int64
+    dtype: int64
 
 
 
-------------
-
-## Group by followed by Transformation: ```groupby.transform()```
+#### 4. Groupby followed by transformation: ```groupby.transform()```. 
+The transform operation accepts builting functions e.g., ```sum,  mean, std``` through keyword. One can define a new function called user defined function to supply inside ```transform(new_function)```.
 
 
 ```python
 df = pd.DataFrame({'key':['A','B','C','A','B','C','A','B','C'],
                    'data': [0, 5, 10, 5, 10, 15, 10, 15, 20]})
-df
+df.head(2)
 ```
 
 
@@ -579,55 +466,20 @@ df
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>data</th>
       <th>key</th>
+      <th>data</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>0</td>
       <td>A</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
+      <td>B</td>
       <td>5</td>
-      <td>B</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>10</td>
-      <td>C</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>5</td>
-      <td>A</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>10</td>
-      <td>B</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>15</td>
-      <td>C</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>10</td>
-      <td>A</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>15</td>
-      <td>B</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>20</td>
-      <td>C</td>
     </tr>
   </tbody>
 </table>
@@ -637,7 +489,7 @@ df
 
 
 ```python
-df.groupby('key').transform('mean')
+df.groupby('key').transform('mean').head(2)
 ```
 
 
@@ -672,34 +524,6 @@ df.groupby('key').transform('mean')
     <tr>
       <th>1</th>
       <td>10</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>15</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>10</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>15</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>10</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>15</td>
     </tr>
   </tbody>
 </table>
@@ -715,7 +539,7 @@ def normalize(group):
 
 
 ```python
-df.groupby('key').transform(normalize)
+df.groupby('key').transform(normalize).head(2)
 ```
 
 
@@ -751,108 +575,12 @@ df.groupby('key').transform(normalize)
       <th>1</th>
       <td>-1.0</td>
     </tr>
-    <tr>
-      <th>2</th>
-      <td>-1.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>1.0</td>
-    </tr>
   </tbody>
 </table>
 </div>
 
 
 
-
-```python
-df.groupby('key').transform('sum')
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>data</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>15</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>30</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>45</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>15</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>30</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>45</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>15</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>30</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>45</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
+### References:
+1. [Pydata documentation: Group by: split-apply-combine](https://pandas.pydata.org/docs/user_guide/groupby.html)
+2. [EuroScipy 2016 Pandas Tutorial by Joris Van den Bossche and Nicholas Devenish](https://github.com/jorisvandenbossche/pandas-tutorial)

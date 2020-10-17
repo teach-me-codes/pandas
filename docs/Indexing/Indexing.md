@@ -1,7 +1,9 @@
 
-# Data Iteration and Indexing
+## Data Iteration, Indexing and Filters
+In this notebook we will learn indexing ```DataFrame``` with ```loc``` and ```iloc``` functionality and ```slicing``` operation. Some Data ```Filtering``` techniques will also be conducted.
 
--------------
+Read more about these functionality from [Pydata documentation for indexing](https://pandas.pydata.org/docs/user_guide/groupby.html)[1].
+Some parts of this notebook are taken from [EuroScipy 2016 Pandas Tutorial by Joris Van den Bossche and Nicholas Devenish](https://github.com/jorisvandenbossche/pandas-tutorial)[2]
 
 
 ```python
@@ -15,143 +17,12 @@ import matplotlib.pyplot as plt
 
 ```python
 titanic = pd.read_csv('data/titanic.csv')
+titanic = titanic.set_index("Name")
 ```
 
 
 ```python
-titanic.head()
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>PassengerId</th>
-      <th>Survived</th>
-      <th>Pclass</th>
-      <th>Name</th>
-      <th>Sex</th>
-      <th>Age</th>
-      <th>SibSp</th>
-      <th>Parch</th>
-      <th>Ticket</th>
-      <th>Fare</th>
-      <th>Cabin</th>
-      <th>Embarked</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1</td>
-      <td>0</td>
-      <td>3</td>
-      <td>Braund, Mr. Owen Harris</td>
-      <td>male</td>
-      <td>22.0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>A/5 21171</td>
-      <td>7.2500</td>
-      <td>NaN</td>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2</td>
-      <td>1</td>
-      <td>1</td>
-      <td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
-      <td>female</td>
-      <td>38.0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>PC 17599</td>
-      <td>71.2833</td>
-      <td>C85</td>
-      <td>C</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>3</td>
-      <td>1</td>
-      <td>3</td>
-      <td>Heikkinen, Miss. Laina</td>
-      <td>female</td>
-      <td>26.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>STON/O2. 3101282</td>
-      <td>7.9250</td>
-      <td>NaN</td>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>4</td>
-      <td>1</td>
-      <td>1</td>
-      <td>Futrelle, Mrs. Jacques Heath (Lily May Peel)</td>
-      <td>female</td>
-      <td>35.0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>113803</td>
-      <td>53.1000</td>
-      <td>C123</td>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>5</td>
-      <td>0</td>
-      <td>3</td>
-      <td>Allen, Mr. William Henry</td>
-      <td>male</td>
-      <td>35.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>373450</td>
-      <td>8.0500</td>
-      <td>NaN</td>
-      <td>S</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
------------------
-
-### Setting Name column as index
-
-
-```python
-titanic_df1 = titanic.copy(deep =True)
-```
-
-
-```python
-titanic_df1 = titanic.set_index('Name')
-titanic_df1.head(5)
+titanic.head(2)
 ```
 
 
@@ -231,66 +102,20 @@ titanic_df1.head(5)
       <td>C85</td>
       <td>C</td>
     </tr>
-    <tr>
-      <th>Heikkinen, Miss. Laina</th>
-      <td>3</td>
-      <td>1</td>
-      <td>3</td>
-      <td>female</td>
-      <td>26.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>STON/O2. 3101282</td>
-      <td>7.9250</td>
-      <td>NaN</td>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Futrelle, Mrs. Jacques Heath (Lily May Peel)</th>
-      <td>4</td>
-      <td>1</td>
-      <td>1</td>
-      <td>female</td>
-      <td>35.0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>113803</td>
-      <td>53.1000</td>
-      <td>C123</td>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Allen, Mr. William Henry</th>
-      <td>5</td>
-      <td>0</td>
-      <td>3</td>
-      <td>male</td>
-      <td>35.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>373450</td>
-      <td>8.0500</td>
-      <td>NaN</td>
-      <td>S</td>
-    </tr>
   </tbody>
 </table>
 </div>
 
 
 
------------
-
-##   Data Frame item iteration
-
-------------
+- Lets create a small sample of data
 
 
 ```python
-sample = titanic_df1[0:5]
+sample = titanic[0:5]
 ```
 
-##### ```iterrows```
+#### 1. Iteration of rows implementing   ```iterrows```
 
 
 ```python
@@ -303,7 +128,9 @@ for index,row in sample.iterrows():
     Heikkinen, Miss. Laina [3, 1, 3, 'female', 26.0, 0, 0, 'STON/O2. 3101282', 7.925, nan, 'S']
     Futrelle, Mrs. Jacques Heath (Lily May Peel) [4, 1, 1, 'female', 35.0, 1, 0, '113803', 53.1, 'C123', 'S']
     Allen, Mr. William Henry [5, 0, 3, 'male', 35.0, 0, 0, '373450', 8.05, nan, 'S']
+    
 
+- We can select specific columns by passing column names in ```row()``` input
 
 
 ```python
@@ -316,9 +143,9 @@ for index,row in sample.iterrows():
     Heikkinen, Miss. Laina female 26.0
     Futrelle, Mrs. Jacques Heath (Lily May Peel) female 35.0
     Allen, Mr. William Henry male 35.0
+    
 
-
-####  ```iteritems```
+#### 2. Iteration of rows with  ```iteritems```
 
 
 ```python
@@ -331,7 +158,7 @@ for index,row in sample.T.iteritems():
     Heikkinen, Miss. Laina [3, 1, 3, 'female', 26.0, 0, 0, 'STON/O2. 3101282', 7.925, nan, 'S']
     Futrelle, Mrs. Jacques Heath (Lily May Peel) [4, 1, 1, 'female', 35.0, 1, 0, '113803', 53.1, 'C123', 'S']
     Allen, Mr. William Henry [5, 0, 3, 'male', 35.0, 0, 0, '373450', 8.05, nan, 'S']
-
+    
 
 
 ```python
@@ -350,15 +177,13 @@ for index,row in sample.iteritems():
     Fare 7.25 71.2833 7.925
     Cabin nan C85 nan
     Embarked S C S
+    
 
-
--------------
-
-##  Indexing Data
+#### 3.  Indexing Data
 
 Source: [Using iloc, loc, & ix to select rows and columns in Pandas DataFrames](https://www.shanelynn.ie/select-pandas-dataframe-rows-and-columns-using-iloc-loc-and-ix/)
 
-### ```loc``` and ```iloc``` :
+- ```loc``` and ```iloc``` :
 
 The iloc indexer for Pandas Dataframe is used for integer-location based indexing / selection by position.
 
@@ -595,13 +420,11 @@ sample.loc['Braund, Mr. Owen Harris',:]
 
 
 
-------------
+#### 4 - Data Filters:
 
-### Data Filters
+Data Filters can be performed by either selecting specific set of column names or by seting ```boolean filters```.
 
---------------
-
-#### Dictionary to DataFrame
+- Dictionary to DataFrame
 
 
 ```python
@@ -685,6 +508,8 @@ countries
 
 
 
+- To set the ```country``` as index:
+
 
 ```python
 countries = countries.set_index('country')
@@ -760,6 +585,8 @@ countries
 
 
 
+- To find the ```area``` of each country:
+
 
 ```python
 countries['area']
@@ -777,6 +604,27 @@ countries['area']
     Name: area, dtype: int64
 
 
+
+- To create a ```list``` instead of pandas ```Series``` object.
+
+
+```python
+Area = list(countries['area'])
+```
+
+
+```python
+Area
+```
+
+
+
+
+    [30510, 671308, 357050, 41526, 244820]
+
+
+
+- To create a ```sub-DataFrame``` by choosing ```area``` and ```population```
 
 
 ```python
@@ -845,6 +693,8 @@ countries[['area', 'population']]
 
 
 
+- To observe slice of data by ```index``` names.
+
 
 ```python
 countries['France':'Netherlands']
@@ -906,6 +756,8 @@ countries['France':'Netherlands']
 </div>
 
 
+
+- To observe the data at specific row identified by ```index``` name(s) and spefic column identified by ```column```name(s):
 
 
 ```python
@@ -971,137 +823,7 @@ countries.loc['France':'Germany', ['area', 'population']]
 
 
 
-
-```python
-countries.iloc[0:2,1:3]
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>area</th>
-      <th>capital</th>
-    </tr>
-    <tr>
-      <th>country</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Belgium</th>
-      <td>30510</td>
-      <td>Brussels</td>
-    </tr>
-    <tr>
-      <th>France</th>
-      <td>671308</td>
-      <td>Paris</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-```python
-countries2 = countries.copy()
-countries2.loc['Belgium':'Germany', 'population'] = 10
-```
-
-
-```python
-countries2
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>population</th>
-      <th>area</th>
-      <th>capital</th>
-    </tr>
-    <tr>
-      <th>country</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Belgium</th>
-      <td>10.0</td>
-      <td>30510</td>
-      <td>Brussels</td>
-    </tr>
-    <tr>
-      <th>France</th>
-      <td>10.0</td>
-      <td>671308</td>
-      <td>Paris</td>
-    </tr>
-    <tr>
-      <th>Germany</th>
-      <td>10.0</td>
-      <td>357050</td>
-      <td>Berlin</td>
-    </tr>
-    <tr>
-      <th>Netherlands</th>
-      <td>16.9</td>
-      <td>41526</td>
-      <td>Amsterdam</td>
-    </tr>
-    <tr>
-      <th>United Kingdom</th>
-      <td>64.9</td>
-      <td>244820</td>
-      <td>London</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
+- To set ```boolean``` selection for ```subDataFrame```:
 
 
 ```python
@@ -1183,7 +905,7 @@ countries[countries['area'] > 100000]
 
 
 
----
+#### 5. Exercises:
 
 <div class="alert alert-success">
     <b>EXERCISE</b>: Add a column `density` with the population density (note: population column is expressed in millions)
@@ -1580,3 +1302,7 @@ countries[(countries['density'] > 100) & (countries['density'] < 300)]
 </div>
 
 
+
+### References:
+1. [Pydata documentation: Group by: split-apply-combine](https://pandas.pydata.org/docs/user_guide/groupby.html)
+2. [EuroScipy 2016 Pandas Tutorial by Joris Van den Bossche and Nicholas Devenish](https://github.com/jorisvandenbossche/pandas-tutorial)

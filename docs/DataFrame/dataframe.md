@@ -1,7 +1,7 @@
 
-# Data View with Titanic dataset
+## DataFrame Introduction
 
--------------
+In this notebook, we will learn to load the data and look at top row of the data, shape (i.e., number of rows and columns) of the data, list of name of columns, list of name of index and summary of data statistics (e.g., mean, standard deviation, median).
 
 
 ```python
@@ -13,387 +13,23 @@ import matplotlib.pyplot as plt
 sns.set()
 ```
 
-##   Load data
+#### 1. Creating DataFrame by loading data
 
----------
+- To load data to pandas DataFrame from ```csv``` file, we can use ```read_csv()``` functionality. Pandas ```DataFrame``` is an object. When we load data, ```DataFrame``` holds the data with extra functionality integrated into the ```DataFrme``` object. Once the data is loaded, we can set up one column as the index by ```set_index()``` function. Following is the defult setting of data upload with ```read_csv()```:
+
+```pandas.read_csv(filepath_or_buffer, sep=',', delimiter=None, header='infer', names=None, index_col=None, usecols=None, squeeze=False, prefix=None,...)```
 
 
 ```python
 titanic = pd.read_csv('data/titanic.csv')
+titanic = titanic.set_index('Name')
 ```
+
+- To see top 3 row of data in the ```DataFrame```.
 
 
 ```python
-titanic.head(10)
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>PassengerId</th>
-      <th>Survived</th>
-      <th>Pclass</th>
-      <th>Name</th>
-      <th>Sex</th>
-      <th>Age</th>
-      <th>SibSp</th>
-      <th>Parch</th>
-      <th>Ticket</th>
-      <th>Fare</th>
-      <th>Cabin</th>
-      <th>Embarked</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1</td>
-      <td>0</td>
-      <td>3</td>
-      <td>Braund, Mr. Owen Harris</td>
-      <td>male</td>
-      <td>22.0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>A/5 21171</td>
-      <td>7.2500</td>
-      <td>NaN</td>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2</td>
-      <td>1</td>
-      <td>1</td>
-      <td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
-      <td>female</td>
-      <td>38.0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>PC 17599</td>
-      <td>71.2833</td>
-      <td>C85</td>
-      <td>C</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>3</td>
-      <td>1</td>
-      <td>3</td>
-      <td>Heikkinen, Miss. Laina</td>
-      <td>female</td>
-      <td>26.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>STON/O2. 3101282</td>
-      <td>7.9250</td>
-      <td>NaN</td>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>4</td>
-      <td>1</td>
-      <td>1</td>
-      <td>Futrelle, Mrs. Jacques Heath (Lily May Peel)</td>
-      <td>female</td>
-      <td>35.0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>113803</td>
-      <td>53.1000</td>
-      <td>C123</td>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>5</td>
-      <td>0</td>
-      <td>3</td>
-      <td>Allen, Mr. William Henry</td>
-      <td>male</td>
-      <td>35.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>373450</td>
-      <td>8.0500</td>
-      <td>NaN</td>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>6</td>
-      <td>0</td>
-      <td>3</td>
-      <td>Moran, Mr. James</td>
-      <td>male</td>
-      <td>NaN</td>
-      <td>0</td>
-      <td>0</td>
-      <td>330877</td>
-      <td>8.4583</td>
-      <td>NaN</td>
-      <td>Q</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>7</td>
-      <td>0</td>
-      <td>1</td>
-      <td>McCarthy, Mr. Timothy J</td>
-      <td>male</td>
-      <td>54.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>17463</td>
-      <td>51.8625</td>
-      <td>E46</td>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>8</td>
-      <td>0</td>
-      <td>3</td>
-      <td>Palsson, Master. Gosta Leonard</td>
-      <td>male</td>
-      <td>2.0</td>
-      <td>3</td>
-      <td>1</td>
-      <td>349909</td>
-      <td>21.0750</td>
-      <td>NaN</td>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>9</td>
-      <td>1</td>
-      <td>3</td>
-      <td>Johnson, Mrs. Oscar W (Elisabeth Vilhelmina Berg)</td>
-      <td>female</td>
-      <td>27.0</td>
-      <td>0</td>
-      <td>2</td>
-      <td>347742</td>
-      <td>11.1333</td>
-      <td>NaN</td>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>10</td>
-      <td>1</td>
-      <td>2</td>
-      <td>Nasser, Mrs. Nicholas (Adele Achem)</td>
-      <td>female</td>
-      <td>14.0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>237736</td>
-      <td>30.0708</td>
-      <td>NaN</td>
-      <td>C</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-```python
-titanic.shape
-```
-
-
-
-
-    (891, 12)
-
-
-
-
-```python
-titanic.columns
-```
-
-
-
-
-    Index(['PassengerId', 'Survived', 'Pclass', 'Name', 'Sex', 'Age', 'SibSp',
-           'Parch', 'Ticket', 'Fare', 'Cabin', 'Embarked'],
-          dtype='object')
-
-
-
-
-```python
-titanic.index
-```
-
-
-
-
-    RangeIndex(start=0, stop=891, step=1)
-
-
-
-### Preliminary Satatistics
-
-
-```python
-titanic.describe()
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>PassengerId</th>
-      <th>Survived</th>
-      <th>Pclass</th>
-      <th>Age</th>
-      <th>SibSp</th>
-      <th>Parch</th>
-      <th>Fare</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>891.000000</td>
-      <td>891.000000</td>
-      <td>891.000000</td>
-      <td>714.000000</td>
-      <td>891.000000</td>
-      <td>891.000000</td>
-      <td>891.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>446.000000</td>
-      <td>0.383838</td>
-      <td>2.308642</td>
-      <td>29.699118</td>
-      <td>0.523008</td>
-      <td>0.381594</td>
-      <td>32.204208</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>257.353842</td>
-      <td>0.486592</td>
-      <td>0.836071</td>
-      <td>14.526497</td>
-      <td>1.102743</td>
-      <td>0.806057</td>
-      <td>49.693429</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>1.000000</td>
-      <td>0.000000</td>
-      <td>1.000000</td>
-      <td>0.420000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>223.500000</td>
-      <td>0.000000</td>
-      <td>2.000000</td>
-      <td>20.125000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>7.910400</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>446.000000</td>
-      <td>0.000000</td>
-      <td>3.000000</td>
-      <td>28.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>14.454200</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>668.500000</td>
-      <td>1.000000</td>
-      <td>3.000000</td>
-      <td>38.000000</td>
-      <td>1.000000</td>
-      <td>0.000000</td>
-      <td>31.000000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>891.000000</td>
-      <td>1.000000</td>
-      <td>3.000000</td>
-      <td>80.000000</td>
-      <td>8.000000</td>
-      <td>6.000000</td>
-      <td>512.329200</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
------------------
-
-### Setting Name column as index
-
-
-```python
-titanic_df1 = titanic.copy(deep =True)
-```
-
-
-```python
-titanic_df1 = titanic.set_index('Name')
-titanic_df1.head(2)
+titanic.head(3)
 ```
 
 
@@ -473,82 +109,90 @@ titanic_df1.head(2)
       <td>C85</td>
       <td>C</td>
     </tr>
+    <tr>
+      <th>Heikkinen, Miss. Laina</th>
+      <td>3</td>
+      <td>1</td>
+      <td>3</td>
+      <td>female</td>
+      <td>26.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>STON/O2. 3101282</td>
+      <td>7.9250</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
   </tbody>
 </table>
 </div>
 
 
 
------------
-
-### DataFrame Creation (Numpy Array)
-
-#### From Numpy array => Dataframe
+- To know shape of the ```DataFrame```:
 
 
 ```python
-import random as random
-```
-
-
-```python
-A = np.random.rand(100,20)
-A.shape
+titanic.shape
 ```
 
 
 
 
-    (100, 20)
+    (891, 11)
 
 
 
-
-```python
-letter = ['A','B','C','D','E','F','G','H','X']
-
-col_names = [ random.choice(letter)\
-             +random.choice(letter)\
-             +random.choice(letter)\
-             +random.choice(letter) for i in range(A.shape[1])]
-```
+- To find the list of column names:
 
 
 ```python
-col_names
+titanic.columns
 ```
 
 
 
 
-    ['BHBE',
-     'FCEX',
-     'HCDC',
-     'BABH',
-     'DHCC',
-     'BEAH',
-     'CGCA',
-     'CBFF',
-     'GDBX',
-     'GDBD',
-     'GCXG',
-     'EBAF',
-     'FHFC',
-     'ADXF',
-     'XGDB',
-     'FDCB',
-     'BGGD',
-     'CXXC',
-     'GBDE',
-     'HGXX']
+    Index(['PassengerId', 'Survived', 'Pclass', 'Sex', 'Age', 'SibSp', 'Parch',
+           'Ticket', 'Fare', 'Cabin', 'Embarked'],
+          dtype='object')
 
 
+
+- To find the list of index name:
 
 
 ```python
-df = pd.DataFrame(A, columns = col_names )
-df.to_csv('data/test.csv')
-df.head()
+titanic.index
+```
+
+
+
+
+    Index(['Braund, Mr. Owen Harris',
+           'Cumings, Mrs. John Bradley (Florence Briggs Thayer)',
+           'Heikkinen, Miss. Laina',
+           'Futrelle, Mrs. Jacques Heath (Lily May Peel)',
+           'Allen, Mr. William Henry', 'Moran, Mr. James',
+           'McCarthy, Mr. Timothy J', 'Palsson, Master. Gosta Leonard',
+           'Johnson, Mrs. Oscar W (Elisabeth Vilhelmina Berg)',
+           'Nasser, Mrs. Nicholas (Adele Achem)',
+           ...
+           'Markun, Mr. Johann', 'Dahlberg, Miss. Gerda Ulrika',
+           'Banfield, Mr. Frederick James', 'Sutehall, Mr. Henry Jr',
+           'Rice, Mrs. William (Margaret Norton)', 'Montvila, Rev. Juozas',
+           'Graham, Miss. Margaret Edith',
+           'Johnston, Miss. Catherine Helen "Carrie"', 'Behr, Mr. Karl Howell',
+           'Dooley, Mr. Patrick'],
+          dtype='object', name='Name', length=891)
+
+
+
+- To find preliminary satatistics of the each column of the ```DataFrame```.
+
+
+```python
+titanic.describe().T
 ```
 
 
@@ -572,143 +216,535 @@ df.head()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>BHBE</th>
-      <th>FCEX</th>
-      <th>HCDC</th>
-      <th>BABH</th>
-      <th>DHCC</th>
-      <th>BEAH</th>
-      <th>CGCA</th>
-      <th>CBFF</th>
-      <th>GDBX</th>
-      <th>GDBD</th>
-      <th>GCXG</th>
-      <th>EBAF</th>
-      <th>FHFC</th>
-      <th>ADXF</th>
-      <th>XGDB</th>
-      <th>FDCB</th>
-      <th>BGGD</th>
-      <th>CXXC</th>
-      <th>GBDE</th>
-      <th>HGXX</th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>PassengerId</th>
+      <td>891.0</td>
+      <td>446.000000</td>
+      <td>257.353842</td>
+      <td>1.00</td>
+      <td>223.5000</td>
+      <td>446.0000</td>
+      <td>668.5</td>
+      <td>891.0000</td>
+    </tr>
+    <tr>
+      <th>Survived</th>
+      <td>891.0</td>
+      <td>0.383838</td>
+      <td>0.486592</td>
+      <td>0.00</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>1.0</td>
+      <td>1.0000</td>
+    </tr>
+    <tr>
+      <th>Pclass</th>
+      <td>891.0</td>
+      <td>2.308642</td>
+      <td>0.836071</td>
+      <td>1.00</td>
+      <td>2.0000</td>
+      <td>3.0000</td>
+      <td>3.0</td>
+      <td>3.0000</td>
+    </tr>
+    <tr>
+      <th>Age</th>
+      <td>714.0</td>
+      <td>29.699118</td>
+      <td>14.526497</td>
+      <td>0.42</td>
+      <td>20.1250</td>
+      <td>28.0000</td>
+      <td>38.0</td>
+      <td>80.0000</td>
+    </tr>
+    <tr>
+      <th>SibSp</th>
+      <td>891.0</td>
+      <td>0.523008</td>
+      <td>1.102743</td>
+      <td>0.00</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>1.0</td>
+      <td>8.0000</td>
+    </tr>
+    <tr>
+      <th>Parch</th>
+      <td>891.0</td>
+      <td>0.381594</td>
+      <td>0.806057</td>
+      <td>0.00</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0</td>
+      <td>6.0000</td>
+    </tr>
+    <tr>
+      <th>Fare</th>
+      <td>891.0</td>
+      <td>32.204208</td>
+      <td>49.693429</td>
+      <td>0.00</td>
+      <td>7.9104</td>
+      <td>14.4542</td>
+      <td>31.0</td>
+      <td>512.3292</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+- Styling data sample visualization:
+
+
+```python
+cm = sns.light_palette("green", as_cmap=True)
+s = titanic[0:5].style.background_gradient(cmap=cm)
+s
+```
+
+
+
+
+<style  type="text/css" >
+    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row0_col0 {
+            background-color:  #e5ffe5;
+            color:  #000000;
+        }    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row0_col1 {
+            background-color:  #e5ffe5;
+            color:  #000000;
+        }    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row0_col2 {
+            background-color:  #008000;
+            color:  #f1f1f1;
+        }    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row0_col4 {
+            background-color:  #e5ffe5;
+            color:  #000000;
+        }    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row0_col5 {
+            background-color:  #008000;
+            color:  #f1f1f1;
+        }    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row0_col6 {
+            background-color:  #e5ffe5;
+            color:  #000000;
+        }    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row0_col8 {
+            background-color:  #e5ffe5;
+            color:  #000000;
+        }    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row1_col0 {
+            background-color:  #acdfac;
+            color:  #000000;
+        }    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row1_col1 {
+            background-color:  #008000;
+            color:  #f1f1f1;
+        }    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row1_col2 {
+            background-color:  #e5ffe5;
+            color:  #000000;
+        }    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row1_col4 {
+            background-color:  #008000;
+            color:  #f1f1f1;
+        }    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row1_col5 {
+            background-color:  #008000;
+            color:  #f1f1f1;
+        }    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row1_col6 {
+            background-color:  #e5ffe5;
+            color:  #000000;
+        }    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row1_col8 {
+            background-color:  #008000;
+            color:  #f1f1f1;
+        }    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row2_col0 {
+            background-color:  #72bf72;
+            color:  #000000;
+        }    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row2_col1 {
+            background-color:  #008000;
+            color:  #f1f1f1;
+        }    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row2_col2 {
+            background-color:  #008000;
+            color:  #f1f1f1;
+        }    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row2_col4 {
+            background-color:  #acdfac;
+            color:  #000000;
+        }    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row2_col5 {
+            background-color:  #e5ffe5;
+            color:  #000000;
+        }    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row2_col6 {
+            background-color:  #e5ffe5;
+            color:  #000000;
+        }    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row2_col8 {
+            background-color:  #e4fee4;
+            color:  #000000;
+        }    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row3_col0 {
+            background-color:  #399f39;
+            color:  #000000;
+        }    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row3_col1 {
+            background-color:  #008000;
+            color:  #f1f1f1;
+        }    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row3_col2 {
+            background-color:  #e5ffe5;
+            color:  #000000;
+        }    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row3_col4 {
+            background-color:  #2a972a;
+            color:  #000000;
+        }    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row3_col5 {
+            background-color:  #008000;
+            color:  #f1f1f1;
+        }    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row3_col6 {
+            background-color:  #e5ffe5;
+            color:  #000000;
+        }    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row3_col8 {
+            background-color:  #41a441;
+            color:  #000000;
+        }    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row4_col0 {
+            background-color:  #008000;
+            color:  #f1f1f1;
+        }    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row4_col1 {
+            background-color:  #e5ffe5;
+            color:  #000000;
+        }    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row4_col2 {
+            background-color:  #008000;
+            color:  #f1f1f1;
+        }    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row4_col4 {
+            background-color:  #2a972a;
+            color:  #000000;
+        }    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row4_col5 {
+            background-color:  #e5ffe5;
+            color:  #000000;
+        }    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row4_col6 {
+            background-color:  #e5ffe5;
+            color:  #000000;
+        }    #T_ee022e9c_100c_11eb_9d23_3052cb51cf96row4_col8 {
+            background-color:  #e3fee3;
+            color:  #000000;
+        }</style><table id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >PassengerId</th>        <th class="col_heading level0 col1" >Survived</th>        <th class="col_heading level0 col2" >Pclass</th>        <th class="col_heading level0 col3" >Sex</th>        <th class="col_heading level0 col4" >Age</th>        <th class="col_heading level0 col5" >SibSp</th>        <th class="col_heading level0 col6" >Parch</th>        <th class="col_heading level0 col7" >Ticket</th>        <th class="col_heading level0 col8" >Fare</th>        <th class="col_heading level0 col9" >Cabin</th>        <th class="col_heading level0 col10" >Embarked</th>    </tr>    <tr>        <th class="index_name level0" >Name</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
+                <tr>
+                        <th id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96level0_row0" class="row_heading level0 row0" >Braund, Mr. Owen Harris</th>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row0_col0" class="data row0 col0" >1</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row0_col1" class="data row0 col1" >0</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row0_col2" class="data row0 col2" >3</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row0_col3" class="data row0 col3" >male</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row0_col4" class="data row0 col4" >22</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row0_col5" class="data row0 col5" >1</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row0_col6" class="data row0 col6" >0</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row0_col7" class="data row0 col7" >A/5 21171</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row0_col8" class="data row0 col8" >7.25</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row0_col9" class="data row0 col9" >nan</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row0_col10" class="data row0 col10" >S</td>
+            </tr>
+            <tr>
+                        <th id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96level0_row1" class="row_heading level0 row1" >Cumings, Mrs. John Bradley (Florence Briggs Thayer)</th>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row1_col0" class="data row1 col0" >2</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row1_col1" class="data row1 col1" >1</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row1_col2" class="data row1 col2" >1</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row1_col3" class="data row1 col3" >female</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row1_col4" class="data row1 col4" >38</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row1_col5" class="data row1 col5" >1</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row1_col6" class="data row1 col6" >0</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row1_col7" class="data row1 col7" >PC 17599</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row1_col8" class="data row1 col8" >71.2833</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row1_col9" class="data row1 col9" >C85</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row1_col10" class="data row1 col10" >C</td>
+            </tr>
+            <tr>
+                        <th id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96level0_row2" class="row_heading level0 row2" >Heikkinen, Miss. Laina</th>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row2_col0" class="data row2 col0" >3</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row2_col1" class="data row2 col1" >1</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row2_col2" class="data row2 col2" >3</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row2_col3" class="data row2 col3" >female</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row2_col4" class="data row2 col4" >26</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row2_col5" class="data row2 col5" >0</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row2_col6" class="data row2 col6" >0</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row2_col7" class="data row2 col7" >STON/O2. 3101282</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row2_col8" class="data row2 col8" >7.925</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row2_col9" class="data row2 col9" >nan</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row2_col10" class="data row2 col10" >S</td>
+            </tr>
+            <tr>
+                        <th id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96level0_row3" class="row_heading level0 row3" >Futrelle, Mrs. Jacques Heath (Lily May Peel)</th>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row3_col0" class="data row3 col0" >4</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row3_col1" class="data row3 col1" >1</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row3_col2" class="data row3 col2" >1</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row3_col3" class="data row3 col3" >female</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row3_col4" class="data row3 col4" >35</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row3_col5" class="data row3 col5" >1</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row3_col6" class="data row3 col6" >0</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row3_col7" class="data row3 col7" >113803</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row3_col8" class="data row3 col8" >53.1</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row3_col9" class="data row3 col9" >C123</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row3_col10" class="data row3 col10" >S</td>
+            </tr>
+            <tr>
+                        <th id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96level0_row4" class="row_heading level0 row4" >Allen, Mr. William Henry</th>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row4_col0" class="data row4 col0" >5</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row4_col1" class="data row4 col1" >0</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row4_col2" class="data row4 col2" >3</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row4_col3" class="data row4 col3" >male</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row4_col4" class="data row4 col4" >35</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row4_col5" class="data row4 col5" >0</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row4_col6" class="data row4 col6" >0</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row4_col7" class="data row4 col7" >373450</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row4_col8" class="data row4 col8" >8.05</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row4_col9" class="data row4 col9" >nan</td>
+                        <td id="T_ee022e9c_100c_11eb_9d23_3052cb51cf96row4_col10" class="data row4 col10" >S</td>
+            </tr>
+    </tbody></table>
+
+
+
+- To drop a column from a ```DataFrame```:
+
+
+```python
+titanic = titanic.drop('Ticket', axis=1)
+titanic.head(2)
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PassengerId</th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Braund, Mr. Owen Harris</th>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>22.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>7.2500</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Cumings, Mrs. John Bradley (Florence Briggs Thayer)</th>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>female</td>
+      <td>38.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>71.2833</td>
+      <td>C85</td>
+      <td>C</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+- To drop the row data if there is ```NaN``` value:
+
+
+```python
+titanic = titanic.dropna(axis=0)
+titanic.head(2)
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PassengerId</th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Cumings, Mrs. John Bradley (Florence Briggs Thayer)</th>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>female</td>
+      <td>38.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>71.2833</td>
+      <td>C85</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>Futrelle, Mrs. Jacques Heath (Lily May Peel)</th>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>female</td>
+      <td>35.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>53.1000</td>
+      <td>C123</td>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+- To fill the ```NaN``` value with 0.
+
+
+```python
+df = pd.DataFrame([[np.nan, 2, np.nan, 0],
+                   [3, 4, np.nan, 1],
+                   [np.nan, np.nan, np.nan, 5],
+                   [np.nan, 3, np.nan, 4]],
+                  columns=list('ABCD'))
+df = df.fillna(0)
+df
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.505613</td>
-      <td>0.863802</td>
-      <td>0.064671</td>
-      <td>0.044665</td>
-      <td>0.661631</td>
-      <td>0.010504</td>
-      <td>0.441470</td>
-      <td>0.749321</td>
-      <td>0.389375</td>
-      <td>0.468762</td>
-      <td>0.061095</td>
-      <td>0.779629</td>
-      <td>0.262696</td>
-      <td>0.834874</td>
-      <td>0.762955</td>
-      <td>0.464253</td>
-      <td>0.762709</td>
-      <td>0.425008</td>
-      <td>0.131542</td>
-      <td>0.791414</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.722504</td>
-      <td>0.465511</td>
-      <td>0.555621</td>
-      <td>0.843348</td>
-      <td>0.987537</td>
-      <td>0.955876</td>
-      <td>0.788946</td>
-      <td>0.461034</td>
-      <td>0.278317</td>
-      <td>0.269186</td>
-      <td>0.616559</td>
-      <td>0.095630</td>
-      <td>0.552730</td>
-      <td>0.531865</td>
-      <td>0.056233</td>
-      <td>0.796237</td>
-      <td>0.705609</td>
-      <td>0.683914</td>
-      <td>0.168146</td>
-      <td>0.312616</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.577487</td>
-      <td>0.355478</td>
-      <td>0.939323</td>
-      <td>0.547315</td>
-      <td>0.158492</td>
-      <td>0.226048</td>
-      <td>0.941994</td>
-      <td>0.025595</td>
-      <td>0.291006</td>
-      <td>0.549547</td>
-      <td>0.157811</td>
-      <td>0.358243</td>
-      <td>0.297590</td>
-      <td>0.767994</td>
-      <td>0.804289</td>
-      <td>0.349676</td>
-      <td>0.786392</td>
-      <td>0.806113</td>
-      <td>0.386147</td>
-      <td>0.766741</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>5</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.612300</td>
-      <td>0.610556</td>
-      <td>0.141520</td>
-      <td>0.657244</td>
-      <td>0.694400</td>
-      <td>0.555290</td>
-      <td>0.912868</td>
-      <td>0.350494</td>
-      <td>0.203160</td>
-      <td>0.703884</td>
-      <td>0.873016</td>
-      <td>0.420604</td>
-      <td>0.361509</td>
-      <td>0.380023</td>
-      <td>0.819483</td>
-      <td>0.988239</td>
-      <td>0.455447</td>
-      <td>0.732307</td>
-      <td>0.063254</td>
-      <td>0.123586</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0.476368</td>
-      <td>0.890201</td>
-      <td>0.923328</td>
-      <td>0.931688</td>
-      <td>0.481882</td>
-      <td>0.411059</td>
-      <td>0.540152</td>
-      <td>0.831890</td>
-      <td>0.737365</td>
-      <td>0.681351</td>
-      <td>0.620813</td>
-      <td>0.018067</td>
-      <td>0.794526</td>
-      <td>0.491711</td>
-      <td>0.116032</td>
-      <td>0.096085</td>
-      <td>0.086113</td>
-      <td>0.813632</td>
-      <td>0.828594</td>
-      <td>0.063989</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>4</td>
     </tr>
   </tbody>
 </table>
@@ -716,30 +752,11 @@ df.head()
 
 
 
-##### Data Frame => Numpy Array
-
-### Data Frame (List of Dictionary)
+- To invert or transpose the ```DataFrame```:
 
 
 ```python
-LD = []
-for i in range(100):
-    LD.append({'Player' : random.choice(letter)+random.choice(letter)+random.choice(letter)+random.choice(letter),\
-               'game1' : random.uniform(0,1),\
-               'game2' : random.uniform(0,1),\
-               'game3' : random.uniform(0,1),
-               'game4' : random.uniform(0,1),
-               'game5' : random.uniform(0,1)})
-```
-
-
-```python
-DF = pd.DataFrame(LD)
-```
-
-
-```python
-DF.head(10)
+df.T
 ```
 
 
@@ -763,193 +780,40 @@ DF.head(10)
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Player</th>
-      <th>game1</th>
-      <th>game2</th>
-      <th>game3</th>
-      <th>game4</th>
-      <th>game5</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
       <th>0</th>
-      <td>CGHX</td>
-      <td>0.222859</td>
-      <td>0.370064</td>
-      <td>0.966385</td>
-      <td>0.350200</td>
-      <td>0.294583</td>
-    </tr>
-    <tr>
       <th>1</th>
-      <td>FFHX</td>
-      <td>0.390963</td>
-      <td>0.339934</td>
-      <td>0.614410</td>
-      <td>0.251014</td>
-      <td>0.132956</td>
-    </tr>
-    <tr>
       <th>2</th>
-      <td>BACC</td>
-      <td>0.143930</td>
-      <td>0.217735</td>
-      <td>0.117256</td>
-      <td>0.999636</td>
-      <td>0.566992</td>
-    </tr>
-    <tr>
       <th>3</th>
-      <td>BCGH</td>
-      <td>0.499326</td>
-      <td>0.749363</td>
-      <td>0.457431</td>
-      <td>0.087111</td>
-      <td>0.385008</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>HBCH</td>
-      <td>0.944682</td>
-      <td>0.199605</td>
-      <td>0.372076</td>
-      <td>0.745106</td>
-      <td>0.278212</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>DAEE</td>
-      <td>0.491847</td>
-      <td>0.137834</td>
-      <td>0.517073</td>
-      <td>0.175743</td>
-      <td>0.289975</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>DCBA</td>
-      <td>0.747629</td>
-      <td>0.920831</td>
-      <td>0.151625</td>
-      <td>0.168380</td>
-      <td>0.153710</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>FGBB</td>
-      <td>0.964832</td>
-      <td>0.963819</td>
-      <td>0.465629</td>
-      <td>0.928988</td>
-      <td>0.448380</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>EHBF</td>
-      <td>0.727150</td>
-      <td>0.743628</td>
-      <td>0.510928</td>
-      <td>0.363017</td>
-      <td>0.856924</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>CXDB</td>
-      <td>0.448294</td>
-      <td>0.261936</td>
-      <td>0.147476</td>
-      <td>0.539172</td>
-      <td>0.736563</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-```python
-DF = DF.set_index('Player')
-DF.head()
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>game1</th>
-      <th>game2</th>
-      <th>game3</th>
-      <th>game4</th>
-      <th>game5</th>
-    </tr>
-    <tr>
-      <th>Player</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>CGBG</th>
-      <td>0.030258</td>
-      <td>0.018657</td>
-      <td>0.932341</td>
-      <td>0.586397</td>
-      <td>0.089513</td>
+      <th>A</th>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
-      <th>DXHD</th>
-      <td>0.759187</td>
-      <td>0.309100</td>
-      <td>0.862211</td>
-      <td>0.094455</td>
-      <td>0.169772</td>
+      <th>B</th>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
     </tr>
     <tr>
-      <th>FDHF</th>
-      <td>0.058685</td>
-      <td>0.568902</td>
-      <td>0.405327</td>
-      <td>0.592841</td>
-      <td>0.244399</td>
+      <th>C</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
-      <th>CGCE</th>
-      <td>0.130951</td>
-      <td>0.806490</td>
-      <td>0.185252</td>
-      <td>0.341298</td>
-      <td>0.262757</td>
-    </tr>
-    <tr>
-      <th>XHAC</th>
-      <td>0.433210</td>
-      <td>0.658711</td>
-      <td>0.680462</td>
-      <td>0.682604</td>
-      <td>0.179386</td>
+      <th>D</th>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
     </tr>
   </tbody>
 </table>
@@ -957,106 +821,6 @@ DF.head()
 
 
 
-------
-
-### Data View
-
-
-```python
-DF.plot(figsize = [18,10])
-```
-
-
-
-
-    <matplotlib.axes._subplots.AxesSubplot at 0x1a19fd8860>
-
-
-
-
-![png](output_32_1.png)
-
-
-
-```python
-DF[0:50].plot.bar(stacked=True,figsize=(20, 15),fontsize =10)
-```
-
-
-
-
-    <matplotlib.axes._subplots.AxesSubplot at 0x107cd7198>
-
-
-
-
-![png](output_33_1.png)
-
-
-
-```python
-DF[0:10].plot.bar(stacked=False,figsize=(20, 15),fontsize =10)
-```
-
-
-
-
-    <matplotlib.axes._subplots.AxesSubplot at 0x1a1a0b9cf8>
-
-
-
-
-![png](output_34_1.png)
-
-
-
-```python
-from pandas.plotting import scatter_matrix
-scatter_matrix(DF, alpha=0.2, figsize=(18, 15), diagonal='kde')
-plt.show()
-```
-
-
-![png](output_35_0.png)
-
-
-
-```python
-DF.plot.hexbin(x='game1', y='game2',figsize=(12, 10), gridsize=25)
-```
-
-
-
-
-    <matplotlib.axes._subplots.AxesSubplot at 0x1a242a7550>
-
-
-
-
-![png](output_36_1.png)
-
-
-
-```python
-A = np.array([1,2,3,4,5])
-type(A)
-```
-
-
-
-
-    numpy.ndarray
-
-
-
-
-```python
-A*2
-```
-
-
-
-
-    array([ 2,  4,  6,  8, 10])
-
-
+### References:
+1. [Pydata document for Styling DataFrame visualization](https://pandas.pydata.org/docs/user_guide/style.html)
+2. [Pandas API References](https://pandas.pydata.org/docs/reference/index.html)
