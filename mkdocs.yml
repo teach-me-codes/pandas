@@ -40,9 +40,9 @@ nav:
 - Dataframe Introduction: DataFrame/dataframe.md
 - Data Visualization: Visualization/visual.md
 - Iteration, Indexing and Filter: Indexing/indexing.md
-- Apply and Lambda Transform: Explor/explor.md
+- Apply and Lambda Transform: Lambda/lambda.md
 - GroupBy and Aggregate, Transform: GroupBy/groupby.md
-- Concat, Merge and Join : Lambda/lambda.md
+- Concat, Merge and Join : Join/join.md
  
  
 
