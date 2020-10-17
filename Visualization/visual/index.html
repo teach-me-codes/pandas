@@ -1,0 +1,623 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.0.2">
+    
+    
+      
+        <title>Data Visualization - Pandas Tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.38780c08.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f72e892.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dataframe-preliminaries-in-pandas" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Pandas Tutorials" class="md-header-nav__button md-logo" aria-label="Pandas Tutorials">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Pandas Tutorials
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Data Visualization
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Pandas Tutorials" class="md-nav__button md-logo" aria-label="Pandas Tutorials">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Pandas Tutorials
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../pandas/" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../DataFrame/dataframe/" class="md-nav__link">
+      Dataframe Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Data Visualization
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Data Visualization
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dataframe-preliminaries-in-pandas" class="md-nav__link">
+    DataFrame Preliminaries in Pandas
+  </a>
+  
+    <nav class="md-nav" aria-label="DataFrame Preliminaries in Pandas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#to-create-new-data-frame-from-list-of-dictionaries-and-visualize-them" class="md-nav__link">
+    To create new  data frame from  list of dictionaries and visualize them.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-visualization-with-pandas" class="md-nav__link">
+    Data Visualization with Pandas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    Reference:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Indexing/indexing/" class="md-nav__link">
+      Iteration, Indexing and Filter
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Lambda/lambda/" class="md-nav__link">
+      Apply and Lambda Transform
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../GroupBy/groupby/" class="md-nav__link">
+      GroupBy and Aggregate, Transform
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Join/join/" class="md-nav__link">
+      Concat, Merge and Join
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dataframe-preliminaries-in-pandas" class="md-nav__link">
+    DataFrame Preliminaries in Pandas
+  </a>
+  
+    <nav class="md-nav" aria-label="DataFrame Preliminaries in Pandas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#to-create-new-data-frame-from-list-of-dictionaries-and-visualize-them" class="md-nav__link">
+    To create new  data frame from  list of dictionaries and visualize them.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-visualization-with-pandas" class="md-nav__link">
+    Data Visualization with Pandas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    Reference:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Data Visualization</h1>
+                
+                <h2 id="dataframe-preliminaries-in-pandas">DataFrame Preliminaries in Pandas</h2>
+<p>In this norebook ww will create some data visualization by implementing Pandas <code>plot</code> and other functions.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">pandas</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">pd</span>
+<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">numpy</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">np</span>
+<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">random</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">random</span>
+<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">seaborn</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">sns</span>
+<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">plt</span>
+<span style="color: #555555">%</span>matplotlib inline
+sns<span style="color: #555555">.</span>set()
+</code></pre></div>
+
+
+<h4 id="to-create-new-data-frame-from-list-of-dictionaries-and-visualize-them">To create new  data frame from  list of dictionaries and visualize them.</h4>
+<p>Here we will create first a list with collection of dictionaries. Each of the dictionary will have keys and values. Using this list of dictionaries, we will create another dataframe. The keys of the dictionary will serve as the column names.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>LD <span style="color: #555555">=</span> []
+letter <span style="color: #555555">=</span> [<span style="color: #CC3300">&#39;A&#39;</span>,<span style="color: #CC3300">&#39;B&#39;</span>,<span style="color: #CC3300">&#39;C&#39;</span>,<span style="color: #CC3300">&#39;D&#39;</span>,<span style="color: #CC3300">&#39;E&#39;</span>,<span style="color: #CC3300">&#39;F&#39;</span>,<span style="color: #CC3300">&#39;G&#39;</span>,<span style="color: #CC3300">&#39;H&#39;</span>,<span style="color: #CC3300">&#39;X&#39;</span>]
+<span style="color: #006699; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #336666">range</span>(<span style="color: #FF6600">100</span>):
+    LD<span style="color: #555555">.</span>append({<span style="color: #CC3300">&#39;Player&#39;</span> : random<span style="color: #555555">.</span>choice(letter)<span style="color: #555555">+</span>\
+                          random<span style="color: #555555">.</span>choice(letter)<span style="color: #555555">+</span>\
+                          random<span style="color: #555555">.</span>choice(letter)<span style="color: #555555">+</span>\
+                          random<span style="color: #555555">.</span>choice(letter),\
+               <span style="color: #CC3300">&#39;game1&#39;</span> : random<span style="color: #555555">.</span>uniform(<span style="color: #FF6600">0</span>,<span style="color: #FF6600">1</span>),\
+               <span style="color: #CC3300">&#39;game2&#39;</span> : random<span style="color: #555555">.</span>uniform(<span style="color: #FF6600">0</span>,<span style="color: #FF6600">1</span>),\
+               <span style="color: #CC3300">&#39;game3&#39;</span> : random<span style="color: #555555">.</span>uniform(<span style="color: #FF6600">0</span>,<span style="color: #FF6600">1</span>),
+               <span style="color: #CC3300">&#39;game4&#39;</span> : random<span style="color: #555555">.</span>uniform(<span style="color: #FF6600">0</span>,<span style="color: #FF6600">1</span>),
+               <span style="color: #CC3300">&#39;game5&#39;</span> : random<span style="color: #555555">.</span>uniform(<span style="color: #FF6600">0</span>,<span style="color: #FF6600">1</span>)})
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>DF <span style="color: #555555">=</span> pd<span style="color: #555555">.</span>DataFrame(LD)
+DF<span style="color: #555555">=</span>DF<span style="color: #555555">.</span>set_index(<span style="color: #CC3300">&quot;Player&quot;</span>)
+DF<span style="color: #555555">.</span>head(<span style="color: #FF6600">3</span>)
+</code></pre></div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>game1</th>
+      <th>game2</th>
+      <th>game3</th>
+      <th>game4</th>
+      <th>game5</th>
+    </tr>
+    <tr>
+      <th>Player</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>HFDD</th>
+      <td>0.481069</td>
+      <td>0.474633</td>
+      <td>0.689590</td>
+      <td>0.395129</td>
+      <td>0.242217</td>
+    </tr>
+    <tr>
+      <th>AXXG</th>
+      <td>0.676598</td>
+      <td>0.959418</td>
+      <td>0.460717</td>
+      <td>0.513393</td>
+      <td>0.058434</td>
+    </tr>
+    <tr>
+      <th>BHAB</th>
+      <td>0.215308</td>
+      <td>0.086760</td>
+      <td>0.080839</td>
+      <td>0.818904</td>
+      <td>0.953768</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h4 id="data-visualization-with-pandas">Data Visualization with Pandas</h4>
+<ul>
+<li>Individual columns of data can be visualized as line plot</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>DF<span style="color: #555555">.</span>plot(figsize <span style="color: #555555">=</span> [<span style="color: #FF6600">15</span>,<span style="color: #FF6600">4</span>])
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x26c35149d30&gt;
+</code></pre></div>
+
+
+<p><img alt="png" src="../output_6_1.png" /></p>
+<ul>
+<li>Abar plot can be created with <code>plot.barh</code> for horizontal bar with extra setting <code>stacked=True</code> for adding contribution from each column data.</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>DF[<span style="color: #FF6600">0</span>:<span style="color: #FF6600">20</span>]<span style="color: #555555">.</span>plot<span style="color: #555555">.</span>barh(stacked<span style="color: #555555">=</span><span style="color: #006699; font-weight: bold">True</span>,figsize<span style="color: #555555">=</span>(<span style="color: #FF6600">15</span>, <span style="color: #FF6600">8</span>),fontsize <span style="color: #555555">=</span><span style="color: #FF6600">10</span>)
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x26c36740278&gt;
+</code></pre></div>
+
+
+<p><img alt="png" src="../output_8_1.png" /></p>
+<ul>
+<li>Verticle bar can be created with <code>plot.bar()</code> functionality with <code>stacked=False</code> setting.</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>DF[<span style="color: #FF6600">0</span>:<span style="color: #FF6600">10</span>]<span style="color: #555555">.</span>plot<span style="color: #555555">.</span>bar(stacked<span style="color: #555555">=</span><span style="color: #006699; font-weight: bold">False</span>,figsize<span style="color: #555555">=</span>(<span style="color: #FF6600">15</span>, <span style="color: #FF6600">4</span>),fontsize <span style="color: #555555">=</span><span style="color: #FF6600">10</span>)
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x26c37193a58&gt;
+</code></pre></div>
+
+
+<p><img alt="png" src="../output_10_1.png" /></p>
+<ul>
+<li>pandas plotting provides <code>scatter_matrix</code> functions to plot col by col scater plot with <code>kernel density estimation- kde</code>.</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">pandas.plotting</span> <span style="color: #006699; font-weight: bold">import</span> scatter_matrix
+scatter_matrix(DF, alpha<span style="color: #555555">=</span><span style="color: #FF6600">0.2</span>, figsize<span style="color: #555555">=</span>(<span style="color: #FF6600">10</span>, <span style="color: #FF6600">8</span>), diagonal<span style="color: #555555">=</span><span style="color: #CC3300">&#39;kde&#39;</span>)
+plt<span style="color: #555555">.</span>show()
+</code></pre></div>
+
+
+<p><img alt="png" src="../output_12_0.png" /></p>
+<ul>
+<li>Pandas plotting also has <code>plot.hexbin()</code> functionality for beautiful scatter plot.</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>DF<span style="color: #555555">.</span>plot<span style="color: #555555">.</span>hexbin(x<span style="color: #555555">=</span><span style="color: #CC3300">&#39;game1&#39;</span>, y<span style="color: #555555">=</span><span style="color: #CC3300">&#39;game2&#39;</span>,figsize<span style="color: #555555">=</span>(<span style="color: #FF6600">8</span>, <span style="color: #FF6600">6</span>), gridsize<span style="color: #555555">=</span><span style="color: #FF6600">25</span>)
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x26c39cba128&gt;
+</code></pre></div>
+
+
+<p><img alt="png" src="../output_14_1.png" /></p>
+<h3 id="reference">Reference:</h3>
+<ol>
+<li><a href="https://pandas.pydata.org/docs/user_guide/visualization.html">Pydata visualization documentation</a></li>
+</ol>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../../DataFrame/dataframe/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Dataframe Introduction
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../../Indexing/indexing/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Iteration, Indexing and Filter
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.77e55a48.min.js"></script>
+      <script src="../../assets/javascripts/bundle.9554a270.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>

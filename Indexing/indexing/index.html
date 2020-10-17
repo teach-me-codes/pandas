@@ -13,7 +13,7 @@
     
     
       
-        <title>Indexing - Pandas Tutorials</title>
+        <title>Iteration, Indexing and Filter - Pandas Tutorials</title>
       
     
     
@@ -56,7 +56,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#data-iteration-and-indexing" class="md-skip">
+        <a href="#data-iteration-indexing-and-filters" class="md-skip">
           Skip to content
         </a>
       
@@ -84,7 +84,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Indexing
+              Iteration, Indexing and Filter
             
           </span>
         </div>
@@ -181,7 +181,19 @@
 
   <li class="md-nav__item">
     <a href="../../DataFrame/dataframe/" class="md-nav__link">
-      Dataframe
+      Dataframe Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Visualization/visual/" class="md-nav__link">
+      Data Visualization
     </a>
   </li>
 
@@ -197,23 +209,19 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
-      
-    
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Indexing
+        Iteration, Indexing and Filter
         <span class="md-nav__icon md-icon"></span>
       </label>
     
     <a href="./" class="md-nav__link md-nav__link--active">
-      Indexing
+      Iteration, Indexing and Filter
     </a>
     
       
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
-  
-    
   
   
     <label class="md-nav__title" for="__toc">
@@ -223,71 +231,52 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#setting-name-column-as-index" class="md-nav__link">
-    Setting Name column as index
+  <a href="#data-iteration-indexing-and-filters" class="md-nav__link">
+    Data Iteration, Indexing and Filters
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#data-frame-item-iteration" class="md-nav__link">
-    Data Frame item iteration
-  </a>
-  
-    <nav class="md-nav" aria-label="Data Frame item iteration">
+    <nav class="md-nav" aria-label="Data Iteration, Indexing and Filters">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#iterrows" class="md-nav__link">
-    iterrows
+  <a href="#1-iteration-of-rows-implementing-iterrows" class="md-nav__link">
+    1. Iteration of rows implementing   iterrows
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#iteritems" class="md-nav__link">
-    iteritems
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#indexing-data" class="md-nav__link">
-    Indexing Data
-  </a>
-  
-    <nav class="md-nav" aria-label="Indexing Data">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#loc-and-iloc" class="md-nav__link">
-    loc and iloc :
+  <a href="#2-iteration-of-rows-with-iteritems" class="md-nav__link">
+    2. Iteration of rows with  iteritems
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#data-filters" class="md-nav__link">
-    Data Filters
-  </a>
-  
-    <nav class="md-nav" aria-label="Data Filters">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#dictionary-to-dataframe" class="md-nav__link">
-    Dictionary to DataFrame
+  <a href="#3-indexing-data" class="md-nav__link">
+    3.  Indexing Data
   </a>
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#4-data-filters" class="md-nav__link">
+    4 - Data Filters:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-exercises" class="md-nav__link">
+    5. Exercises:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References:
+  </a>
   
 </li>
         
@@ -309,8 +298,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Explor/explor/" class="md-nav__link">
-      Data Exploration
+    <a href="../../Lambda/lambda/" class="md-nav__link">
+      Apply and Lambda Transform
     </a>
   </li>
 
@@ -322,7 +311,7 @@
 
   <li class="md-nav__item">
     <a href="../../GroupBy/groupby/" class="md-nav__link">
-      GroupBy
+      GroupBy and Aggregate, Transform
     </a>
   </li>
 
@@ -333,8 +322,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Lambda/lambda/" class="md-nav__link">
-      Lambda Transform
+    <a href="../../Join/join/" class="md-nav__link">
+      Concat, Merge and Join
     </a>
   </li>
 
@@ -353,8 +342,6 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -363,71 +350,52 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#setting-name-column-as-index" class="md-nav__link">
-    Setting Name column as index
+  <a href="#data-iteration-indexing-and-filters" class="md-nav__link">
+    Data Iteration, Indexing and Filters
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#data-frame-item-iteration" class="md-nav__link">
-    Data Frame item iteration
-  </a>
-  
-    <nav class="md-nav" aria-label="Data Frame item iteration">
+    <nav class="md-nav" aria-label="Data Iteration, Indexing and Filters">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#iterrows" class="md-nav__link">
-    iterrows
+  <a href="#1-iteration-of-rows-implementing-iterrows" class="md-nav__link">
+    1. Iteration of rows implementing   iterrows
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#iteritems" class="md-nav__link">
-    iteritems
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#indexing-data" class="md-nav__link">
-    Indexing Data
-  </a>
-  
-    <nav class="md-nav" aria-label="Indexing Data">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#loc-and-iloc" class="md-nav__link">
-    loc and iloc :
+  <a href="#2-iteration-of-rows-with-iteritems" class="md-nav__link">
+    2. Iteration of rows with  iteritems
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#data-filters" class="md-nav__link">
-    Data Filters
-  </a>
-  
-    <nav class="md-nav" aria-label="Data Filters">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#dictionary-to-dataframe" class="md-nav__link">
-    Dictionary to DataFrame
+  <a href="#3-indexing-data" class="md-nav__link">
+    3.  Indexing Data
   </a>
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#4-data-filters" class="md-nav__link">
+    4 - Data Filters:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-exercises" class="md-nav__link">
+    5. Exercises:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References:
+  </a>
   
 </li>
         
@@ -449,8 +417,12 @@
               
                 
                 
-                <h1 id="data-iteration-and-indexing">Data Iteration and Indexing</h1>
-<hr />
+                  <h1>Iteration, Indexing and Filter</h1>
+                
+                <h2 id="data-iteration-indexing-and-filters">Data Iteration, Indexing and Filters</h2>
+<p>In this notebook we will learn indexing <code>DataFrame</code> with <code>loc</code> and <code>iloc</code> functionality and <code>slicing</code> operation. Some Data <code>Filtering</code> techniques will also be conducted.</p>
+<p>Read more about these functionality from <a href="https://pandas.pydata.org/docs/user_guide/groupby.html">Pydata documentation for indexing</a>[1].
+Some parts of this notebook are taken from <a href="https://github.com/jorisvandenbossche/pandas-tutorial">EuroScipy 2016 Pandas Tutorial by Joris Van den Bossche and Nicholas Devenish</a>[2]</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">pandas</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">pd</span>
 <span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">numpy</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">np</span>
 <span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">seaborn</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">sns</span>
@@ -460,133 +432,11 @@
 
 
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>titanic <span style="color: #555555">=</span> pd<span style="color: #555555">.</span>read_csv(<span style="color: #CC3300">&#39;data/titanic.csv&#39;</span>)
+titanic <span style="color: #555555">=</span> titanic<span style="color: #555555">.</span>set_index(<span style="color: #CC3300">&quot;Name&quot;</span>)
 </code></pre></div>
 
 
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>titanic<span style="color: #555555">.</span>head()
-</code></pre></div>
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>PassengerId</th>
-      <th>Survived</th>
-      <th>Pclass</th>
-      <th>Name</th>
-      <th>Sex</th>
-      <th>Age</th>
-      <th>SibSp</th>
-      <th>Parch</th>
-      <th>Ticket</th>
-      <th>Fare</th>
-      <th>Cabin</th>
-      <th>Embarked</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1</td>
-      <td>0</td>
-      <td>3</td>
-      <td>Braund, Mr. Owen Harris</td>
-      <td>male</td>
-      <td>22.0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>A/5 21171</td>
-      <td>7.2500</td>
-      <td>NaN</td>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2</td>
-      <td>1</td>
-      <td>1</td>
-      <td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
-      <td>female</td>
-      <td>38.0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>PC 17599</td>
-      <td>71.2833</td>
-      <td>C85</td>
-      <td>C</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>3</td>
-      <td>1</td>
-      <td>3</td>
-      <td>Heikkinen, Miss. Laina</td>
-      <td>female</td>
-      <td>26.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>STON/O2. 3101282</td>
-      <td>7.9250</td>
-      <td>NaN</td>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>4</td>
-      <td>1</td>
-      <td>1</td>
-      <td>Futrelle, Mrs. Jacques Heath (Lily May Peel)</td>
-      <td>female</td>
-      <td>35.0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>113803</td>
-      <td>53.1000</td>
-      <td>C123</td>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>5</td>
-      <td>0</td>
-      <td>3</td>
-      <td>Allen, Mr. William Henry</td>
-      <td>male</td>
-      <td>35.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>373450</td>
-      <td>8.0500</td>
-      <td>NaN</td>
-      <td>S</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-<hr />
-<h3 id="setting-name-column-as-index">Setting Name column as index</h3>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>titanic_df1 <span style="color: #555555">=</span> titanic<span style="color: #555555">.</span>copy(deep <span style="color: #555555">=</span><span style="color: #006699; font-weight: bold">True</span>)
-</code></pre></div>
-
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>titanic_df1 <span style="color: #555555">=</span> titanic<span style="color: #555555">.</span>set_index(<span style="color: #CC3300">&#39;Name&#39;</span>)
-titanic_df1<span style="color: #555555">.</span>head(<span style="color: #FF6600">5</span>)
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>titanic<span style="color: #555555">.</span>head(<span style="color: #FF6600">2</span>)
 </code></pre></div>
 
 
@@ -664,60 +514,18 @@ titanic_df1<span style="color: #555555">.</span>head(<span style="color: #FF6600
       <td>C85</td>
       <td>C</td>
     </tr>
-    <tr>
-      <th>Heikkinen, Miss. Laina</th>
-      <td>3</td>
-      <td>1</td>
-      <td>3</td>
-      <td>female</td>
-      <td>26.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>STON/O2. 3101282</td>
-      <td>7.9250</td>
-      <td>NaN</td>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Futrelle, Mrs. Jacques Heath (Lily May Peel)</th>
-      <td>4</td>
-      <td>1</td>
-      <td>1</td>
-      <td>female</td>
-      <td>35.0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>113803</td>
-      <td>53.1000</td>
-      <td>C123</td>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Allen, Mr. William Henry</th>
-      <td>5</td>
-      <td>0</td>
-      <td>3</td>
-      <td>male</td>
-      <td>35.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>373450</td>
-      <td>8.0500</td>
-      <td>NaN</td>
-      <td>S</td>
-    </tr>
   </tbody>
 </table>
 </div>
 
-<hr />
-<h2 id="data-frame-item-iteration">Data Frame item iteration</h2>
-<hr />
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>sample <span style="color: #555555">=</span> titanic_df1[<span style="color: #FF6600">0</span>:<span style="color: #FF6600">5</span>]
+<ul>
+<li>Lets create a small sample of data</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>sample <span style="color: #555555">=</span> titanic[<span style="color: #FF6600">0</span>:<span style="color: #FF6600">5</span>]
 </code></pre></div>
 
 
-<h5 id="iterrows"><code>iterrows</code></h5>
+<h4 id="1-iteration-of-rows-implementing-iterrows">1. Iteration of rows implementing   <code>iterrows</code></h4>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #006699; font-weight: bold">for</span> index,row <span style="color: #000000; font-weight: bold">in</span> sample<span style="color: #555555">.</span>iterrows():
     <span style="color: #336666">print</span>(index,<span style="color: #336666">list</span>(row))
 </code></pre></div>
@@ -731,6 +539,9 @@ Allen, Mr. William Henry [5, 0, 3, &#39;male&#39;, 35.0, 0, 0, &#39;373450&#39;,
 </code></pre></div>
 
 
+<ul>
+<li>We can select specific columns by passing column names in <code>row()</code> input</li>
+</ul>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #006699; font-weight: bold">for</span> index,row <span style="color: #000000; font-weight: bold">in</span> sample<span style="color: #555555">.</span>iterrows():
     <span style="color: #336666">print</span>(index,row[<span style="color: #CC3300">&#39;Sex&#39;</span>],row[<span style="color: #CC3300">&#39;Age&#39;</span>])
 </code></pre></div>
@@ -744,7 +555,7 @@ Allen, Mr. William Henry male 35.0
 </code></pre></div>
 
 
-<h4 id="iteritems"><code>iteritems</code></h4>
+<h4 id="2-iteration-of-rows-with-iteritems">2. Iteration of rows with  <code>iteritems</code></h4>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #006699; font-weight: bold">for</span> index,row <span style="color: #000000; font-weight: bold">in</span> sample<span style="color: #555555">.</span>T<span style="color: #555555">.</span>iteritems():
     <span style="color: #336666">print</span>(index,<span style="color: #336666">list</span>(row))
 </code></pre></div>
@@ -777,10 +588,11 @@ Embarked S C S
 </code></pre></div>
 
 
-<hr />
-<h2 id="indexing-data">Indexing Data</h2>
+<h4 id="3-indexing-data">3.  Indexing Data</h4>
 <p>Source: <a href="https://www.shanelynn.ie/select-pandas-dataframe-rows-and-columns-using-iloc-loc-and-ix/">Using iloc, loc, &amp; ix to select rows and columns in Pandas DataFrames</a></p>
-<h3 id="loc-and-iloc"><code>loc</code> and <code>iloc</code> :</h3>
+<ul>
+<li><code>loc</code> and <code>iloc</code> :</li>
+</ul>
 <p>The iloc indexer for Pandas Dataframe is used for integer-location based indexing / selection by position.</p>
 <p>The Pandas loc indexer can be used with DataFrames for two different use cases:</p>
 <ul>
@@ -995,10 +807,11 @@ Name: Braund, Mr. Owen Harris, dtype: object
 </code></pre></div>
 
 
-<hr />
-<h3 id="data-filters">Data Filters</h3>
-<hr />
-<h4 id="dictionary-to-dataframe">Dictionary to DataFrame</h4>
+<h4 id="4-data-filters">4 - Data Filters:</h4>
+<p>Data Filters can be performed by either selecting specific set of column names or by seting <code>boolean filters</code>.</p>
+<ul>
+<li>Dictionary to DataFrame</li>
+</ul>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>data <span style="color: #555555">=</span> {<span style="color: #CC3300">&#39;country&#39;</span>: [<span style="color: #CC3300">&#39;Belgium&#39;</span>, <span style="color: #CC3300">&#39;France&#39;</span>, <span style="color: #CC3300">&#39;Germany&#39;</span>, <span style="color: #CC3300">&#39;Netherlands&#39;</span>, <span style="color: #CC3300">&#39;United Kingdom&#39;</span>],
         <span style="color: #CC3300">&#39;population&#39;</span>: [<span style="color: #FF6600">11.3</span>, <span style="color: #FF6600">64.3</span>, <span style="color: #FF6600">81.3</span>, <span style="color: #FF6600">16.9</span>, <span style="color: #FF6600">64.9</span>],
         <span style="color: #CC3300">&#39;area&#39;</span>: [<span style="color: #FF6600">30510</span>, <span style="color: #FF6600">671308</span>, <span style="color: #FF6600">357050</span>, <span style="color: #FF6600">41526</span>, <span style="color: #FF6600">244820</span>],
@@ -1075,6 +888,9 @@ countries
 </table>
 </div>
 
+<ul>
+<li>To set the <code>country</code> as index:</li>
+</ul>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>countries <span style="color: #555555">=</span> countries<span style="color: #555555">.</span>set_index(<span style="color: #CC3300">&#39;country&#39;</span>)
 countries
 </code></pre></div>
@@ -1144,6 +960,9 @@ countries
 </table>
 </div>
 
+<ul>
+<li>To find the <code>area</code> of each country:</li>
+</ul>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>countries[<span style="color: #CC3300">&#39;area&#39;</span>]
 </code></pre></div>
 
@@ -1158,6 +977,24 @@ Name: area, dtype: int64
 </code></pre></div>
 
 
+<ul>
+<li>To create a <code>list</code> instead of pandas <code>Series</code> object.</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>Area <span style="color: #555555">=</span> <span style="color: #336666">list</span>(countries[<span style="color: #CC3300">&#39;area&#39;</span>])
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>Area
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>[30510, 671308, 357050, 41526, 244820]
+</code></pre></div>
+
+
+<ul>
+<li>To create a <code>sub-DataFrame</code> by choosing <code>area</code> and <code>population</code></li>
+</ul>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>countries[[<span style="color: #CC3300">&#39;area&#39;</span>, <span style="color: #CC3300">&#39;population&#39;</span>]]
 </code></pre></div>
 
@@ -1219,6 +1056,9 @@ Name: area, dtype: int64
 </table>
 </div>
 
+<ul>
+<li>To observe slice of data by <code>index</code> names.</li>
+</ul>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>countries[<span style="color: #CC3300">&#39;France&#39;</span>:<span style="color: #CC3300">&#39;Netherlands&#39;</span>]
 </code></pre></div>
 
@@ -1275,6 +1115,9 @@ Name: area, dtype: int64
 </table>
 </div>
 
+<ul>
+<li>To observe the data at specific row identified by <code>index</code> name(s) and spefic column identified by <code>column</code>name(s):</li>
+</ul>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>countries<span style="color: #555555">.</span>loc[<span style="color: #CC3300">&#39;Germany&#39;</span>, <span style="color: #CC3300">&#39;area&#39;</span>]
 </code></pre></div>
 
@@ -1329,125 +1172,9 @@ Name: area, dtype: int64
 </table>
 </div>
 
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>countries<span style="color: #555555">.</span>iloc[<span style="color: #FF6600">0</span>:<span style="color: #FF6600">2</span>,<span style="color: #FF6600">1</span>:<span style="color: #FF6600">3</span>]
-</code></pre></div>
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>area</th>
-      <th>capital</th>
-    </tr>
-    <tr>
-      <th>country</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Belgium</th>
-      <td>30510</td>
-      <td>Brussels</td>
-    </tr>
-    <tr>
-      <th>France</th>
-      <td>671308</td>
-      <td>Paris</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>countries2 <span style="color: #555555">=</span> countries<span style="color: #555555">.</span>copy()
-countries2<span style="color: #555555">.</span>loc[<span style="color: #CC3300">&#39;Belgium&#39;</span>:<span style="color: #CC3300">&#39;Germany&#39;</span>, <span style="color: #CC3300">&#39;population&#39;</span>] <span style="color: #555555">=</span> <span style="color: #FF6600">10</span>
-</code></pre></div>
-
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>countries2
-</code></pre></div>
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>population</th>
-      <th>area</th>
-      <th>capital</th>
-    </tr>
-    <tr>
-      <th>country</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Belgium</th>
-      <td>10.0</td>
-      <td>30510</td>
-      <td>Brussels</td>
-    </tr>
-    <tr>
-      <th>France</th>
-      <td>10.0</td>
-      <td>671308</td>
-      <td>Paris</td>
-    </tr>
-    <tr>
-      <th>Germany</th>
-      <td>10.0</td>
-      <td>357050</td>
-      <td>Berlin</td>
-    </tr>
-    <tr>
-      <th>Netherlands</th>
-      <td>16.9</td>
-      <td>41526</td>
-      <td>Amsterdam</td>
-    </tr>
-    <tr>
-      <th>United Kingdom</th>
-      <td>64.9</td>
-      <td>244820</td>
-      <td>London</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
+<ul>
+<li>To set <code>boolean</code> selection for <code>subDataFrame</code>:</li>
+</ul>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>countries[<span style="color: #CC3300">&#39;area&#39;</span>] <span style="color: #555555">&gt;</span> <span style="color: #FF6600">100000</span>
 </code></pre></div>
 
@@ -1518,7 +1245,7 @@ Name: area, dtype: bool
 </table>
 </div>
 
-<hr />
+<h4 id="5-exercises">5. Exercises:</h4>
 <div class="alert alert-success">
     <b>EXERCISE</b>: Add a column `density` with the population density (note: population column is expressed in millions)
 </div>
@@ -1884,6 +1611,12 @@ countries
   </tbody>
 </table>
 </div>
+
+<h3 id="references">References:</h3>
+<ol>
+<li><a href="https://pandas.pydata.org/docs/user_guide/groupby.html">Pydata documentation: Group by: split-apply-combine</a></li>
+<li><a href="https://github.com/jorisvandenbossche/pandas-tutorial">EuroScipy 2016 Pandas Tutorial by Joris Van den Bossche and Nicholas Devenish</a></li>
+</ol>
                 
               
               
@@ -1902,7 +1635,7 @@ countries
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../../DataFrame/dataframe/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../Visualization/visual/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -1911,19 +1644,19 @@ countries
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Dataframe
+                Data Visualization
               </div>
             </div>
           </a>
         
         
-          <a href="../../Explor/explor/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../Lambda/lambda/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Data Exploration
+                Apply and Lambda Transform
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

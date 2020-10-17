@@ -13,7 +13,7 @@
     
     
       
-        <title>GroupBy - Pandas Tutorials</title>
+        <title>GroupBy and Aggregate, Transform - Pandas Tutorials</title>
       
     
     
@@ -56,7 +56,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#data-handeling-groupby-merge-split" class="md-skip">
+        <a href="#groupby-and-aggregation-split-apply-combine" class="md-skip">
           Skip to content
         </a>
       
@@ -84,7 +84,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              GroupBy
+              GroupBy and Aggregate, Transform
             
           </span>
         </div>
@@ -181,7 +181,7 @@
 
   <li class="md-nav__item">
     <a href="../../DataFrame/dataframe/" class="md-nav__link">
-      Dataframe
+      Dataframe Introduction
     </a>
   </li>
 
@@ -192,8 +192,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Indexing/Indexing/" class="md-nav__link">
-      Indexing
+    <a href="../../Visualization/visual/" class="md-nav__link">
+      Data Visualization
     </a>
   </li>
 
@@ -204,8 +204,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Explor/explor/" class="md-nav__link">
-      Data Exploration
+    <a href="../../Indexing/indexing/" class="md-nav__link">
+      Iteration, Indexing and Filter
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Lambda/lambda/" class="md-nav__link">
+      Apply and Lambda Transform
     </a>
   </li>
 
@@ -221,23 +233,19 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
-      
-    
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        GroupBy
+        GroupBy and Aggregate, Transform
         <span class="md-nav__icon md-icon"></span>
       </label>
     
     <a href="./" class="md-nav__link md-nav__link--active">
-      GroupBy
+      GroupBy and Aggregate, Transform
     </a>
     
       
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
-  
-    
   
   
     <label class="md-nav__title" for="__toc">
@@ -247,26 +255,19 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#groupby-and-aggregation-split-apply-combine" class="md-nav__link">
+    Groupby and Aggregation (Split-Apply-Combine):
+  </a>
+  
+    <nav class="md-nav" aria-label="Groupby and Aggregation (Split-Apply-Combine):">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#load-data" class="md-nav__link">
     Load data
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#setting-name-column-as-index" class="md-nav__link">
-    Setting Name column as index
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#group-by-groupbyaggregate-groupbysizegroupbymean" class="md-nav__link">
-    Group By : groupby.aggregate(), groupby.size(),groupby.mean(),
-  </a>
-  
-    <nav class="md-nav" aria-label="Group By : groupby.aggregate(), groupby.size(),groupby.mean(),">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#the-groupby-operation-split-apply-combine" class="md-nav__link">
@@ -276,28 +277,42 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#exercise-with-titanic-dataset" class="md-nav__link">
-    Exercise with Titanic Dataset
+  <a href="#1-simple-groupby-and-aggregate-example" class="md-nav__link">
+    1. Simple Groupby and aggregate example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-exercise-with-titanic-dataset" class="md-nav__link">
+    2. Exercise with Titanic Dataset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-some-advanced-groupby-operations" class="md-nav__link">
+    3. Some advanced groupby operations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-groupby-followed-by-transformation-groupbytransform" class="md-nav__link">
+    4. Groupby followed by transformation: groupby.transform().
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References:
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#advanced-groupby-operations" class="md-nav__link">
-    Advanced Groupby Operations
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#group-by-followed-by-transformation-groupbytransform" class="md-nav__link">
-    Group by followed by Transformation: groupby.transform()
-  </a>
   
 </li>
       
@@ -314,8 +329,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Lambda/lambda/" class="md-nav__link">
-      Lambda Transform
+    <a href="../../Join/join/" class="md-nav__link">
+      Concat, Merge and Join
     </a>
   </li>
 
@@ -334,8 +349,6 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -344,26 +357,19 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#groupby-and-aggregation-split-apply-combine" class="md-nav__link">
+    Groupby and Aggregation (Split-Apply-Combine):
+  </a>
+  
+    <nav class="md-nav" aria-label="Groupby and Aggregation (Split-Apply-Combine):">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#load-data" class="md-nav__link">
     Load data
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#setting-name-column-as-index" class="md-nav__link">
-    Setting Name column as index
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#group-by-groupbyaggregate-groupbysizegroupbymean" class="md-nav__link">
-    Group By : groupby.aggregate(), groupby.size(),groupby.mean(),
-  </a>
-  
-    <nav class="md-nav" aria-label="Group By : groupby.aggregate(), groupby.size(),groupby.mean(),">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#the-groupby-operation-split-apply-combine" class="md-nav__link">
@@ -373,28 +379,42 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#exercise-with-titanic-dataset" class="md-nav__link">
-    Exercise with Titanic Dataset
+  <a href="#1-simple-groupby-and-aggregate-example" class="md-nav__link">
+    1. Simple Groupby and aggregate example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-exercise-with-titanic-dataset" class="md-nav__link">
+    2. Exercise with Titanic Dataset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-some-advanced-groupby-operations" class="md-nav__link">
+    3. Some advanced groupby operations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-groupby-followed-by-transformation-groupbytransform" class="md-nav__link">
+    4. Groupby followed by transformation: groupby.transform().
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References:
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#advanced-groupby-operations" class="md-nav__link">
-    Advanced Groupby Operations
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#group-by-followed-by-transformation-groupbytransform" class="md-nav__link">
-    Group by followed by Transformation: groupby.transform()
-  </a>
   
 </li>
       
@@ -411,8 +431,12 @@
               
                 
                 
-                <h1 id="data-handeling-groupby-merge-split">Data Handeling: Groupby, Merge, Split</h1>
-<hr />
+                  <h1>GroupBy and Aggregate, Transform</h1>
+                
+                <h2 id="groupby-and-aggregation-split-apply-combine">Groupby and Aggregation (Split-Apply-Combine):</h2>
+<p>This notebook will provide a walkthrough for data <strong>splitting</strong> (mapping) with <code>groupby()</code>, <strong>apply</strong> some action (e.g.,<code>count(), sum(), mean(), std()</code>) and finally <strong>combine</strong> through <code>aggregation(), transform()</code> action (reduction). </p>
+<p>Read more about these functionality from <a href="https://pandas.pydata.org/docs/user_guide/groupby.html">Pydata documentation for Group by (split-apply-combine)</a>[1].
+Some parts of this notebook are taken from <a href="https://github.com/jorisvandenbossche/pandas-tutorial">EuroScipy 2016 Pandas Tutorial by Joris Van den Bossche and Nicholas Devenish</a>[2]</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">pandas</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">pd</span>
 <span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">numpy</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">np</span>
 <span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">seaborn</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">sns</span>
@@ -424,16 +448,8 @@ sns<span style="color: #555555">.</span>set()
 
 <h4 id="load-data">Load data</h4>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>titanic <span style="color: #555555">=</span> pd<span style="color: #555555">.</span>read_csv(<span style="color: #CC3300">&#39;data/titanic.csv&#39;</span>)
-</code></pre></div>
-
-
-<h3 id="setting-name-column-as-index">Setting Name column as index</h3>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>titanic_df1 <span style="color: #555555">=</span> titanic<span style="color: #555555">.</span>copy(deep <span style="color: #555555">=</span><span style="color: #006699; font-weight: bold">True</span>)
-</code></pre></div>
-
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>titanic_df1 <span style="color: #555555">=</span> titanic<span style="color: #555555">.</span>set_index(<span style="color: #CC3300">&#39;Name&#39;</span>)
-titanic_df1<span style="color: #555555">.</span>head(<span style="color: #FF6600">2</span>)
+titanic <span style="color: #555555">=</span> titanic<span style="color: #555555">.</span>set_index(<span style="color: #CC3300">&#39;Name&#39;</span>)
+titanic<span style="color: #555555">.</span>head(<span style="color: #FF6600">2</span>)
 </code></pre></div>
 
 
@@ -515,10 +531,8 @@ titanic_df1<span style="color: #555555">.</span>head(<span style="color: #FF6600
 </table>
 </div>
 
-<hr />
-<h2 id="group-by-groupbyaggregate-groupbysizegroupbymean">Group By : <code>groupby.aggregate()</code>, <code>groupby.size()</code>,<code>groupby.mean()</code>,</h2>
-<hr />
-<h3 id="the-groupby-operation-split-apply-combine">The groupby operation (split-apply-combine)</h3>
+<h4 id="the-groupby-operation-split-apply-combine">The groupby operation (split-apply-combine)</h4>
+<p>is followed by multiple functionality e.g., <code>groupby.aggregate()</code>,<code>groupby.count()</code> <code>groupby.size()</code>,<code>groupby.mean()</code>. </p>
 <p>The "group by" concept: we want to <strong>apply the same function on subsets of your dataframe, based on some key to split the dataframe in subsets</strong></p>
 <p>This operation is also referred to as the "split-apply-combine" operation, involving the following steps:</p>
 <ul>
@@ -527,9 +541,11 @@ titanic_df1<span style="color: #555555">.</span>head(<span style="color: #FF6600
 <li><strong>Combining</strong> the results into a data structure</li>
 </ul>
 <p><img src="plots/splitApplyCombine.png"></p>
+<h4 id="1-simple-groupby-and-aggregate-example">1. Simple Groupby and aggregate example:</h4>
+<p>Lets create a sample dataframe to operate <code>groupby()</code> followed by <code>size()</code> and <code>aggregate()</code> with <code>np.sum()</code> seperately.</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>df <span style="color: #555555">=</span> pd<span style="color: #555555">.</span>DataFrame({<span style="color: #CC3300">&#39;key&#39;</span>:[<span style="color: #CC3300">&#39;A&#39;</span>,<span style="color: #CC3300">&#39;B&#39;</span>,<span style="color: #CC3300">&#39;C&#39;</span>,<span style="color: #CC3300">&#39;A&#39;</span>,<span style="color: #CC3300">&#39;B&#39;</span>,<span style="color: #CC3300">&#39;C&#39;</span>,<span style="color: #CC3300">&#39;A&#39;</span>,<span style="color: #CC3300">&#39;B&#39;</span>,<span style="color: #CC3300">&#39;C&#39;</span>],
                    <span style="color: #CC3300">&#39;data&#39;</span>: [<span style="color: #FF6600">0</span>, <span style="color: #FF6600">5</span>, <span style="color: #FF6600">10</span>, <span style="color: #FF6600">5</span>, <span style="color: #FF6600">10</span>, <span style="color: #FF6600">15</span>, <span style="color: #FF6600">10</span>, <span style="color: #FF6600">15</span>, <span style="color: #FF6600">20</span>]})
-df
+df<span style="color: #555555">.</span>head(<span style="color: #FF6600">2</span>)
 </code></pre></div>
 
 
@@ -566,46 +582,34 @@ df
       <td>B</td>
       <td>5</td>
     </tr>
-    <tr>
-      <th>2</th>
-      <td>C</td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>A</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>B</td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>C</td>
-      <td>15</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>A</td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>B</td>
-      <td>15</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>C</td>
-      <td>20</td>
-    </tr>
   </tbody>
 </table>
 </div>
 
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>df<span style="color: #555555">.</span>groupby(<span style="color: #CC3300">&#39;key&#39;</span>)<span style="color: #555555">.</span>aggregate(np<span style="color: #555555">.</span>sum)
+<p>The <code>groupby()</code> operation followed by <code>size()</code> does not return a <code>DataFrame</code> object, it becomes a pandas <code>Series</code> object.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>result <span style="color: #555555">=</span> df<span style="color: #555555">.</span>groupby(<span style="color: #CC3300">&#39;key&#39;</span>)<span style="color: #555555">.</span>size()
+<span style="color: #336666">print</span>(<span style="color: #CC3300">&quot;Object type:&quot;</span>, <span style="color: #336666">type</span>(result))
+<span style="color: #336666">print</span>(result)
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>Object type: &lt;class &#39;pandas.core.series.Series&#39;&gt;
+key
+A    3
+B    3
+C    3
+dtype: int64
+</code></pre></div>
+
+
+<p>The <code>groupby()</code> operation followed by <code>aggregate()</code> returns a <code>DataFrame</code> object.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>result <span style="color: #555555">=</span> df<span style="color: #555555">.</span>groupby(<span style="color: #CC3300">&#39;key&#39;</span>)<span style="color: #555555">.</span>aggregate(np<span style="color: #555555">.</span>sum)
+<span style="color: #336666">print</span>(<span style="color: #CC3300">&quot;object type:&quot;</span>, <span style="color: #336666">type</span>(result))
+result
+</code></pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>object type: &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 </code></pre></div>
 
 
@@ -651,8 +655,12 @@ df
 </table>
 </div>
 
-<h3 id="exercise-with-titanic-dataset">Exercise with Titanic Dataset</h3>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>titanic_df1<span style="color: #555555">.</span>groupby(<span style="color: #CC3300">&#39;Sex&#39;</span>)<span style="color: #555555">.</span>size()
+<h4 id="2-exercise-with-titanic-dataset">2. Exercise with Titanic Dataset</h4>
+<div class="alert alert-success">
+    <b>EXERCISE</b>: Using groupby(), calculate the total number for each sex catagory.
+</div>
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>titanic<span style="color: #555555">.</span>groupby(<span style="color: #CC3300">&#39;Sex&#39;</span>)<span style="color: #555555">.</span>size()
 </code></pre></div>
 
 
@@ -667,7 +675,7 @@ dtype: int64
     <b>EXERCISE</b>: Using groupby(), calculate the average age for each sex.
 </div>
 
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>titanic_df1<span style="color: #555555">.</span>groupby(<span style="color: #CC3300">&#39;Sex&#39;</span>)[<span style="color: #CC3300">&#39;Age&#39;</span>]<span style="color: #555555">.</span>mean()
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>titanic<span style="color: #555555">.</span>groupby(<span style="color: #CC3300">&#39;Sex&#39;</span>)[<span style="color: #CC3300">&#39;Age&#39;</span>]<span style="color: #555555">.</span>mean()
 </code></pre></div>
 
 
@@ -678,12 +686,11 @@ Name: Age, dtype: float64
 </code></pre></div>
 
 
-<hr />
 <div class="alert alert-success">
     <b>EXERCISE</b>: Calculate the average survival ratio for all passengers.
 </div>
 
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>titanic_df1[<span style="color: #CC3300">&#39;Survived&#39;</span>]<span style="color: #555555">.</span>sum() <span style="color: #555555">/</span> <span style="color: #336666">len</span>(titanic_df1[<span style="color: #CC3300">&#39;Survived&#39;</span>])
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>titanic[<span style="color: #CC3300">&#39;Survived&#39;</span>]<span style="color: #555555">.</span>sum() <span style="color: #555555">/</span> <span style="color: #336666">len</span>(titanic[<span style="color: #CC3300">&#39;Survived&#39;</span>])
 </code></pre></div>
 
 
@@ -691,12 +698,11 @@ Name: Age, dtype: float64
 </code></pre></div>
 
 
-<hr />
 <div class="alert alert-success">
     <b>EXERCISE</b>: Calculate this survival ratio for all passengers younger that 25 (remember: filtering/boolean indexing).
 </div>
 
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>df25 <span style="color: #555555">=</span> titanic_df1[titanic_df1[<span style="color: #CC3300">&#39;Age&#39;</span>] <span style="color: #555555">&lt;=</span> <span style="color: #FF6600">25</span>]
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>df25 <span style="color: #555555">=</span> titanic[titanic_df1[<span style="color: #CC3300">&#39;Age&#39;</span>] <span style="color: #555555">&lt;=</span> <span style="color: #FF6600">25</span>]
 df25[<span style="color: #CC3300">&#39;Survived&#39;</span>]<span style="color: #555555">.</span>sum() <span style="color: #555555">/</span> <span style="color: #336666">len</span>(df25[<span style="color: #CC3300">&#39;Survived&#39;</span>])
 </code></pre></div>
 
@@ -705,7 +711,6 @@ df25[<span style="color: #CC3300">&#39;Survived&#39;</span>]<span style="color: 
 </code></pre></div>
 
 
-<hr />
 <div class="alert alert-success">
     <b>EXERCISE</b>: Is there a difference in this survival ratio between the sexes? (tip: write the above calculation of the survival ratio as a function)
 </div>
@@ -715,7 +720,7 @@ df25[<span style="color: #CC3300">&#39;Survived&#39;</span>]<span style="color: 
 </code></pre></div>
 
 
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>titanic_df1<span style="color: #555555">.</span>groupby(<span style="color: #CC3300">&#39;Sex&#39;</span>)[<span style="color: #CC3300">&#39;Survived&#39;</span>]<span style="color: #555555">.</span>aggregate(survival_ratio)
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>titanic<span style="color: #555555">.</span>groupby(<span style="color: #CC3300">&#39;Sex&#39;</span>)[<span style="color: #CC3300">&#39;Survived&#39;</span>]<span style="color: #555555">.</span>aggregate(survival_ratio)
 </code></pre></div>
 
 
@@ -726,60 +731,42 @@ Name: Survived, dtype: float64
 </code></pre></div>
 
 
-<hr />
 <div class="alert alert-success">
     <b>EXERCISE</b>: Make a bar plot of the survival ratio for the different classes ('Pclass' column).
 </div>
 
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>titanic_df1<span style="color: #555555">.</span>groupby(<span style="color: #CC3300">&#39;Pclass&#39;</span>)[<span style="color: #CC3300">&#39;Survived&#39;</span>]<span style="color: #555555">.</span>aggregate(survival_ratio)<span style="color: #555555">.</span>plot(kind<span style="color: #555555">=</span><span style="color: #CC3300">&#39;bar&#39;</span>)
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>titanic<span style="color: #555555">.</span>groupby(<span style="color: #CC3300">&#39;Pclass&#39;</span>)[<span style="color: #CC3300">&#39;Survived&#39;</span>]<span style="color: #555555">.</span>aggregate(survival_ratio)<span style="color: #555555">.</span>plot(kind<span style="color: #555555">=</span><span style="color: #CC3300">&#39;bar&#39;</span>)
+<span style="color: #006699; font-weight: bold">pass</span>
 </code></pre></div>
 
 
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fb321d163c8&gt;
-</code></pre></div>
-
-
-<p><img alt="png" src="../output_30_1.png" /></p>
-<h2 id="advanced-groupby-operations">Advanced Groupby Operations</h2>
+<p><img alt="png" src="../output_23_0.png" /></p>
+<h4 id="3-some-advanced-groupby-operations">3. Some advanced groupby operations</h4>
 <div class="alert alert-success">
     <b>EXERCISE</b>: Find data for age distribution.
 </div>
 
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #336666">type</span>(<span style="color: #FF6600">10</span><span style="color: #555555">//</span><span style="color: #FF6600">2</span>)
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>df <span style="color: #555555">=</span> titanic<span style="color: #555555">.</span>copy(deep <span style="color: #555555">=</span><span style="color: #006699; font-weight: bold">True</span>)
 </code></pre></div>
 
 
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>int
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>df<span style="color: #555555">.</span>groupby(df<span style="color: #555555">.</span>Age<span style="color: #555555">//</span><span style="color: #FF6600">10</span> <span style="color: #555555">*</span> <span style="color: #FF6600">10</span>)<span style="color: #555555">.</span>size()<span style="color: #555555">.</span>plot(kind<span style="color: #555555">=</span><span style="color: #CC3300">&#39;bar&#39;</span>,figsize <span style="color: #555555">=</span> [<span style="color: #FF6600">6</span>,<span style="color: #FF6600">4</span>])
+<span style="color: #006699; font-weight: bold">pass</span>
 </code></pre></div>
 
 
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>df <span style="color: #555555">=</span> titanic_df1<span style="color: #555555">.</span>copy(deep <span style="color: #555555">=</span><span style="color: #006699; font-weight: bold">True</span>)
-</code></pre></div>
-
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>df<span style="color: #555555">.</span>groupby(df<span style="color: #555555">.</span>Age<span style="color: #555555">//</span><span style="color: #FF6600">10</span> <span style="color: #555555">*</span> <span style="color: #FF6600">10</span>)<span style="color: #555555">.</span>size()<span style="color: #555555">.</span>plot(kind<span style="color: #555555">=</span><span style="color: #CC3300">&#39;bar&#39;</span>,figsize <span style="color: #555555">=</span> [<span style="color: #FF6600">10</span>,<span style="color: #FF6600">10</span>])
-</code></pre></div>
-
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fb31d63f2b0&gt;
-</code></pre></div>
-
-
-<p><img alt="png" src="../output_35_1.png" /></p>
+<p><img alt="png" src="../output_27_0.png" /></p>
 <div class="alert alert-success">
     <b>EXERCISE</b>: Find data for male age distribution.
 </div>
 
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>Male <span style="color: #555555">=</span> df[df[<span style="color: #CC3300">&#39;Sex&#39;</span>] <span style="color: #555555">==</span> <span style="color: #CC3300">&#39;male&#39;</span>]
-Male<span style="color: #555555">.</span>groupby(Male<span style="color: #555555">.</span>Age <span style="color: #555555">//</span> <span style="color: #FF6600">10</span> <span style="color: #555555">*</span> <span style="color: #FF6600">10</span>)<span style="color: #555555">.</span>size()<span style="color: #555555">.</span>plot(kind<span style="color: #555555">=</span><span style="color: #CC3300">&#39;bar&#39;</span>,figsize <span style="color: #555555">=</span> [<span style="color: #FF6600">10</span>,<span style="color: #FF6600">10</span>])
+Male<span style="color: #555555">.</span>groupby(Male<span style="color: #555555">.</span>Age <span style="color: #555555">//</span> <span style="color: #FF6600">10</span> <span style="color: #555555">*</span> <span style="color: #FF6600">10</span>)<span style="color: #555555">.</span>size()<span style="color: #555555">.</span>plot(kind<span style="color: #555555">=</span><span style="color: #CC3300">&#39;bar&#39;</span>,figsize <span style="color: #555555">=</span> [<span style="color: #FF6600">6</span>,<span style="color: #FF6600">4</span>])
+<span style="color: #006699; font-weight: bold">pass</span>
 </code></pre></div>
 
 
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fb31d524dd8&gt;
-</code></pre></div>
-
-
-<p><img alt="png" src="../output_37_1.png" /></p>
+<p><img alt="png" src="../output_29_0.png" /></p>
 <div class="alert alert-success">
     <b>EXERCISE</b>: List data with Fare size greater then 50.
 </div>
@@ -796,7 +783,7 @@ dtype: int64
 </code></pre></div>
 
 
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>Fare50<span style="color: #555555">.</span>groupby([<span style="color: #CC3300">&#39;Age&#39;</span>, <span style="color: #CC3300">&#39;Sex&#39;</span>,<span style="color: #CC3300">&#39;Survived&#39;</span>])<span style="color: #555555">.</span>size()
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>Fare50<span style="color: #555555">.</span>groupby([<span style="color: #CC3300">&#39;Age&#39;</span>, <span style="color: #CC3300">&#39;Sex&#39;</span>,<span style="color: #CC3300">&#39;Survived&#39;</span>])<span style="color: #555555">.</span>size()<span style="color: #555555">.</span>head(<span style="color: #FF6600">4</span>)
 </code></pre></div>
 
 
@@ -805,72 +792,15 @@ dtype: int64
 2.00   female  0           1
 4.00   male    1           1
 11.00  male    1           1
-14.00  female  1           1
-15.00  female  1           1
-16.00  female  1           2
-17.00  female  1           2
-       male    1           1
-18.00  female  1           3
-       male    0           2
-19.00  female  1           1
-       male    0           2
-21.00  female  1           2
-       male    0           3
-22.00  female  1           3
-       male    0           1
-23.00  female  1           2
-       male    1           1
-24.00  female  1           5
-       male    0           3
-25.00  female  0           1
-       male    1           2
-26.00  female  1           1
-       male    1           1
-27.00  male    0           1
-               1           2
-28.00  male    0           2
-29.00  female  1           1
-       male    0           1
-                          ..
-45.00  female  1           1
-       male    0           1
-46.00  male    0           2
-47.00  female  1           1
-       male    0           1
-48.00  female  1           1
-       male    1           2
-49.00  female  1           1
-       male    0           1
-               1           2
-50.00  female  1           1
-       male    0           2
-               1           1
-51.00  female  1           1
-       male    0           1
-52.00  female  1           2
-       male    0           1
-53.00  female  1           1
-54.00  female  1           2
-       male    0           2
-56.00  female  1           1
-58.00  female  1           2
-       male    0           1
-60.00  female  1           1
-       male    1           1
-62.00  female  1           1
-63.00  female  1           1
-64.00  male    0           1
-65.00  male    0           1
-70.00  male    0           1
-Length: 87, dtype: int64
+dtype: int64
 </code></pre></div>
 
 
-<hr />
-<h2 id="group-by-followed-by-transformation-groupbytransform">Group by followed by Transformation: <code>groupby.transform()</code></h2>
+<h4 id="4-groupby-followed-by-transformation-groupbytransform">4. Groupby followed by transformation: <code>groupby.transform()</code>.</h4>
+<p>The transform operation accepts builting functions e.g., <code>sum,  mean, std</code> through keyword. One can define a new function called user defined function to supply inside <code>transform(new_function)</code>.</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>df <span style="color: #555555">=</span> pd<span style="color: #555555">.</span>DataFrame({<span style="color: #CC3300">&#39;key&#39;</span>:[<span style="color: #CC3300">&#39;A&#39;</span>,<span style="color: #CC3300">&#39;B&#39;</span>,<span style="color: #CC3300">&#39;C&#39;</span>,<span style="color: #CC3300">&#39;A&#39;</span>,<span style="color: #CC3300">&#39;B&#39;</span>,<span style="color: #CC3300">&#39;C&#39;</span>,<span style="color: #CC3300">&#39;A&#39;</span>,<span style="color: #CC3300">&#39;B&#39;</span>,<span style="color: #CC3300">&#39;C&#39;</span>],
                    <span style="color: #CC3300">&#39;data&#39;</span>: [<span style="color: #FF6600">0</span>, <span style="color: #FF6600">5</span>, <span style="color: #FF6600">10</span>, <span style="color: #FF6600">5</span>, <span style="color: #FF6600">10</span>, <span style="color: #FF6600">15</span>, <span style="color: #FF6600">10</span>, <span style="color: #FF6600">15</span>, <span style="color: #FF6600">20</span>]})
-df
+df<span style="color: #555555">.</span>head(<span style="color: #FF6600">2</span>)
 </code></pre></div>
 
 
@@ -892,61 +822,26 @@ df
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>data</th>
       <th>key</th>
+      <th>data</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>0</td>
       <td>A</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
+      <td>B</td>
       <td>5</td>
-      <td>B</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>10</td>
-      <td>C</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>5</td>
-      <td>A</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>10</td>
-      <td>B</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>15</td>
-      <td>C</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>10</td>
-      <td>A</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>15</td>
-      <td>B</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>20</td>
-      <td>C</td>
     </tr>
   </tbody>
 </table>
 </div>
 
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>df<span style="color: #555555">.</span>groupby(<span style="color: #CC3300">&#39;key&#39;</span>)<span style="color: #555555">.</span>transform(<span style="color: #CC3300">&#39;mean&#39;</span>)
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>df<span style="color: #555555">.</span>groupby(<span style="color: #CC3300">&#39;key&#39;</span>)<span style="color: #555555">.</span>transform(<span style="color: #CC3300">&#39;mean&#39;</span>)<span style="color: #555555">.</span>head(<span style="color: #FF6600">2</span>)
 </code></pre></div>
 
 
@@ -979,34 +874,6 @@ df
     <tr>
       <th>1</th>
       <td>10</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>15</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>10</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>15</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>10</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>15</td>
     </tr>
   </tbody>
 </table>
@@ -1017,7 +884,7 @@ df
 </code></pre></div>
 
 
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>df<span style="color: #555555">.</span>groupby(<span style="color: #CC3300">&#39;key&#39;</span>)<span style="color: #555555">.</span>transform(normalize)
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>df<span style="color: #555555">.</span>groupby(<span style="color: #CC3300">&#39;key&#39;</span>)<span style="color: #555555">.</span>transform(normalize)<span style="color: #555555">.</span>head(<span style="color: #FF6600">2</span>)
 </code></pre></div>
 
 
@@ -1051,103 +918,15 @@ df
       <th>1</th>
       <td>-1.0</td>
     </tr>
-    <tr>
-      <th>2</th>
-      <td>-1.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>1.0</td>
-    </tr>
   </tbody>
 </table>
 </div>
 
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>df<span style="color: #555555">.</span>groupby(<span style="color: #CC3300">&#39;key&#39;</span>)<span style="color: #555555">.</span>transform(<span style="color: #CC3300">&#39;sum&#39;</span>)
-</code></pre></div>
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>data</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>15</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>30</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>45</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>15</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>30</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>45</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>15</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>30</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>45</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+<h3 id="references">References:</h3>
+<ol>
+<li><a href="https://pandas.pydata.org/docs/user_guide/groupby.html">Pydata documentation: Group by: split-apply-combine</a></li>
+<li><a href="https://github.com/jorisvandenbossche/pandas-tutorial">EuroScipy 2016 Pandas Tutorial by Joris Van den Bossche and Nicholas Devenish</a></li>
+</ol>
                 
               
               
@@ -1166,7 +945,7 @@ df
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../../Explor/explor/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../Lambda/lambda/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -1175,19 +954,19 @@ df
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Data Exploration
+                Apply and Lambda Transform
               </div>
             </div>
           </a>
         
         
-          <a href="../../Lambda/lambda/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../Join/join/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Lambda Transform
+                Concat, Merge and Join
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

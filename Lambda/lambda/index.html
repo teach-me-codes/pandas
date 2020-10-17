@@ -13,7 +13,7 @@
     
     
       
-        <title>Lambda Transform - Pandas Tutorials</title>
+        <title>Apply and Lambda Transform - Pandas Tutorials</title>
       
     
     
@@ -56,7 +56,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lambda-transformation" class="md-skip">
+        <a href="#apply-and-lambda-transformation" class="md-skip">
           Skip to content
         </a>
       
@@ -84,7 +84,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Lambda Transform
+              Apply and Lambda Transform
             
           </span>
         </div>
@@ -181,7 +181,7 @@
 
   <li class="md-nav__item">
     <a href="../../DataFrame/dataframe/" class="md-nav__link">
-      Dataframe
+      Dataframe Introduction
     </a>
   </li>
 
@@ -192,8 +192,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Indexing/Indexing/" class="md-nav__link">
-      Indexing
+    <a href="../../Visualization/visual/" class="md-nav__link">
+      Data Visualization
     </a>
   </li>
 
@@ -204,20 +204,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Explor/explor/" class="md-nav__link">
-      Data Exploration
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../GroupBy/groupby/" class="md-nav__link">
-      GroupBy
+    <a href="../../Indexing/indexing/" class="md-nav__link">
+      Iteration, Indexing and Filter
     </a>
   </li>
 
@@ -233,23 +221,19 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
-      
-    
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Lambda Transform
+        Apply and Lambda Transform
         <span class="md-nav__icon md-icon"></span>
       </label>
     
     <a href="./" class="md-nav__link md-nav__link--active">
-      Lambda Transform
+      Apply and Lambda Transform
     </a>
     
       
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
-  
-    
   
   
     <label class="md-nav__title" for="__toc">
@@ -259,23 +243,43 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#apply-and-lambda-transformation" class="md-nav__link">
+    Apply and Lambda Transformation
+  </a>
+  
+    <nav class="md-nav" aria-label="Apply and Lambda Transformation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#load-data" class="md-nav__link">
     Load data
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#setting-name-column-as-index" class="md-nav__link">
-    Setting Name column as index
+        
+          <li class="md-nav__item">
+  <a href="#1-implementation-of-apply-with-lambda-function" class="md-nav__link">
+    1. Implementation of Apply () with lambda() function
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#lambda-transformation_1" class="md-nav__link">
-    Lambda Transformation
+        
+          <li class="md-nav__item">
+  <a href="#2-column-operation-with-lambda-function" class="md-nav__link">
+    2. Column Operation with Lambda function
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -283,6 +287,30 @@
   
 </nav>
     
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../GroupBy/groupby/" class="md-nav__link">
+      GroupBy and Aggregate, Transform
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Join/join/" class="md-nav__link">
+      Concat, Merge and Join
+    </a>
   </li>
 
     
@@ -300,8 +328,6 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -310,23 +336,43 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#apply-and-lambda-transformation" class="md-nav__link">
+    Apply and Lambda Transformation
+  </a>
+  
+    <nav class="md-nav" aria-label="Apply and Lambda Transformation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#load-data" class="md-nav__link">
     Load data
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#setting-name-column-as-index" class="md-nav__link">
-    Setting Name column as index
+        
+          <li class="md-nav__item">
+  <a href="#1-implementation-of-apply-with-lambda-function" class="md-nav__link">
+    1. Implementation of Apply () with lambda() function
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#lambda-transformation_1" class="md-nav__link">
-    Lambda Transformation
+        
+          <li class="md-nav__item">
+  <a href="#2-column-operation-with-lambda-function" class="md-nav__link">
+    2. Column Operation with Lambda function
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -343,8 +389,10 @@
               
                 
                 
-                <h1 id="lambda-transformation">Lambda Transformation</h1>
-<hr />
+                  <h1>Apply and Lambda Transform</h1>
+                
+                <h2 id="apply-and-lambda-transformation">Apply and Lambda Transformation</h2>
+<p>In this notebook we will learn to perform the column data operation through implementation of <code>apply()</code> and <code>lambda</code> functionality.</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">pandas</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">pd</span>
 <span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">numpy</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">np</span>
 <span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">seaborn</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">sns</span>
@@ -355,15 +403,7 @@
 
 <h4 id="load-data">Load data</h4>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>titanic <span style="color: #555555">=</span> pd<span style="color: #555555">.</span>read_csv(<span style="color: #CC3300">&#39;data/titanic.csv&#39;</span>)
-</code></pre></div>
-
-
-<h3 id="setting-name-column-as-index">Setting Name column as index</h3>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>df1 <span style="color: #555555">=</span> titanic<span style="color: #555555">.</span>copy(deep <span style="color: #555555">=</span><span style="color: #006699; font-weight: bold">True</span>)
-</code></pre></div>
-
-
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>df1 <span style="color: #555555">=</span> titanic<span style="color: #555555">.</span>set_index(<span style="color: #CC3300">&#39;Name&#39;</span>)
+df1 <span style="color: #555555">=</span> titanic<span style="color: #555555">.</span>set_index(<span style="color: #CC3300">&#39;Name&#39;</span>)
 df1<span style="color: #555555">.</span>head(<span style="color: #FF6600">2</span>)
 </code></pre></div>
 
@@ -446,151 +486,421 @@ df1<span style="color: #555555">.</span>head(<span style="color: #FF6600">2</spa
 </table>
 </div>
 
-<hr />
-<h3 id="lambda-transformation_1">Lambda Transformation</h3>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>df1[<span style="color: #CC3300">&#39;Fare&#39;</span>]<span style="color: #555555">.</span>apply(<span style="color: #006699; font-weight: bold">lambda</span> x: (<span style="color: #FF6600">10</span><span style="color: #555555">*</span>x<span style="color: #555555">**</span><span style="color: #FF6600">2</span> <span style="color: #555555">+</span> <span style="color: #FF6600">2</span><span style="color: #555555">*</span>x <span style="color: #555555">+</span><span style="color: #FF6600">4</span>)<span style="color: #555555">/</span><span style="color: #FF6600">10</span>)
+<h4 id="1-implementation-of-apply-with-lambda-function">1. Implementation of <code>Apply ()</code> with <code>lambda()</code> function</h4>
+<ul>
+<li>Apply <code>lambda</code> functionality to <code>age</code> column.</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>df1[<span style="color: #CC3300">&#39;remaining-age&#39;</span>] <span style="color: #555555">=</span> df1[<span style="color: #CC3300">&#39;Age&#39;</span>]<span style="color: #555555">.</span>apply(<span style="color: #006699; font-weight: bold">lambda</span> x: <span style="color: #FF6600">100</span><span style="color: #555555">-</span>x)<span style="color: #555555">.</span>head(<span style="color: #FF6600">5</span>)
+df1<span style="color: #555555">.</span>head(<span style="color: #FF6600">5</span>)
+</code></pre></div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PassengerId</th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+      <th>remaining-age</th>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Braund, Mr. Owen Harris</th>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>22.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>A/5 21171</td>
+      <td>7.2500</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>78.0</td>
+    </tr>
+    <tr>
+      <th>Cumings, Mrs. John Bradley (Florence Briggs Thayer)</th>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>female</td>
+      <td>38.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>PC 17599</td>
+      <td>71.2833</td>
+      <td>C85</td>
+      <td>C</td>
+      <td>62.0</td>
+    </tr>
+    <tr>
+      <th>Heikkinen, Miss. Laina</th>
+      <td>3</td>
+      <td>1</td>
+      <td>3</td>
+      <td>female</td>
+      <td>26.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>STON/O2. 3101282</td>
+      <td>7.9250</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>74.0</td>
+    </tr>
+    <tr>
+      <th>Futrelle, Mrs. Jacques Heath (Lily May Peel)</th>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>female</td>
+      <td>35.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>113803</td>
+      <td>53.1000</td>
+      <td>C123</td>
+      <td>S</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>Allen, Mr. William Henry</th>
+      <td>5</td>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>35.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>373450</td>
+      <td>8.0500</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>65.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<ul>
+<li>Apply <code>lambda</code> functionality to <code>Fare</code> column to transform it to new value.</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>df1[<span style="color: #CC3300">&#39;Fare&#39;</span>]<span style="color: #555555">.</span>apply(<span style="color: #006699; font-weight: bold">lambda</span> x: (<span style="color: #FF6600">10</span><span style="color: #555555">*</span>x<span style="color: #555555">**</span><span style="color: #FF6600">2</span> <span style="color: #555555">+</span> <span style="color: #FF6600">2</span><span style="color: #555555">*</span>x <span style="color: #555555">+</span><span style="color: #FF6600">4</span>)<span style="color: #555555">/</span><span style="color: #FF6600">10</span>)<span style="color: #555555">.</span>head(<span style="color: #FF6600">5</span>)
 </code></pre></div>
 
 
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>Name
-Braund, Mr. Owen Harris                                       0.72500
-Cumings, Mrs. John Bradley (Florence Briggs Thayer)           7.12833
-Heikkinen, Miss. Laina                                        0.79250
-Futrelle, Mrs. Jacques Heath (Lily May Peel)                  5.31000
-Allen, Mr. William Henry                                      0.80500
-Moran, Mr. James                                              0.84583
-McCarthy, Mr. Timothy J                                       5.18625
-Palsson, Master. Gosta Leonard                                2.10750
-Johnson, Mrs. Oscar W (Elisabeth Vilhelmina Berg)             1.11333
-Nasser, Mrs. Nicholas (Adele Achem)                           3.00708
-Sandstrom, Miss. Marguerite Rut                               1.67000
-Bonnell, Miss. Elizabeth                                      2.65500
-Saundercock, Mr. William Henry                                0.80500
-Andersson, Mr. Anders Johan                                   3.12750
-Vestrom, Miss. Hulda Amanda Adolfina                          0.78542
-Hewlett, Mrs. (Mary D Kingcome)                               1.60000
-Rice, Master. Eugene                                          2.91250
-Williams, Mr. Charles Eugene                                  1.30000
-Vander Planke, Mrs. Julius (Emelia Maria Vandemoortele)       1.80000
-Masselmani, Mrs. Fatima                                       0.72250
-Fynney, Mr. Joseph J                                          2.60000
-Beesley, Mr. Lawrence                                         1.30000
-McGowan, Miss. Anna &quot;Annie&quot;                                   0.80292
-Sloper, Mr. William Thompson                                  3.55000
-Palsson, Miss. Torborg Danira                                 2.10750
-Asplund, Mrs. Carl Oscar (Selma Augusta Emilia Johansson)     3.13875
-Emir, Mr. Farred Chehab                                       0.72250
-Fortune, Mr. Charles Alexander                               26.30000
-O&#39;Dwyer, Miss. Ellen &quot;Nellie&quot;                                 0.78792
-Todoroff, Mr. Lalio                                           0.78958
-                                                               ...   
-Giles, Mr. Frederick Edward                                   1.15000
-Swift, Mrs. Frederick Joel (Margaret Welles Barron)           2.59292
-Sage, Miss. Dorothy Edith &quot;Dolly&quot;                             6.95500
-Gill, Mr. John William                                        1.30000
-Bystrom, Mrs. (Karolina)                                      1.30000
-Duran y More, Miss. Asuncion                                  1.38583
-Roebling, Mr. Washington Augustus II                          5.04958
-van Melkebeke, Mr. Philemon                                   0.95000
-Johnson, Master. Harold Theodor                               1.11333
-Balkic, Mr. Cerin                                             0.78958
-Beckwith, Mrs. Richard Leonard (Sallie Monypeny)              5.25542
-Carlsson, Mr. Frans Olof                                      0.50000
-Vander Cruyssen, Mr. Victor                                   0.90000
-Abelson, Mrs. Samuel (Hannah Wizosky)                         2.40000
-Najib, Miss. Adele Kiamie &quot;Jane&quot;                              0.72250
-Gustafsson, Mr. Alfred Ossian                                 0.98458
-Petroff, Mr. Nedelio                                          0.78958
-Laleff, Mr. Kristo                                            0.78958
-Potter, Mrs. Thomas Jr (Lily Alexenia Wilson)                 8.31583
-Shelley, Mrs. William (Imanita Parrish Hall)                  2.60000
-Markun, Mr. Johann                                            0.78958
-Dahlberg, Miss. Gerda Ulrika                                  1.05167
-Banfield, Mr. Frederick James                                 1.05000
-Sutehall, Mr. Henry Jr                                        0.70500
-Rice, Mrs. William (Margaret Norton)                          2.91250
-Montvila, Rev. Juozas                                         1.30000
-Graham, Miss. Margaret Edith                                  3.00000
-Johnston, Miss. Catherine Helen &quot;Carrie&quot;                      2.34500
-Behr, Mr. Karl Howell                                         3.00000
-Dooley, Mr. Patrick                                           0.77500
-Name: Fare, Length: 891, dtype: float64
+Braund, Mr. Owen Harris                                  54.412500
+Cumings, Mrs. John Bradley (Florence Briggs Thayer)    5095.965519
+Heikkinen, Miss. Laina                                   64.790625
+Futrelle, Mrs. Jacques Heath (Lily May Peel)           2830.630000
+Allen, Mr. William Henry                                 66.812500
+Name: Fare, dtype: float64
 </code></pre></div>
 
 
+<ul>
+<li>Let us write a new function to supply inside the <code>apply()</code> function.</li>
+</ul>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #006699; font-weight: bold">def</span> <span style="color: #CC00FF">newfeature</span>(x):
     <span style="color: #006699; font-weight: bold">return</span> <span style="color: #FF6600">10</span> <span style="color: #555555">+</span> x<span style="color: #555555">/</span><span style="color: #FF6600">3</span> <span style="color: #555555">+</span> x<span style="color: #555555">**</span><span style="color: #FF6600">2</span>
 </code></pre></div>
 
 
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>df1[<span style="color: #CC3300">&#39;Fare&#39;</span>]<span style="color: #555555">.</span>apply(newfeature)
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>df1[<span style="color: #CC3300">&#39;Fare&#39;</span>]<span style="color: #555555">.</span>apply(newfeature)<span style="color: #555555">.</span>head(<span style="color: #FF6600">4</span>)
 </code></pre></div>
 
 
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>Name
-Braund, Mr. Owen Harris                                         64.979167
-Cumings, Mrs. John Bradley (Florence Briggs Thayer)           5115.069959
-Heikkinen, Miss. Laina                                          75.447292
-Futrelle, Mrs. Jacques Heath (Lily May Peel)                  2847.310000
-Allen, Mr. William Henry                                        77.485833
-Moran, Mr. James                                                84.362272
-McCarthy, Mr. Timothy J                                       2717.006406
-Palsson, Master. Gosta Leonard                                 461.180625
-Johnson, Mrs. Oscar W (Elisabeth Vilhelmina Berg)              137.661469
-Nasser, Mrs. Nicholas (Adele Achem)                            924.276613
-Sandstrom, Miss. Marguerite Rut                                294.456667
-Bonnell, Miss. Elizabeth                                       723.752500
-Saundercock, Mr. William Henry                                  77.485833
-Andersson, Mr. Anders Johan                                    998.550625
-Vestrom, Miss. Hulda Amanda Adolfina                            74.306524
-Hewlett, Mrs. (Mary D Kingcome)                                271.333333
-Rice, Master. Eugene                                           867.973958
-Williams, Mr. Charles Eugene                                   183.333333
-Vander Planke, Mrs. Julius (Emelia Maria Vandemoortele)        340.000000
-Masselmani, Mrs. Fatima                                         64.608958
-Fynney, Mr. Joseph J                                           694.666667
-Beesley, Mr. Lawrence                                          183.333333
-McGowan, Miss. Anna &quot;Annie&quot;                                     77.144453
-Sloper, Mr. William Thompson                                  1282.083333
-Palsson, Miss. Torborg Danira                                  461.180625
-Asplund, Mrs. Carl Oscar (Selma Augusta Emilia Johansson)     1005.637656
-Emir, Mr. Farred Chehab                                         64.608958
-Fortune, Mr. Charles Alexander                               69266.666667
-O&#39;Dwyer, Miss. Ellen &quot;Nellie&quot;                                   74.708193
-Todoroff, Mr. Lalio                                             74.975591
-                                                                 ...     
-Giles, Mr. Frederick Edward                                    146.083333
-Swift, Mrs. Frederick Joel (Margaret Welles Barron)            690.966479
-Sage, Miss. Dorothy Edith &quot;Dolly&quot;                             4870.385833
-Gill, Mr. John William                                         183.333333
-Bystrom, Mrs. (Karolina)                                       183.333333
-Duran y More, Miss. Asuncion                                   206.671912
-Roebling, Mr. Washington Augustus II                          2576.657751
-van Melkebeke, Mr. Philemon                                    103.416667
-Johnson, Master. Harold Theodor                                137.661469
-Balkic, Mr. Cerin                                               74.975591
-Beckwith, Mrs. Richard Leonard (Sallie Monypeny)              2789.462004
-Carlsson, Mr. Frans Olof                                        36.666667
-Vander Cruyssen, Mr. Victor                                     94.000000
-Abelson, Mrs. Samuel (Hannah Wizosky)                          594.000000
-Najib, Miss. Adele Kiamie &quot;Jane&quot;                                64.608958
-Gustafsson, Mr. Alfred Ossian                                  110.221711
-Petroff, Mr. Nedelio                                            74.975591
-Laleff, Mr. Kristo                                              74.975591
-Potter, Mrs. Thomas Jr (Lily Alexenia Wilson)                 6953.022292
-Shelley, Mrs. William (Imanita Parrish Hall)                   694.666667
-Markun, Mr. Johann                                              74.975591
-Dahlberg, Miss. Gerda Ulrika                                   124.106546
-Banfield, Mr. Frederick James                                  123.750000
-Sutehall, Mr. Henry Jr                                          62.052500
-Rice, Mrs. William (Margaret Norton)                           867.973958
-Montvila, Rev. Juozas                                          183.333333
-Graham, Miss. Margaret Edith                                   920.000000
-Johnston, Miss. Catherine Helen &quot;Carrie&quot;                       567.719167
-Behr, Mr. Karl Howell                                          920.000000
-Dooley, Mr. Patrick                                             72.645833
-Name: Fare, Length: 891, dtype: float64
+Braund, Mr. Owen Harris                                  64.979167
+Cumings, Mrs. John Bradley (Florence Briggs Thayer)    5115.069959
+Heikkinen, Miss. Laina                                   75.447292
+Futrelle, Mrs. Jacques Heath (Lily May Peel)           2847.310000
+Name: Fare, dtype: float64
 </code></pre></div>
+
+
+<h4 id="2-column-operation-with-lambda-function">2. Column Operation with Lambda function</h4>
+<ul>
+<li>Lets create a new random dataframe to play around.</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>dates <span style="color: #555555">=</span> pd<span style="color: #555555">.</span>date_range(<span style="color: #CC3300">&#39;1/1/2000&#39;</span>, periods<span style="color: #555555">=</span><span style="color: #FF6600">100</span>)
+df <span style="color: #555555">=</span> pd<span style="color: #555555">.</span>DataFrame(np<span style="color: #555555">.</span>random<span style="color: #555555">.</span>randn(<span style="color: #FF6600">100</span>, <span style="color: #FF6600">4</span>),
+                  index<span style="color: #555555">=</span>dates, columns<span style="color: #555555">=</span>[<span style="color: #CC3300">&#39;A&#39;</span>, <span style="color: #CC3300">&#39;B&#39;</span>, <span style="color: #CC3300">&#39;C&#39;</span>, <span style="color: #CC3300">&#39;D&#39;</span>])
+df<span style="color: #555555">.</span>head()
+</code></pre></div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2000-01-01</th>
+      <td>-0.656738</td>
+      <td>-0.461095</td>
+      <td>-0.259647</td>
+      <td>0.890244</td>
+    </tr>
+    <tr>
+      <th>2000-01-02</th>
+      <td>0.652611</td>
+      <td>0.906148</td>
+      <td>-0.527606</td>
+      <td>-0.106089</td>
+    </tr>
+    <tr>
+      <th>2000-01-03</th>
+      <td>-0.067463</td>
+      <td>1.407429</td>
+      <td>1.414694</td>
+      <td>-1.266369</td>
+    </tr>
+    <tr>
+      <th>2000-01-04</th>
+      <td>0.301058</td>
+      <td>0.624163</td>
+      <td>-0.144190</td>
+      <td>-1.177690</td>
+    </tr>
+    <tr>
+      <th>2000-01-05</th>
+      <td>1.557796</td>
+      <td>-1.497422</td>
+      <td>0.545636</td>
+      <td>-1.006319</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<ul>
+<li>We can directly add, multiply, substract etc among columns if they have same data types.</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>df[<span style="color: #CC3300">&#39;E&#39;</span>] <span style="color: #555555">=</span> (df[<span style="color: #CC3300">&#39;A&#39;</span>] <span style="color: #555555">+</span> df[<span style="color: #CC3300">&#39;B&#39;</span>])<span style="color: #555555">/</span>df[<span style="color: #CC3300">&#39;C&#39;</span>]
+df<span style="color: #555555">.</span>head()
+</code></pre></div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>E</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2000-01-01</th>
+      <td>-0.656738</td>
+      <td>-0.461095</td>
+      <td>-0.259647</td>
+      <td>0.890244</td>
+      <td>4.305207</td>
+    </tr>
+    <tr>
+      <th>2000-01-02</th>
+      <td>0.652611</td>
+      <td>0.906148</td>
+      <td>-0.527606</td>
+      <td>-0.106089</td>
+      <td>-2.954399</td>
+    </tr>
+    <tr>
+      <th>2000-01-03</th>
+      <td>-0.067463</td>
+      <td>1.407429</td>
+      <td>1.414694</td>
+      <td>-1.266369</td>
+      <td>0.947177</td>
+    </tr>
+    <tr>
+      <th>2000-01-04</th>
+      <td>0.301058</td>
+      <td>0.624163</td>
+      <td>-0.144190</td>
+      <td>-1.177690</td>
+      <td>-6.416660</td>
+    </tr>
+    <tr>
+      <th>2000-01-05</th>
+      <td>1.557796</td>
+      <td>-1.497422</td>
+      <td>0.545636</td>
+      <td>-1.006319</td>
+      <td>0.110649</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<ul>
+<li>One can use <code>lambda</code> functions to transform the columns before the column operation.</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code>df[<span style="color: #CC3300">&#39;F&#39;</span>] <span style="color: #555555">=</span> df[<span style="color: #CC3300">&#39;A&#39;</span>]<span style="color: #555555">.</span>apply(<span style="color: #006699; font-weight: bold">lambda</span> x : <span style="color: #FF6600">10</span><span style="color: #555555">+</span>x) <span style="color: #555555">+</span> df[<span style="color: #CC3300">&#39;E&#39;</span>]<span style="color: #555555">.</span>apply(<span style="color: #006699; font-weight: bold">lambda</span> x: x<span style="color: #555555">+</span><span style="color: #FF6600">20</span> <span style="color: #006699; font-weight: bold">if</span> x<span style="color: #555555">&gt;</span><span style="color: #FF6600">0</span> <span style="color: #006699; font-weight: bold">else</span> x)
+df<span style="color: #555555">.</span>head()
+</code></pre></div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>E</th>
+      <th>F</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2000-01-01</th>
+      <td>-0.656738</td>
+      <td>-0.461095</td>
+      <td>-0.259647</td>
+      <td>0.890244</td>
+      <td>4.305207</td>
+      <td>33.648469</td>
+    </tr>
+    <tr>
+      <th>2000-01-02</th>
+      <td>0.652611</td>
+      <td>0.906148</td>
+      <td>-0.527606</td>
+      <td>-0.106089</td>
+      <td>-2.954399</td>
+      <td>7.698212</td>
+    </tr>
+    <tr>
+      <th>2000-01-03</th>
+      <td>-0.067463</td>
+      <td>1.407429</td>
+      <td>1.414694</td>
+      <td>-1.266369</td>
+      <td>0.947177</td>
+      <td>30.879714</td>
+    </tr>
+    <tr>
+      <th>2000-01-04</th>
+      <td>0.301058</td>
+      <td>0.624163</td>
+      <td>-0.144190</td>
+      <td>-1.177690</td>
+      <td>-6.416660</td>
+      <td>3.884397</td>
+    </tr>
+    <tr>
+      <th>2000-01-05</th>
+      <td>1.557796</td>
+      <td>-1.497422</td>
+      <td>0.545636</td>
+      <td>-1.006319</td>
+      <td>0.110649</td>
+      <td>31.668445</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="references">References:</h3>
+<ol>
+<li><a href="https://pandas.pydata.org/docs/user_guide/index.html#user-guide">Pydata document for Pandas</a></li>
+</ol>
                 
               
               
@@ -609,7 +919,7 @@ Name: Fare, Length: 891, dtype: float64
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../../GroupBy/groupby/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../Indexing/indexing/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -618,11 +928,25 @@ Name: Fare, Length: 891, dtype: float64
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                GroupBy
+                Iteration, Indexing and Filter
               </div>
             </div>
           </a>
         
+        
+          <a href="../../GroupBy/groupby/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                GroupBy and Aggregate, Transform
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
         
       </nav>
     </div>
