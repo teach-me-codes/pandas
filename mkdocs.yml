@@ -1,4 +1,4 @@
-site_name: Computational Physics
+site_name: Pandas
 
 extra_javascript:
   - mathjax-config.js
