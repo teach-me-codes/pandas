@@ -1,2 +1,2 @@
 
-### How to Pandas - by TEACH ME CODES
+### How to Machine Learning - by TEACH ME CODES

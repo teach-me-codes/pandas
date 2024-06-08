@@ -1,14 +1,18 @@
+site_name: Computational Physics
 
-site_name: Pandas Tutorials
-
-
-extra_javascript: 
-    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+extra_javascript:
+  - mathjax-config.js
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js
 
 markdown_extensions:
-    - mdx_math
-    
-
+  - pymdownx.arithmatex:
+      generic: true
+  - codehilite:
+      linenums: false
+      guess_lang: false
+      use_pygments: true
+      noclasses: true
+      pygments_style: manni
 
 theme:
   name: 'material'
@@ -20,37 +24,62 @@ theme:
   titles_only: false
   sticky_navigation: true
   collapse_navigation: true
- 
 
-  
-  
-markdown_extensions:
-  - codehilite:
-      linenums: false
-      guess_lang: false
-      use_pygments: true
-      noclasses: true
-      pygments_style: manni
-
+extra_css:
+  - extra.css
 
 extra:
   analytics:
     provider: google
     property: UA-156178967-1
-      
 
 
 nav:
 - Home: index.md
-- Introduction: pandas.md
-- Dataframe Introduction: DataFrame/dataframe.md
-- Data Visualization: Visualization/visual.md
-- Iteration, Indexing and Filter: Indexing/indexing.md
-- Apply and Lambda Transform: Lambda/lambda.md
-- GroupBy and Aggregate, Transform: GroupBy/groupby.md
-- Concat, Merge and Join : Join/join.md
- 
- 
+- Introduction to Pandas: introduction_to_pandas.md
+- Pandas Installation: pandas_installation.md
+- Series: series.md
+- DataFrame: dataframe.md
+- Index: index.md
+- Creating Series: creating_series.md
+- Creating DataFrame: creating_dataframe.md
+- Reading Data from Files: reading_data_from_files.md
+- Head and Tail: head_and_tail.md
+- Info and Describe: info_and_describe.md
+- Data Types: data_types.md
+- Selecting Data by Label: selecting_data_by_label.md
+- Selecting Data by Position: selecting_data_by_position.md
+- Boolean Indexing: boolean_indexing.md
+- Setting Values: setting_values.md
+- Handling Missing Data: handling_missing_data.md
+- Data Alignment: data_alignment.md
+- Dropping Data: dropping_data.md
+- Filtering Data: filtering_data.md
+- Renaming Data: renaming_data.md
+- Sorting Data: sorting_data.md
+- GroupBy: groupby.md
+- Aggregation Functions: aggregation_functions.md
+- Pivot Tables: pivot_tables.md
+- Crosstab: crosstab.md
+- Date and Time Handling: date_and_time_handling.md
+- Time Series Analysis: time_series_analysis.md
+- Time Series Plotting: time_series_plotting.md
+- Basic Plotting: basic_plotting.md
+- Plotting with Matplotlib: plotting_with_matplotlib.md
+- Seaborn Integration: seaborn_integration.md
+- Merging DataFrames: merging_dataframes.md
+- Concatenating Data: concatenating_data.md
+- Reshaping Data: reshaping_data.md
+- Handling Categorical Data: handling_categorical_data.md
+- Sparse Data: sparse_data.md
+- Performance Optimization: performance_optimization.md
+- Parallel Computing: parallel_computing.md
+- Integration with NumPy: integration_with_numpy.md
+- Integration with SQL Databases: integration_with_sql_databases.md
+- Reading and Writing Files: reading_and_writing_files.md
+- Configuration: configuration.md
+- Testing and Debugging: testing_and_debugging.md
 
- 
- 
+
+
+
