@@ -6,7 +6,13 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="A comprehensive guide to learning Pandas">
       
+      
+        <meta name="author" content="Teach Me Codes">
+      
+      
+        <link rel="canonical" href="https://learning.teachme.codes/filtering_data/">
       
       
         <link rel="prev" href="../dropping_data/">
@@ -15,16 +21,19 @@
         <link rel="next" href="../renaming_data/">
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../assets/logo.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.25">
     
     
       
-        <title>Filtering Data - Pandas</title>
+        <title>Filtering Data - Learning Pandas</title>
       
     
     
       <link rel="stylesheet" href="../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -43,8 +52,6 @@
       
     
     
-      <link rel="stylesheet" href="../extra.css">
-    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -54,9 +61,9 @@
   
   
 
-<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","UA-156178967-1"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","UA-156178967-1",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=UA-156178967-1",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-ECS7B3X8JM"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-ECS7B3X8JM",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-ECS7B3X8JM",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
   
-    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+    <script>var consent;"undefined"==typeof __md_analytics||(consent=__md_get("__consent"))&&consent.analytics&&__md_analytics()</script>
   
 
     
@@ -65,7 +72,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -90,10 +104,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Pandas" class="md-header__button md-logo" aria-label="Pandas" data-md-component="logo">
+    <a href=".." title="Learning Pandas" class="md-header__button md-logo" aria-label="Learning Pandas" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -104,7 +117,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Pandas
+            Learning Pandas
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -116,6 +129,42 @@
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
     
     
       <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
@@ -139,11 +188,18 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
       
     </form>
     <div class="md-search__output">
@@ -159,6 +215,18 @@
   </div>
 </div>
     
+    
+      <div class="md-header__source">
+        <a href="https://github.com/teach-me-codes/pandas" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
     
   </nav>
   
@@ -185,14 +253,25 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Pandas" class="md-nav__button md-logo" aria-label="Pandas" data-md-component="logo">
+    <a href=".." title="Learning Pandas" class="md-nav__button md-logo" aria-label="Learning Pandas" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../assets/logo.png" alt="logo">
 
     </a>
-    Pandas
+    Learning Pandas
   </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/teach-me-codes/pandas" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -2854,6 +2933,22 @@
                 
                   
 
+  
+    <a href="https://github.com/teach-me-codes/pandas/edit/master/docs/filtering_data.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/teach-me-codes/pandas/raw/master/docs/filtering_data.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
 
   <h1>Filtering Data</h1>
 
@@ -2879,18 +2974,18 @@
 <ul>
 <li><strong>Syntax</strong>:</li>
 <li>For filtering rows based on a condition:
-    <code>python
-    df[df['column_name'] &gt; value]</code></li>
+    <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;column_name&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">value</span><span class="p">]</span>
+</span></code></pre></div></li>
 <li>
 <p>For applying multiple conditions:
-    <code>python
-    df[(df['column_name1'] &gt; value1) &amp; (df['column_name2'] == value2)]</code></p>
+    <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;column_name1&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">value1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;column_name2&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">value2</span><span class="p">)]</span>
+</span></code></pre></div></p>
 </li>
 <li>
 <p><strong>Example</strong>:
   Let's say we have a DataFrame <code>df</code> and we want to filter rows where the column <code>'score'</code> is greater than 80:
-  <code>python
-  filtered_data = df[df['score'] &gt; 80]</code></p>
+  <div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">filtered_data</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">80</span><span class="p">]</span>
+</span></code></pre></div></p>
 </li>
 </ul>
 <h3 id="follow-up-questions">Follow-up Questions:</h3>
@@ -2913,19 +3008,18 @@
 </ul>
 <h4 id="can-you-demonstrate-how-boolean-indexing-can-be-implemented-in-a-practical-data-filtering-scenario">Can you demonstrate how boolean indexing can be implemented in a practical data filtering scenario?</h4>
 <p>Let's consider a practical scenario where we have a DataFrame containing student data and we want to filter out students who scored above 90 in a particular exam:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code><span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">pandas</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">pd</span>
-
-<span style="color: #0099FF; font-style: italic"># Creating a sample DataFrame</span>
-data <span style="color: #555555">=</span> {<span style="color: #CC3300">&#39;Student&#39;</span>: [<span style="color: #CC3300">&#39;Alice&#39;</span>, <span style="color: #CC3300">&#39;Bob&#39;</span>, <span style="color: #CC3300">&#39;Charlie&#39;</span>, <span style="color: #CC3300">&#39;David&#39;</span>],
-        <span style="color: #CC3300">&#39;Score&#39;</span>: [<span style="color: #FF6600">85</span>, <span style="color: #FF6600">92</span>, <span style="color: #FF6600">88</span>, <span style="color: #FF6600">95</span>]}
-
-df <span style="color: #555555">=</span> pd<span style="color: #555555">.</span>DataFrame(data)
-
-<span style="color: #0099FF; font-style: italic"># Filtering students with scores above 90</span>
-high_score_students <span style="color: #555555">=</span> df[df[<span style="color: #CC3300">&#39;Score&#39;</span>] <span style="color: #555555">&gt;</span> <span style="color: #FF6600">90</span>]
-<span style="color: #336666">print</span>(high_score_students)
-</code></pre></div>
-
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># Creating a sample DataFrame</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Student&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Charlie&#39;</span><span class="p">,</span> <span class="s1">&#39;David&#39;</span><span class="p">],</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        <span class="s1">&#39;Score&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">85</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">95</span><span class="p">]}</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="c1"># Filtering students with scores above 90</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="n">high_score_students</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Score&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">90</span><span class="p">]</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">high_score_students</span><span class="p">)</span>
+</span></code></pre></div>
 <p>In this example, we create a DataFrame <code>df</code> with student names and their exam scores. Using boolean indexing, we filter the DataFrame to select only those students who scored above 90, and then print the filtered results.</p>
 <p>Boolean conditions play a significant role in extracting specific subsets of data efficiently, allowing for more focused and targeted data manipulation tasks.</p>
 <p>By utilizing boolean conditions in Pandas, data analysts and scientists can easily customize their data filtering strategies to extract relevant information that meets their analysis requirements effectively.</p>
@@ -2999,12 +3093,12 @@ high_score_students <span style="color: #555555">=</span> df[df[<span style="col
 <ul>
 <li><strong>Syntax</strong>:</li>
 <li><em>Boolean Indexing</em>: Involves passing the filtering conditions directly within square brackets when indexing the DataFrame.
-    <code>python
-    df[df['column'] &gt; 5]</code></li>
+    <div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;column&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">]</span>
+</span></code></pre></div></li>
 <li>
 <p><em><code>query</code> Method</em>: Requires specifying the filtering conditions as string expressions within the <code>query</code> method.
-    <code>python
-    df.query('column &gt; 5')</code></p>
+    <div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;column &gt; 5&#39;</span><span class="p">)</span>
+</span></code></pre></div></p>
 </li>
 <li>
 <p><strong>Performance</strong>:</p>
@@ -3057,19 +3151,18 @@ high_score_students <span style="color: #555555">=</span> df[df[<span style="col
 </ul>
 <h3 id="can-you-illustrate-a-practical-example-showcasing-the-application-of-the-filter-method-for-data-selection-and-manipulation-tasks">Can you illustrate a practical example showcasing the application of the <code>filter</code> method for data selection and manipulation tasks?</h3>
 <p>Here is a simple example demonstrating the use of the <code>filter</code> method in Pandas for filtering data based on specified conditions:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code><span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">pandas</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">pd</span>
-
-<span style="color: #0099FF; font-style: italic"># Create a sample DataFrame</span>
-data <span style="color: #555555">=</span> {<span style="color: #CC3300">&#39;A&#39;</span>: [<span style="color: #FF6600">1</span>, <span style="color: #FF6600">2</span>, <span style="color: #FF6600">3</span>, <span style="color: #FF6600">4</span>, <span style="color: #FF6600">5</span>],
-        <span style="color: #CC3300">&#39;B&#39;</span>: [<span style="color: #CC3300">&#39;X&#39;</span>, <span style="color: #CC3300">&#39;Y&#39;</span>, <span style="color: #CC3300">&#39;Z&#39;</span>, <span style="color: #CC3300">&#39;X&#39;</span>, <span style="color: #CC3300">&#39;Z&#39;</span>],
-        <span style="color: #CC3300">&#39;C&#39;</span>: [<span style="color: #FF6600">0.1</span>, <span style="color: #FF6600">0.5</span>, <span style="color: #FF6600">0.8</span>, <span style="color: #FF6600">0.3</span>, <span style="color: #FF6600">0.9</span>]}
-df <span style="color: #555555">=</span> pd<span style="color: #555555">.</span>DataFrame(data)
-
-<span style="color: #0099FF; font-style: italic"># Filter rows based on a condition</span>
-filtered_data <span style="color: #555555">=</span> df<span style="color: #555555">.</span>filter(items<span style="color: #555555">=</span>[<span style="color: #CC3300">&#39;A&#39;</span>, <span style="color: #CC3300">&#39;C&#39;</span>])<span style="color: #555555">.</span>query(<span style="color: #CC3300">&#39;C &gt; 0.5&#39;</span>)
-<span style="color: #336666">print</span>(filtered_data)
-</code></pre></div>
-
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c1"># Create a sample DataFrame</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>        <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">],</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>        <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">]}</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="c1"># Filter rows based on a condition</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="n">filtered_data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">items</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;C &gt; 0.5&#39;</span><span class="p">)</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">filtered_data</span><span class="p">)</span>
+</span></code></pre></div>
 <p>In this example:
 - We create a sample DataFrame with columns 'A', 'B', and 'C'.
 - We use the <code>filter</code> method with the parameter <code>items=['A', 'C']</code> to select only columns 'A' and 'C' for filtering.
@@ -3110,20 +3203,19 @@ filtered_data <span style="color: #555555">=</span> df<span style="color: #55555
 <p>When applying multiple conditions, each condition must be enclosed within parentheses to maintain precedence and avoid ambiguity in evaluation.</p>
 </li>
 <li>
-<p><strong>Example</strong>:</p>
+<p><strong>Example</strong>:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1"># Sample DataFrame</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>        <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">]}</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="c1"># Filtering based on multiple conditions</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="n">filtered_data</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;X&#39;</span><span class="p">)]</span>
+</span></code></pre></div></p>
 </li>
 </ul>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code><span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">pandas</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">pd</span>
-
-<span style="color: #0099FF; font-style: italic"># Sample DataFrame</span>
-data <span style="color: #555555">=</span> {<span style="color: #CC3300">&#39;A&#39;</span>: [<span style="color: #FF6600">1</span>, <span style="color: #FF6600">2</span>, <span style="color: #FF6600">3</span>, <span style="color: #FF6600">4</span>, <span style="color: #FF6600">5</span>],
-        <span style="color: #CC3300">&#39;B&#39;</span>: [<span style="color: #CC3300">&#39;X&#39;</span>, <span style="color: #CC3300">&#39;Y&#39;</span>, <span style="color: #CC3300">&#39;Z&#39;</span>, <span style="color: #CC3300">&#39;X&#39;</span>, <span style="color: #CC3300">&#39;Y&#39;</span>]}
-df <span style="color: #555555">=</span> pd<span style="color: #555555">.</span>DataFrame(data)
-
-<span style="color: #0099FF; font-style: italic"># Filtering based on multiple conditions</span>
-filtered_data <span style="color: #555555">=</span> df[(df[<span style="color: #CC3300">&#39;A&#39;</span>] <span style="color: #555555">&gt;</span> <span style="color: #FF6600">2</span>) <span style="color: #555555">&amp;</span> (df[<span style="color: #CC3300">&#39;B&#39;</span>] <span style="color: #555555">==</span> <span style="color: #CC3300">&#39;X&#39;</span>)]
-</code></pre></div>
-
 <h3 id="follow-up-questions_2">Follow-up Questions</h3>
 <h4 id="what-are-the-best-practices-for-structuring-complex-filtering-conditions">What are the best practices for structuring complex filtering conditions?</h4>
 <ul>
@@ -3139,16 +3231,14 @@ filtered_data <span style="color: #555555">=</span> df[(df[<span style="color: #
 <li><strong>Scalability</strong>: Chaining filters facilitates scalability by easily expanding or modifying filter criteria as data analysis needs evolve.</li>
 </ul>
 <h4 id="can-you-provide-examples-of-nesting-and-combining-multiple-filtering-conditions-for-analytical-requirements">Can you provide examples of nesting and combining multiple filtering conditions for analytical requirements?</h4>
-<p><strong>Example 1 - Nesting Conditions</strong>:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code><span style="color: #0099FF; font-style: italic"># Nesting conditions for complex filtering</span>
-nested_filtered_data <span style="color: #555555">=</span> df[((df[<span style="color: #CC3300">&#39;A&#39;</span>] <span style="color: #555555">&gt;</span> <span style="color: #FF6600">2</span>) <span style="color: #555555">&amp;</span> (df[<span style="color: #CC3300">&#39;B&#39;</span>] <span style="color: #555555">==</span> <span style="color: #CC3300">&#39;X&#39;</span>)) <span style="color: #555555">|</span> ((df[<span style="color: #CC3300">&#39;A&#39;</span>] <span style="color: #555555">==</span> <span style="color: #FF6600">1</span>) <span style="color: #555555">&amp;</span> (df[<span style="color: #CC3300">&#39;B&#39;</span>] <span style="color: #555555">==</span> <span style="color: #CC3300">&#39;Y&#39;</span>))]
-</code></pre></div>
-
-<p><strong>Example 2 - Combining Conditions</strong>:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code><span style="color: #0099FF; font-style: italic"># Combining conditions for varied requirements</span>
-combined_filtered_data <span style="color: #555555">=</span> df[(df[<span style="color: #CC3300">&#39;A&#39;</span>] <span style="color: #555555">&lt;</span> <span style="color: #FF6600">3</span>) <span style="color: #555555">|</span> ((df[<span style="color: #CC3300">&#39;B&#39;</span>] <span style="color: #555555">==</span> <span style="color: #CC3300">&#39;Y&#39;</span>) <span style="color: #555555">&amp;</span> (df[<span style="color: #CC3300">&#39;A&#39;</span>] <span style="color: #555555">&gt;=</span> <span style="color: #FF6600">4</span>))]
-</code></pre></div>
-
+<p><strong>Example 1 - Nesting Conditions</strong>:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Nesting conditions for complex filtering</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">nested_filtered_data</span> <span class="o">=</span> <span class="n">df</span><span class="p">[((</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;X&#39;</span><span class="p">))</span> <span class="o">|</span> <span class="p">((</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Y&#39;</span><span class="p">))]</span>
+</span></code></pre></div></p>
+<p><strong>Example 2 - Combining Conditions</strong>:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Combining conditions for varied requirements</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">combined_filtered_data</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="o">|</span> <span class="p">((</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Y&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">4</span><span class="p">))]</span>
+</span></code></pre></div></p>
 <p>In these examples, nesting and combining filtering conditions demonstrate the flexibility and power of Pandas in handling diverse filtering scenarios efficiently.</p>
 <h3 id="conclusion">Conclusion</h3>
 <p>Combining multiple filtering conditions in Pandas using logical operators allows for precise data extraction tailored to specific analytical requirements. By following best practices, structuring filters effectively, and leveraging chaining concepts, users can extract valuable insights from complex datasets with ease and accuracy.</p>
@@ -3196,22 +3286,22 @@ combined_filtered_data <span style="color: #555555">=</span> df[(df[<span style=
 <li>Use boolean conditions to filter data efficiently based on specific criteria.</li>
 <li>Example:</li>
 </ol>
-<p><code>python
-   filtered_data = df[df['column_name'] &gt; 50]</code></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">filtered_data</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;column_name&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">]</span>
+</span></code></pre></div>
 <ol>
 <li><strong><code>query</code> Method</strong>:</li>
 <li>Employ the <code>query</code> method in Pandas to filter data with SQL-like syntax.</li>
 <li>Example:</li>
 </ol>
-<p><code>python
-   filtered_data = df.query('column_name &gt; 50')</code></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">filtered_data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;column_name &gt; 50&#39;</span><span class="p">)</span>
+</span></code></pre></div>
 <ol>
 <li><strong><code>filter</code> Method</strong>:</li>
 <li>Use the <code>filter</code> method to select rows or columns based on labels.</li>
 <li>Example:</li>
 </ol>
-<p><code>python
-   filtered_data = df.filter(items=['column_name'])</code></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">filtered_data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">items</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;column_name&#39;</span><span class="p">])</span>
+</span></code></pre></div>
 <h3 id="follow-up-questions_3">Follow-up Questions:</h3>
 <h4 id="how-can-data-validation-techniques-assist-in-identifying-and-resolving-errors-encountered-during-the-data-filtering-stage">How can data validation techniques assist in identifying and resolving errors encountered during the data filtering stage?</h4>
 <ul>
@@ -3267,45 +3357,41 @@ combined_filtered_data <span style="color: #555555">=</span> df[(df[<span style=
 </ul>
 <h4 id="follow-up-questions_4"><strong>Follow-up Questions:</strong></h4>
 <h4 id="1-how-do-streamlined-data-filtering-processes-impact-the-performance-and-runtime-of-subsequent-analytical-operations">1. How do streamlined data filtering processes impact the performance and runtime of subsequent analytical operations?</h4>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>- *Efficiency Improvement*: Streamlined data filtering reduces the size of the dataset, leading to faster processing speeds for subsequent analytical operations.
+<div class="language-text highlight"><pre><span></span><code>- *Efficiency Improvement*: Streamlined data filtering reduces the size of the dataset, leading to faster processing speeds for subsequent analytical operations.
 
 - *Resource Optimization*: By filtering out unnecessary data early in the process, computational resources are utilized more effectively, resulting in improved performance and reduced runtime.
 
 - *Enhanced Scalability*: Efficient filtering allows analytical operations to scale effectively to larger datasets, ensuring smooth processing without overwhelming system resources.
 </code></pre></div>
-
 <h4 id="2-can-you-explain-the-connection-between-data-quality-improvements-through-filtering-and-the-reliability-of-analytical-outcomes">2. Can you explain the connection between data quality improvements through filtering and the reliability of analytical outcomes?</h4>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>- *Data Consistency*: Filtering ensures that only relevant and consistent data is used for analysis, leading to improved data quality and reducing the likelihood of errors in analytical outcomes.
+<div class="language-text highlight"><pre><span></span><code>- *Data Consistency*: Filtering ensures that only relevant and consistent data is used for analysis, leading to improved data quality and reducing the likelihood of errors in analytical outcomes.
 
 - *Reduced Bias*: Filtering out noisy or inconsistent data points helps in creating more reliable models and analysis results, reducing bias and inaccuracies in the outcomes.
 
 - *Trustworthy Insights*: Improved data quality through filtering enhances the reliability of analytical outcomes, making the insights generated more trustworthy and actionable.
 </code></pre></div>
-
 <h4 id="3-what-are-the-implications-of-using-advanced-filtering-methods-like-regex-patterns-or-custom-functions-in-data-cleaning-and-preparation-phases">3. What are the implications of using advanced filtering methods like regex patterns or custom functions in data cleaning and preparation phases?</h4>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>- *Enhanced Flexibility*: Advanced filtering methods like regex patterns or custom functions provide greater flexibility in data cleaning by allowing complex pattern matching and transformation operations.
+<div class="language-text highlight"><pre><span></span><code>- *Enhanced Flexibility*: Advanced filtering methods like regex patterns or custom functions provide greater flexibility in data cleaning by allowing complex pattern matching and transformation operations.
 
 - *Precise Data Extraction*: Regex patterns enable precise extraction of data based on intricate patterns, enhancing the quality and accuracy of the cleaned dataset.
 
 - *Customized Data Handling*: Custom functions empower analysts to implement domain-specific filtering logic tailored to the dataset&#39;s unique characteristics, ensuring a customized approach to data preparation.
 </code></pre></div>
-
 <h3 id="code-example-using-pandas-for-data-filtering"><strong>Code Example - Using Pandas for Data Filtering:</strong></h3>
 <p>Here's a simple code snippet demonstrating how to filter data using boolean conditions in Python Pandas:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code><span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">pandas</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">pd</span>
-
-<span style="color: #0099FF; font-style: italic"># Creating a sample DataFrame</span>
-data <span style="color: #555555">=</span> {<span style="color: #CC3300">&#39;A&#39;</span>: [<span style="color: #FF6600">1</span>, <span style="color: #FF6600">2</span>, <span style="color: #FF6600">3</span>, <span style="color: #FF6600">4</span>, <span style="color: #FF6600">5</span>],
-        <span style="color: #CC3300">&#39;B&#39;</span>: [<span style="color: #CC3300">&#39;X&#39;</span>, <span style="color: #CC3300">&#39;Y&#39;</span>, <span style="color: #CC3300">&#39;Z&#39;</span>, <span style="color: #CC3300">&#39;X&#39;</span>, <span style="color: #CC3300">&#39;Z&#39;</span>]}
-
-df <span style="color: #555555">=</span> pd<span style="color: #555555">.</span>DataFrame(data)
-
-<span style="color: #0099FF; font-style: italic"># Filtering based on a condition</span>
-filtered_data <span style="color: #555555">=</span> df[df[<span style="color: #CC3300">&#39;A&#39;</span>] <span style="color: #555555">&gt;</span> <span style="color: #FF6600">3</span>]
-
-<span style="color: #336666">print</span>(filtered_data)
-</code></pre></div>
-
+<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="c1"># Creating a sample DataFrame</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>        <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">]}</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="c1"># Filtering based on a condition</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="n">filtered_data</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">]</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="nb">print</span><span class="p">(</span><span class="n">filtered_data</span><span class="p">)</span>
+</span></code></pre></div>
 <p>In this example, the DataFrame is filtered to include only rows where column 'A' has values greater than 3.</p>
 <p>Efficient data filtering techniques not only streamline the data analysis process but also play a pivotal role in improving data quality, driving more accurate insights, and supporting informed decision-making in various analytical tasks.</p>
 <h2 id="question_6">Question</h2>
@@ -3333,39 +3419,36 @@ filtered_data <span style="color: #555555">=</span> df[df[<span style="color: #C
 <li><strong>Type of Indexing</strong>: Using unique indexes or composite indexes depending on the filtering criteria can improve query performance.</li>
 <li><strong>Time Complexity</strong>: Efficient indexing reduces the time complexity of filtering operations, leading to faster data access.</li>
 </ul>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code><span style="color: #0099FF; font-style: italic"># Creating an index on a DataFrame column</span>
-df<span style="color: #555555">.</span>set_index(<span style="color: #CC3300">&#39;column_name&#39;</span>, inplace<span style="color: #555555">=</span><span style="color: #006699; font-weight: bold">True</span>)
-</code></pre></div>
-
+<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># Creating an index on a DataFrame column</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;column_name&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></code></pre></div>
 <h4 id="parallel-processing-for-speed-and-scalability">Parallel Processing for Speed and Scalability</h4>
 <ul>
 <li><strong>Utilizing Parallel Processing</strong>:</li>
 <li><strong>Frameworks like Dask or Spark</strong>: These frameworks enable parallel execution of data filtering tasks across multiple cores or nodes, enhancing scalability and speed.</li>
 <li><strong>Distributed Computing</strong>: Distributing computation tasks in parallel minimizes processing time for large datasets.</li>
 </ul>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code><span style="color: #0099FF; font-style: italic"># Example of parallel processing with Dask</span>
-<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">dask.dataframe</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">dd</span>
-
-<span style="color: #0099FF; font-style: italic"># Load data with Dask for parallel processing</span>
-dd_df <span style="color: #555555">=</span> dd<span style="color: #555555">.</span>read_csv(<span style="color: #CC3300">&#39;large_dataset.csv&#39;</span>)
-
-<span style="color: #0099FF; font-style: italic"># Perform filtering operation in parallel</span>
-filtered_data <span style="color: #555555">=</span> dd_df[dd_df[<span style="color: #CC3300">&#39;column&#39;</span>] <span style="color: #555555">&gt;</span> <span style="color: #FF6600">100</span>]
-</code></pre></div>
-
+<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># Example of parallel processing with Dask</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kn">import</span> <span class="nn">dask.dataframe</span> <span class="k">as</span> <span class="nn">dd</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="c1"># Load data with Dask for parallel processing</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="n">dd_df</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;large_dataset.csv&#39;</span><span class="p">)</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="c1"># Perform filtering operation in parallel</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="n">filtered_data</span> <span class="o">=</span> <span class="n">dd_df</span><span class="p">[</span><span class="n">dd_df</span><span class="p">[</span><span class="s1">&#39;column&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">]</span>
+</span></code></pre></div>
 <h4 id="specialized-libraries-for-enhanced-performance">Specialized Libraries for Enhanced Performance</h4>
 <ul>
 <li><strong>Consideration of Specialized Libraries</strong>:</li>
 <li><strong>Cython-Optimized Libraries</strong>: Using libraries like Cython can boost performance for specific filtering tasks by compiling Python code to C.</li>
 <li><strong>NumPy Integration</strong>: Leveraging NumPy for vectorized operations can expedite data filtering processes in Pandas.</li>
 </ul>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code><span style="color: #0099FF; font-style: italic"># Using NumPy for vectorized filtering</span>
-<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">numpy</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">np</span>
-
-<span style="color: #0099FF; font-style: italic"># Filter DataFrame based on NumPy array condition</span>
-filtered_data <span style="color: #555555">=</span> df[df[<span style="color: #CC3300">&#39;column&#39;</span>]<span style="color: #555555">.</span>values <span style="color: #555555">&gt;</span> <span style="color: #FF6600">100</span>]
-</code></pre></div>
-
+<div class="language-python highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># Using NumPy for vectorized filtering</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="c1"># Filter DataFrame based on NumPy array condition</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="n">filtered_data</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;column&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">]</span>
+</span></code></pre></div>
 <h3 id="follow-up-questions_5">Follow-up Questions:</h3>
 <h4 id="what-are-the-considerations-when-selecting-appropriate-data-structures-and-algorithms-for-optimizing-data-filtering-on-extensive-datasets">What are the considerations when selecting appropriate data structures and algorithms for optimizing data filtering on extensive datasets?</h4>
 <ul>
@@ -3457,14 +3540,13 @@ filtered_data <span style="color: #555555">=</span> df[df[<span style="color: #C
 <li>Interactivity enables users to view the filtered data from multiple dimensions simultaneously, facilitating the discovery of complex relationships and dependencies.</li>
 <li>Features like zooming, filtering, and linked highlighting enhance the exploration process and promote a deeper understanding of the data.</li>
 </ul>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code><span style="color: #0099FF; font-style: italic"># Example of an interactive visualization using Plotly in Python</span>
-<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">plotly.express</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">px</span>
-
-<span style="color: #0099FF; font-style: italic"># Create an interactive scatter plot of filtered data</span>
-fig <span style="color: #555555">=</span> px<span style="color: #555555">.</span>scatter(filtered_data, x<span style="color: #555555">=</span><span style="color: #CC3300">&#39;feature1&#39;</span>, y<span style="color: #555555">=</span><span style="color: #CC3300">&#39;feature2&#39;</span>, color<span style="color: #555555">=</span><span style="color: #CC3300">&#39;category&#39;</span>, hover_data<span style="color: #555555">=</span>[<span style="color: #CC3300">&#39;additional_info&#39;</span>])
-fig<span style="color: #555555">.</span>show()
-</code></pre></div>
-
+<div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># Example of an interactive visualization using Plotly in Python</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="c1"># Create an interactive scatter plot of filtered data</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">filtered_data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;feature1&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;feature2&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="n">hover_data</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;additional_info&#39;</span><span class="p">])</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></code></pre></div>
 <h4 id="in-what-ways-does-data-visualization-complement-data-filtering-processes-in-communicating-findings-to-stakeholders-or-decision-makers-effectively">In what ways does data visualization complement data filtering processes in communicating findings to stakeholders or decision-makers effectively?</h4>
 <ul>
 <li><strong>Visual Clarity</strong>:</li>
@@ -3478,17 +3560,16 @@ fig<span style="color: #555555">.</span>show()
 <li>Data visualization enables the creation of a compelling narrative around the filtering outcomes, guiding stakeholders through the data analysis process and highlighting critical findings.</li>
 <li>Visualizations help in presenting a coherent story that bridges the gap between the raw data and actionable insights.</li>
 </ul>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code><span style="color: #0099FF; font-style: italic"># Example of communicating filtering outcomes through a bar chart</span>
-<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">plt</span>
-
-<span style="color: #0099FF; font-style: italic"># Create a bar chart to show the distribution of filtered data</span>
-filtered_data[<span style="color: #CC3300">&#39;category&#39;</span>]<span style="color: #555555">.</span>value_counts()<span style="color: #555555">.</span>plot(kind<span style="color: #555555">=</span><span style="color: #CC3300">&#39;bar&#39;</span>)
-plt<span style="color: #555555">.</span>xlabel(<span style="color: #CC3300">&#39;Category&#39;</span>)
-plt<span style="color: #555555">.</span>ylabel(<span style="color: #CC3300">&#39;Count&#39;</span>)
-plt<span style="color: #555555">.</span>title(<span style="color: #CC3300">&#39;Distribution of Filtered Data Categories&#39;</span>)
-plt<span style="color: #555555">.</span>show()
-</code></pre></div>
-
+<div class="language-python highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># Example of communicating filtering outcomes through a bar chart</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="c1"># Create a bar chart to show the distribution of filtered data</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="n">filtered_data</span><span class="p">[</span><span class="s1">&#39;category&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Category&#39;</span><span class="p">)</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of Filtered Data Categories&#39;</span><span class="p">)</span>
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></code></pre></div>
 <h4 id="can-you-discuss-the-integration-of-data-visualization-tools-with-filtering-techniques-to-streamline-the-exploration-and-validation-of-large-datasets-before-analysis">Can you discuss the integration of data visualization tools with filtering techniques to streamline the exploration and validation of large datasets before analysis?</h4>
 <ul>
 <li><strong>Automated Visualization Pipelines</strong>:</li>
@@ -3502,21 +3583,20 @@ plt<span style="color: #555555">.</span>show()
 <li>Data visualization tools can be integrated with filtering techniques to develop interactive dashboards that provide an overview of filtered data and enable dynamic exploration.</li>
 <li>Dashboards allow users to visualize key metrics, distributions, and trends within the filtered dataset, enhancing the efficiency of data validation and exploration.</li>
 </ul>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code><span style="color: #0099FF; font-style: italic"># Example of integrating data filtering and visualization</span>
-<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">pandas</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">pd</span>
-<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">plt</span>
-
-<span style="color: #0099FF; font-style: italic"># Filter data using Pandas</span>
-filtered_data <span style="color: #555555">=</span> data[data[<span style="color: #CC3300">&#39;column&#39;</span>] <span style="color: #555555">&gt;</span> threshold]
-
-<span style="color: #0099FF; font-style: italic"># Create a scatter plot of the filtered data</span>
-plt<span style="color: #555555">.</span>scatter(filtered_data[<span style="color: #CC3300">&#39;feature1&#39;</span>], filtered_data[<span style="color: #CC3300">&#39;feature2&#39;</span>])
-plt<span style="color: #555555">.</span>xlabel(<span style="color: #CC3300">&#39;Feature 1&#39;</span>)
-plt<span style="color: #555555">.</span>ylabel(<span style="color: #CC3300">&#39;Feature 2&#39;</span>)
-plt<span style="color: #555555">.</span>title(<span style="color: #CC3300">&#39;Filtered Data Scatter Plot&#39;</span>)
-plt<span style="color: #555555">.</span>show()
-</code></pre></div>
-
+<div class="language-python highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1"># Example of integrating data filtering and visualization</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="c1"># Filter data using Pandas</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="n">filtered_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;column&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">]</span>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="c1"># Create a scatter plot of the filtered data</span>
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">filtered_data</span><span class="p">[</span><span class="s1">&#39;feature1&#39;</span><span class="p">],</span> <span class="n">filtered_data</span><span class="p">[</span><span class="s1">&#39;feature2&#39;</span><span class="p">])</span>
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Feature 1&#39;</span><span class="p">)</span>
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Feature 2&#39;</span><span class="p">)</span>
+</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Filtered Data Scatter Plot&#39;</span><span class="p">)</span>
+</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></code></pre></div>
 <p>In conclusion, data visualization serves as a powerful companion to data filtering processes, enhancing the validation, refinement, exploration, and communication of insights derived from filtered datasets in data analysis workflows.</p>
 <h2 id="question_8">Question</h2>
 <p><strong>Main question</strong>: What are the ethical considerations to be mindful of when filtering sensitive or personally identifiable information (PII) in datasets?</p>
@@ -3563,19 +3643,18 @@ plt<span style="color: #555555">.</span>show()
 <li><strong>Masking</strong>: Replace sensitive data with masked or pseudonymized values.</li>
 <li><strong>Tokenization</strong>: Substitute actual data with randomly generated tokens while preserving the data relationships.</li>
 </ul>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code><span style="color: #0099FF; font-style: italic"># Example of data anonymization using masking in Pandas</span>
-<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">pandas</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">pd</span>
-
-<span style="color: #0099FF; font-style: italic"># Sample dataset with sensitive information</span>
-data <span style="color: #555555">=</span> {<span style="color: #CC3300">&#39;Name&#39;</span>: [<span style="color: #CC3300">&#39;Alice&#39;</span>, <span style="color: #CC3300">&#39;Bob&#39;</span>, <span style="color: #CC3300">&#39;Charlie&#39;</span>],
-        <span style="color: #CC3300">&#39;SSN&#39;</span>: [<span style="color: #CC3300">&#39;123-45-6789&#39;</span>, <span style="color: #CC3300">&#39;234-56-7890&#39;</span>, <span style="color: #CC3300">&#39;345-67-8901&#39;</span>]}
-df <span style="color: #555555">=</span> pd<span style="color: #555555">.</span>DataFrame(data)
-
-<span style="color: #0099FF; font-style: italic"># Masking the SSN column</span>
-df[<span style="color: #CC3300">&#39;Masked_SSN&#39;</span>] <span style="color: #555555">=</span> df[<span style="color: #CC3300">&#39;SSN&#39;</span>]<span style="color: #555555">.</span>apply(<span style="color: #006699; font-weight: bold">lambda</span> x: <span style="color: #CC3300">&#39;XXX-XX-&#39;</span> <span style="color: #555555">+</span> x[<span style="color: #555555">-</span><span style="color: #FF6600">4</span>:])
-<span style="color: #336666">print</span>(df)
-</code></pre></div>
-
+<div class="language-python highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1"># Example of data anonymization using masking in Pandas</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="c1"># Sample dataset with sensitive information</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Charlie&#39;</span><span class="p">],</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>        <span class="s1">&#39;SSN&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;123-45-6789&#39;</span><span class="p">,</span> <span class="s1">&#39;234-56-7890&#39;</span><span class="p">,</span> <span class="s1">&#39;345-67-8901&#39;</span><span class="p">]}</span>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="c1"># Masking the SSN column</span>
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Masked_SSN&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;SSN&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39;XXX-XX-&#39;</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">:])</span>
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</span></code></pre></div>
 <h4 id="what-measures-should-be-taken-to-secure-filtered-datasets-containing-sensitive-information-from-potential-data-breaches-or-cyber-threats">What measures should be taken to secure filtered datasets containing sensitive information from potential data breaches or cyber threats?</h4>
 <ul>
 <li><em>Security measures</em> play a vital role in protecting filtered datasets with sensitive information:</li>
@@ -3630,18 +3709,17 @@ df[<span style="color: #CC3300">&#39;Masked_SSN&#39;</span>] <span style="color:
 <li><strong>MLflow</strong>: Tracks experiments, parameters, and models, facilitating reproducibility.</li>
 <li><strong>Apache Airflow</strong>: Orchestration tool for managing complex workflows and tracking data pipelines.</li>
 </ul>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code><span style="color: #0099FF; font-style: italic"># Example of Using Pandas Profiling for Data Documentation</span>
-<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">pandas</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">pd</span>
-<span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">pandas_profiling</span> <span style="color: #006699; font-weight: bold">import</span> ProfileReport
-
-<span style="color: #0099FF; font-style: italic"># Load data</span>
-data <span style="color: #555555">=</span> pd<span style="color: #555555">.</span>read_csv(<span style="color: #CC3300">&quot;data.csv&quot;</span>)
-
-<span style="color: #0099FF; font-style: italic"># Generate profile report</span>
-profile <span style="color: #555555">=</span> ProfileReport(data)
-profile<span style="color: #555555">.</span>to_file(<span style="color: #CC3300">&quot;data_profile_report.html&quot;</span>)
-</code></pre></div>
-
+<div class="language-python highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="c1"># Example of Using Pandas Profiling for Data Documentation</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="kn">from</span> <span class="nn">pandas_profiling</span> <span class="kn">import</span> <span class="n">ProfileReport</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="c1"># Load data</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">)</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="c1"># Generate profile report</span>
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="n">profile</span> <span class="o">=</span> <span class="n">ProfileReport</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="n">profile</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s2">&quot;data_profile_report.html&quot;</span><span class="p">)</span>
+</span></code></pre></div>
 <h3 id="enhancing-trustworthiness-with-structured-data-provenance">Enhancing Trustworthiness with Structured Data Provenance</h3>
 <ul>
 <li><strong>Consistency</strong>: Structured provenance establishes a standardized way to document filtering processes, promoting consistency and clarity.</li>
@@ -3684,9 +3762,55 @@ profile<span style="color: #555555">.</span>to_file(<span style="color: #CC3300"
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
       </main>
       
         <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../dropping_data/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Dropping Data">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Dropping Data
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../renaming_data/" class="md-footer__link md-footer__link--next" aria-label="Next: Renaming Data">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Renaming Data
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -3696,6 +3820,65 @@ profile<span style="color: #555555">.</span>to_file(<span style="color: #CC3300"
     Made with
     <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
       Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://teach-me-codes.github.io" target="_blank" rel="noopener" title="teach-me-codes.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://x.com/TeachMeCodes" target="_blank" rel="noopener" title="x.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.facebook.com/teachmecodes" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/teach-me-codes" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/@teach-me-codes" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
     </a>
   
 </div>
@@ -3710,7 +3893,81 @@ profile<span style="color: #555555">.</span>to_file(<span style="color: #CC3300"
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+  
+    
+  
+
+
+  
+    
+  
+
+
+
+  
+
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="analytics" checked>
+          <span class="task-list-indicator"></span>
+          Google Analytics
+        </label>
+      </li>
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="github" checked>
+          <span class="task-list-indicator"></span>
+          GitHub
+        </label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Manage settings</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.081f42fc.min.js"></script>

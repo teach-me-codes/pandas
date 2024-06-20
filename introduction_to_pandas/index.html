@@ -6,7 +6,13 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="A comprehensive guide to learning Pandas">
       
+      
+        <meta name="author" content="Teach Me Codes">
+      
+      
+        <link rel="canonical" href="https://learning.teachme.codes/introduction_to_pandas/">
       
       
         <link rel="prev" href="..">
@@ -15,16 +21,19 @@
         <link rel="next" href="../pandas_installation/">
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../assets/logo.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.25">
     
     
       
-        <title>Introduction to Pandas - Pandas</title>
+        <title>Introduction to Pandas - Learning Pandas</title>
       
     
     
       <link rel="stylesheet" href="../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -43,8 +52,6 @@
       
     
     
-      <link rel="stylesheet" href="../extra.css">
-    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -54,9 +61,9 @@
   
   
 
-<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","UA-156178967-1"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","UA-156178967-1",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=UA-156178967-1",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-ECS7B3X8JM"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-ECS7B3X8JM",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-ECS7B3X8JM",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
   
-    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+    <script>var consent;"undefined"==typeof __md_analytics||(consent=__md_get("__consent"))&&consent.analytics&&__md_analytics()</script>
   
 
     
@@ -65,7 +72,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -90,10 +104,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Pandas" class="md-header__button md-logo" aria-label="Pandas" data-md-component="logo">
+    <a href=".." title="Learning Pandas" class="md-header__button md-logo" aria-label="Learning Pandas" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -104,7 +117,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Pandas
+            Learning Pandas
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -116,6 +129,42 @@
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
     
     
       <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
@@ -139,11 +188,18 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
       
     </form>
     <div class="md-search__output">
@@ -159,6 +215,18 @@
   </div>
 </div>
     
+    
+      <div class="md-header__source">
+        <a href="https://github.com/teach-me-codes/pandas" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
     
   </nav>
   
@@ -185,14 +253,25 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Pandas" class="md-nav__button md-logo" aria-label="Pandas" data-md-component="logo">
+    <a href=".." title="Learning Pandas" class="md-nav__button md-logo" aria-label="Learning Pandas" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../assets/logo.png" alt="logo">
 
     </a>
-    Pandas
+    Learning Pandas
   </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/teach-me-codes/pandas" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -517,57 +596,6 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dropping-rows-with-missing-values" class="md-nav__link">
-    <span class="md-ellipsis">
-      Dropping rows with missing values
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#filling-missing-values-with-a-specific-value" class="md-nav__link">
-    <span class="md-ellipsis">
-      Filling missing values with a specific value
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#interpolating-missing-values" class="md-nav__link">
-    <span class="md-ellipsis">
-      Interpolating missing values
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dropping-duplicate-rows-based-on-all-columns" class="md-nav__link">
-    <span class="md-ellipsis">
-      Dropping duplicate rows based on all columns
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dropping-duplicates-based-on-specific-columns" class="md-nav__link">
-    <span class="md-ellipsis">
-      Dropping duplicates based on specific columns
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Dropping duplicates based on specific columns">
-      <ul class="md-nav__list">
-        
           <li class="md-nav__item">
   <a href="#follow-up-questions_2" class="md-nav__link">
     <span class="md-ellipsis">
@@ -610,7 +638,12 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#question_4" class="md-nav__link">
     <span class="md-ellipsis">
       Question
@@ -618,8 +651,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#answer_4" class="md-nav__link">
     <span class="md-ellipsis">
       Answer
@@ -684,8 +717,8 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#question_5" class="md-nav__link">
     <span class="md-ellipsis">
       Question
@@ -693,8 +726,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#answer_5" class="md-nav__link">
     <span class="md-ellipsis">
       Answer
@@ -774,8 +807,8 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#question_6" class="md-nav__link">
     <span class="md-ellipsis">
       Question
@@ -783,8 +816,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#answer_6" class="md-nav__link">
     <span class="md-ellipsis">
       Answer
@@ -858,8 +891,8 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#question_7" class="md-nav__link">
     <span class="md-ellipsis">
       Question
@@ -867,8 +900,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#answer_7" class="md-nav__link">
     <span class="md-ellipsis">
       Answer
@@ -933,8 +966,8 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#question_8" class="md-nav__link">
     <span class="md-ellipsis">
       Question
@@ -942,8 +975,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#answer_8" class="md-nav__link">
     <span class="md-ellipsis">
       Answer
@@ -1023,8 +1056,8 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#question_9" class="md-nav__link">
     <span class="md-ellipsis">
       Question
@@ -1032,8 +1065,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#answer_9" class="md-nav__link">
     <span class="md-ellipsis">
       Answer
@@ -1098,8 +1131,8 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#question_10" class="md-nav__link">
     <span class="md-ellipsis">
       Question
@@ -1107,8 +1140,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#answer_10" class="md-nav__link">
     <span class="md-ellipsis">
       Answer
@@ -1161,11 +1194,6 @@
       In what ways do Pandas indexing and selection mechanisms improve the efficiency and precision of data exploration and extraction in complex datasets compared to traditional indexing methods?
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -2304,57 +2332,6 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dropping-rows-with-missing-values" class="md-nav__link">
-    <span class="md-ellipsis">
-      Dropping rows with missing values
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#filling-missing-values-with-a-specific-value" class="md-nav__link">
-    <span class="md-ellipsis">
-      Filling missing values with a specific value
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#interpolating-missing-values" class="md-nav__link">
-    <span class="md-ellipsis">
-      Interpolating missing values
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dropping-duplicate-rows-based-on-all-columns" class="md-nav__link">
-    <span class="md-ellipsis">
-      Dropping duplicate rows based on all columns
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dropping-duplicates-based-on-specific-columns" class="md-nav__link">
-    <span class="md-ellipsis">
-      Dropping duplicates based on specific columns
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Dropping duplicates based on specific columns">
-      <ul class="md-nav__list">
-        
           <li class="md-nav__item">
   <a href="#follow-up-questions_2" class="md-nav__link">
     <span class="md-ellipsis">
@@ -2397,7 +2374,12 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#question_4" class="md-nav__link">
     <span class="md-ellipsis">
       Question
@@ -2405,8 +2387,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#answer_4" class="md-nav__link">
     <span class="md-ellipsis">
       Answer
@@ -2471,8 +2453,8 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#question_5" class="md-nav__link">
     <span class="md-ellipsis">
       Question
@@ -2480,8 +2462,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#answer_5" class="md-nav__link">
     <span class="md-ellipsis">
       Answer
@@ -2561,8 +2543,8 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#question_6" class="md-nav__link">
     <span class="md-ellipsis">
       Question
@@ -2570,8 +2552,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#answer_6" class="md-nav__link">
     <span class="md-ellipsis">
       Answer
@@ -2645,8 +2627,8 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#question_7" class="md-nav__link">
     <span class="md-ellipsis">
       Question
@@ -2654,8 +2636,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#answer_7" class="md-nav__link">
     <span class="md-ellipsis">
       Answer
@@ -2720,8 +2702,8 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#question_8" class="md-nav__link">
     <span class="md-ellipsis">
       Question
@@ -2729,8 +2711,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#answer_8" class="md-nav__link">
     <span class="md-ellipsis">
       Answer
@@ -2810,8 +2792,8 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#question_9" class="md-nav__link">
     <span class="md-ellipsis">
       Question
@@ -2819,8 +2801,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#answer_9" class="md-nav__link">
     <span class="md-ellipsis">
       Answer
@@ -2885,8 +2867,8 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#question_10" class="md-nav__link">
     <span class="md-ellipsis">
       Question
@@ -2894,8 +2876,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#answer_10" class="md-nav__link">
     <span class="md-ellipsis">
       Answer
@@ -2960,11 +2942,6 @@
     </nav>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
     </ul>
   
@@ -2980,6 +2957,24 @@
                 
                   
 
+  
+    <a href="https://github.com/teach-me-codes/pandas/edit/master/docs/introduction_to_pandas.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/teach-me-codes/pandas/raw/master/docs/introduction_to_pandas.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+  <h1>Introduction to Pandas</h1>
 
 <h2 id="question">Question</h2>
 <p><strong>Main question</strong>: What is Pandas in the context of Python data analysis?</p>
@@ -3032,16 +3027,15 @@
 <p><strong>Integrated Time Series Functionality</strong>: Pandas offers powerful tools for working with time series data, including date/time indexing, resampling, and time zone handling, not readily available in native Python data structures.</p>
 </li>
 </ul>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code><span style="color: #0099FF; font-style: italic"># Example of reading a CSV file into a Pandas DataFrame</span>
-<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">pandas</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">pd</span>
-
-<span style="color: #0099FF; font-style: italic"># Read data from a CSV file</span>
-df <span style="color: #555555">=</span> pd<span style="color: #555555">.</span>read_csv(<span style="color: #CC3300">&#39;data.csv&#39;</span>)
-
-<span style="color: #0099FF; font-style: italic"># Display the first few rows of the DataFrame</span>
-<span style="color: #336666">print</span>(df<span style="color: #555555">.</span>head())
-</code></pre></div>
-
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Example of reading a CSV file into a Pandas DataFrame</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Read data from a CSV file</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">)</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Display the first few rows of the DataFrame</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</span></code></pre></div>
 <h4 id="can-you-explain-the-key-data-structures-offered-by-pandas-for-organizing-and-analyzing-data">Can you explain the key data structures offered by Pandas for organizing and analyzing data?</h4>
 <ol>
 <li><strong>DataFrame</strong>:</li>
@@ -3119,18 +3113,17 @@ df <span style="color: #555555">=</span> pd<span style="color: #555555">.</span>
 <li>NumPy offers a comprehensive set of mathematical functions optimized for array operations.</li>
 <li>These functions can be seamlessly applied to Pandas DataFrames for advanced data processing tasks.</li>
 </ul>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code><span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">pandas</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">pd</span>
-<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">numpy</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">np</span>
-
-<span style="color: #0099FF; font-style: italic"># Creating a Pandas DataFrame</span>
-data <span style="color: #555555">=</span> {<span style="color: #CC3300">&#39;A&#39;</span>: [<span style="color: #FF6600">1</span>, <span style="color: #FF6600">2</span>, <span style="color: #FF6600">3</span>, <span style="color: #FF6600">4</span>], <span style="color: #CC3300">&#39;B&#39;</span>: [<span style="color: #FF6600">5</span>, <span style="color: #FF6600">6</span>, <span style="color: #FF6600">7</span>, <span style="color: #FF6600">8</span>]}
-df <span style="color: #555555">=</span> pd<span style="color: #555555">.</span>DataFrame(data)
-
-<span style="color: #0099FF; font-style: italic"># Converting DataFrame to NumPy Array for calculation</span>
-numpy_array <span style="color: #555555">=</span> df<span style="color: #555555">.</span>to_numpy()
-<span style="color: #336666">print</span>(numpy_array)
-</code></pre></div>
-
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Creating a Pandas DataFrame</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]}</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1"># Converting DataFrame to NumPy Array for calculation</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">numpy_array</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">numpy_array</span><span class="p">)</span>
+</span></code></pre></div>
 <h4 id="can-you-elaborate-on-the-interoperability-between-pandas-and-numpy-in-sharing-data-and-performing-operations">Can you elaborate on the interoperability between Pandas and NumPy in sharing data and performing operations?</h4>
 <ul>
 <li><strong>Shared Data Representation</strong>:</li>
@@ -3192,13 +3185,12 @@ numpy_array <span style="color: #555555">=</span> df<span style="color: #555555"
 <li><strong>Vectorized Operations</strong>: Series supports vectorized operations, making it more suitable for numerical computations and data transformations.</li>
 <li><strong>Additional Functionality</strong>: Series comes with additional functions for statistical analysis, data cleaning, and data exploration, enhancing its utility in data science tasks.</li>
 </ul>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code><span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">pandas</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">pd</span>
-
-<span style="color: #0099FF; font-style: italic"># Creating a Pandas Series</span>
-data <span style="color: #555555">=</span> pd<span style="color: #555555">.</span>Series([<span style="color: #FF6600">10</span>, <span style="color: #FF6600">20</span>, <span style="color: #FF6600">30</span>, <span style="color: #FF6600">40</span>, <span style="color: #FF6600">50</span>], index<span style="color: #555555">=</span>[<span style="color: #CC3300">&#39;A&#39;</span>, <span style="color: #CC3300">&#39;B&#39;</span>, <span style="color: #CC3300">&#39;C&#39;</span>, <span style="color: #CC3300">&#39;D&#39;</span>, <span style="color: #CC3300">&#39;E&#39;</span>])
-<span style="color: #336666">print</span>(data)
-</code></pre></div>
-
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># Creating a Pandas Series</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">])</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span></code></pre></div>
 <h4 id="can-you-explain-the-concept-of-labeled-indexing-in-dataframes-and-its-significance-in-data-analysis-tasks">Can you explain the concept of labeled indexing in DataFrames and its significance in data analysis tasks?</h4>
 <ul>
 <li><strong>Labeled Indexing</strong>: In DataFrames, each row and column has a label or name associated with it, enabling intuitive and explicit indexing of data.</li>
@@ -3207,14 +3199,13 @@ data <span style="color: #555555">=</span> pd<span style="color: #555555">.</spa
 <li>Simplifies merging, joining, and reshaping datasets based on common labels, reducing the complexity of data manipulation tasks.</li>
 <li>Enables meaningful interpretation of data structures and relationships within a dataset, improving the understanding of data patterns and trends.</li>
 </ul>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code><span style="color: #0099FF; font-style: italic"># Creating a Pandas DataFrame</span>
-data <span style="color: #555555">=</span> {<span style="color: #CC3300">&#39;Name&#39;</span>: [<span style="color: #CC3300">&#39;Alice&#39;</span>, <span style="color: #CC3300">&#39;Bob&#39;</span>, <span style="color: #CC3300">&#39;Charlie&#39;</span>],
-        <span style="color: #CC3300">&#39;Age&#39;</span>: [<span style="color: #FF6600">25</span>, <span style="color: #FF6600">30</span>, <span style="color: #FF6600">35</span>],
-        <span style="color: #CC3300">&#39;Salary&#39;</span>: [<span style="color: #FF6600">50000</span>, <span style="color: #FF6600">60000</span>, <span style="color: #FF6600">70000</span>]}
-df <span style="color: #555555">=</span> pd<span style="color: #555555">.</span>DataFrame(data)
-<span style="color: #336666">print</span>(df)
-</code></pre></div>
-
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Creating a Pandas DataFrame</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Charlie&#39;</span><span class="p">],</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>        <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">],</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>        <span class="s1">&#39;Salary&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">50000</span><span class="p">,</span> <span class="mi">60000</span><span class="p">,</span> <span class="mi">70000</span><span class="p">]}</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</span></code></pre></div>
 <h4 id="in-what-ways-do-the-pandas-data-structures-simplify-data-exploration-and-transformation-compared-to-manual-methods">In what ways do the Pandas data structures simplify data exploration and transformation compared to manual methods?</h4>
 <ul>
 <li><strong>Efficient Data Cleaning</strong>: Pandas provides functions to handle missing data, duplicate values, and outliers effectively, streamlining the data cleaning process.</li>
@@ -3265,15 +3256,17 @@ df <span style="color: #555555">=</span> pd<span style="color: #555555">.</span>
 <li><code>fillna()</code>: Fills missing values with a specified data point or calculated value.</li>
 <li><em>Interpolations</em>: Interpolates missing values based on existing data.</li>
 </ul>
-<p>```python
-import pandas as pd</p>
-<h1 id="dropping-rows-with-missing-values">Dropping rows with missing values</h1>
-<p>df.dropna()</p>
-<h1 id="filling-missing-values-with-a-specific-value">Filling missing values with a specific value</h1>
-<p>df.fillna(0)</p>
-<h1 id="interpolating-missing-values">Interpolating missing values</h1>
-<p>df.interpolate()
-```</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># Dropping rows with missing values</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1"># Filling missing values with a specific value</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="c1"># Interpolating missing values</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="n">df</span><span class="o">.</span><span class="n">interpolate</span><span class="p">()</span>
+</span></code></pre></div>
 </li>
 <li>
 <p><strong>Handling Duplicate Values</strong>:</p>
@@ -3294,12 +3287,12 @@ import pandas as pd</p>
 </li>
 <li>
 <p>The <code>drop_duplicates()</code> function in Pandas allows for the removal of duplicate rows from a DataFrame, ensuring data consistency.</p>
-<p>```python</p>
-<h1 id="dropping-duplicate-rows-based-on-all-columns">Dropping duplicate rows based on all columns</h1>
-<p>df.drop_duplicates()</p>
-<h1 id="dropping-duplicates-based-on-specific-columns">Dropping duplicates based on specific columns</h1>
-<p>df.drop_duplicates(subset=['column1', 'column2'])
-```</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Dropping duplicate rows based on all columns</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Dropping duplicates based on specific columns</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;column1&#39;</span><span class="p">,</span> <span class="s1">&#39;column2&#39;</span><span class="p">])</span>
+</span></code></pre></div>
 </li>
 </ol>
 <p>By leveraging Pandas' functionalities to handle missing data and duplicate values effectively, data analysts and scientists can ensure the integrity and reliability of their datasets for accurate data exploration and analysis.</p>
@@ -3343,41 +3336,43 @@ import pandas as pd</p>
 <ol>
 <li><strong>Pivot Tables</strong>:</li>
 <li><strong>Functionality</strong>: Pivot tables in Pandas allow for multidimensional data summarization and analysis by reshaping the data, providing insights into the relationships between different variables.</li>
-<li>
-<p><strong>Example</strong>:
-     ```python
-     import pandas as pd</p>
-<p># Creating a sample DataFrame
- data = {
-     'A': ['foo', 'foo', 'foo', 'bar', 'bar', 'bar'],
-     'B': ['one', 'one', 'two', 'two', 'one', 'one'],
-     'C': [1, 2, 3, 4, 5, 6],
-     'D': [10, 20, 30, 40, 50, 60]
- }
- df = pd.DataFrame(data)</p>
-<p># Creating a pivot table
- pivot_table = df.pivot_table(values='D', index='A', columns='B')
- print(pivot_table)
- <code>2. **GroupBy**:
-   - **Functionality**: The `groupby` function in Pandas is used for splitting the data into groups based on some criteria and then applying aggregate functions to these groups.
-   - **Example**:</code>python
- # Grouping data by 'A' column and calculating the mean
- grouped_data = df.groupby('A').mean()
- print(grouped_data)
- <code>3. **Merge**:
-   - **Functionality**: The `merge` function in Pandas is used to combine datasets based on one or more keys, similar to SQL joins.
-   - **Example**:</code>python
- # Merging two DataFrames based on a common key 'key'
- merged_df = pd.merge(df1, df2, on='key')
- print(merged_df)
- <code>4. **Concat**:
-   - **Functionality**: The `concat` function in Pandas is used to concatenate DataFrames along a particular axis, either row-wise or column-wise.
-   - **Example**:</code>python
- # Concatenating two DataFrames row-wise
- concatenated_df = pd.concat([df1, df2], axis=0)
- print(concatenated_df)
- ```</p>
-</li>
+<li><strong>Example</strong>:
+     <div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c1"># Creating a sample DataFrame</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">],</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">],</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="p">}</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="c1"># Creating a pivot table</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="n">pivot_table</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;B&#39;</span><span class="p">)</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="nb">print</span><span class="p">(</span><span class="n">pivot_table</span><span class="p">)</span>
+</span></code></pre></div></li>
+<li><strong>GroupBy</strong>:</li>
+<li><strong>Functionality</strong>: The <code>groupby</code> function in Pandas is used for splitting the data into groups based on some criteria and then applying aggregate functions to these groups.</li>
+<li><strong>Example</strong>:
+     <div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Grouping data by &#39;A&#39; column and calculating the mean</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">grouped_data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">grouped_data</span><span class="p">)</span>
+</span></code></pre></div></li>
+<li><strong>Merge</strong>:</li>
+<li><strong>Functionality</strong>: The <code>merge</code> function in Pandas is used to combine datasets based on one or more keys, similar to SQL joins.</li>
+<li><strong>Example</strong>:
+     <div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Merging two DataFrames based on a common key &#39;key&#39;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">merged_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;key&#39;</span><span class="p">)</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">merged_df</span><span class="p">)</span>
+</span></code></pre></div></li>
+<li><strong>Concat</strong>:</li>
+<li><strong>Functionality</strong>: The <code>concat</code> function in Pandas is used to concatenate DataFrames along a particular axis, either row-wise or column-wise.</li>
+<li><strong>Example</strong>:
+     <div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Concatenating two DataFrames row-wise</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">concatenated_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">concatenated_df</span><span class="p">)</span>
+</span></code></pre></div></li>
 </ol>
 <h3 id="follow-up-questions_3">Follow-up Questions:</h3>
 <h4 id="how-does-the-pivot_table-method-in-pandas-facilitate-multidimensional-data-summarization-and-analysis">How does the <code>pivot_table</code> method in Pandas facilitate multidimensional data summarization and analysis?</h4>
@@ -3488,23 +3483,22 @@ import pandas as pd</p>
 <li>Shifting functions like <code>shift</code> allow for comparing current and past values in the time series. This comparison can be utilized to detect anomalies or irregularities in the data by identifying sudden shifts or deviations from expected patterns.</li>
 </ul>
 <p>In conclusion, Pandas offers a robust set of tools for time series analysis and manipulation, empowering data scientists and analysts to extract valuable insights and trends from temporal data efficiently.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code><span style="color: #0099FF; font-style: italic"># Example of using Pandas for time series analysis</span>
-<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">pandas</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">pd</span>
-
-<span style="color: #0099FF; font-style: italic"># Create a time series DataFrame</span>
-data <span style="color: #555555">=</span> {<span style="color: #CC3300">&#39;date&#39;</span>: [<span style="color: #CC3300">&#39;2022-01-01&#39;</span>, <span style="color: #CC3300">&#39;2022-01-02&#39;</span>, <span style="color: #CC3300">&#39;2022-01-03&#39;</span>],
-        <span style="color: #CC3300">&#39;value&#39;</span>: [<span style="color: #FF6600">10</span>, <span style="color: #FF6600">20</span>, <span style="color: #FF6600">15</span>]}
-df <span style="color: #555555">=</span> pd<span style="color: #555555">.</span>DataFrame(data)
-
-<span style="color: #0099FF; font-style: italic"># Set date as the index</span>
-df[<span style="color: #CC3300">&#39;date&#39;</span>] <span style="color: #555555">=</span> pd<span style="color: #555555">.</span>to_datetime(df[<span style="color: #CC3300">&#39;date&#39;</span>])
-df<span style="color: #555555">.</span>set_index(<span style="color: #CC3300">&#39;date&#39;</span>, inplace<span style="color: #555555">=</span><span style="color: #006699; font-weight: bold">True</span>)
-
-<span style="color: #0099FF; font-style: italic"># Resample the data to a weekly frequency</span>
-weekly_data <span style="color: #555555">=</span> df<span style="color: #555555">.</span>resample(<span style="color: #CC3300">&#39;W&#39;</span>)<span style="color: #555555">.</span>sum()
-<span style="color: #336666">print</span>(weekly_data)
-</code></pre></div>
-
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Example of using Pandas for time series analysis</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1"># Create a time series DataFrame</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;2022-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-01-02&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-01-03&#39;</span><span class="p">],</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>        <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">15</span><span class="p">]}</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="c1"># Set date as the index</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">])</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="c1"># Resample the data to a weekly frequency</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="n">weekly_data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="nb">print</span><span class="p">(</span><span class="n">weekly_data</span><span class="p">)</span>
+</span></code></pre></div>
 <h2 id="question_6">Question</h2>
 <p><strong>Main question</strong>: How does Pandas support data visualization and integration with popular plotting libraries?</p>
 <p><strong>Explanation</strong>: Pandas enables seamless integration with visualization libraries like Matplotlib and Seaborn, allowing users to create insightful visualizations directly from Pandas data structures for exploratory data analysis and presentation purposes.</p>
@@ -3549,22 +3543,21 @@ weekly_data <span style="color: #555555">=</span> df<span style="color: #555555"
 <p><strong>Interactive Visualization</strong>: Matplotlib supports interactive plotting features, allowing users to create interactive plots that can be explored and interacted with, enhancing data exploration and presentation.</p>
 </li>
 </ul>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code><span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">pandas</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">pd</span>
-<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">plt</span>
-
-<span style="color: #0099FF; font-style: italic"># Generate sample data</span>
-data <span style="color: #555555">=</span> {<span style="color: #CC3300">&#39;A&#39;</span>: [<span style="color: #FF6600">1</span>, <span style="color: #FF6600">2</span>, <span style="color: #FF6600">3</span>, <span style="color: #FF6600">4</span>, <span style="color: #FF6600">5</span>],
-        <span style="color: #CC3300">&#39;B&#39;</span>: [<span style="color: #FF6600">10</span>, <span style="color: #FF6600">20</span>, <span style="color: #FF6600">15</span>, <span style="color: #FF6600">25</span>, <span style="color: #FF6600">30</span>]}
-df <span style="color: #555555">=</span> pd<span style="color: #555555">.</span>DataFrame(data)
-
-<span style="color: #0099FF; font-style: italic"># Create a line plot directly from Pandas DataFrame</span>
-df<span style="color: #555555">.</span>plot(x<span style="color: #555555">=</span><span style="color: #CC3300">&#39;A&#39;</span>, y<span style="color: #555555">=</span><span style="color: #CC3300">&#39;B&#39;</span>, marker<span style="color: #555555">=</span><span style="color: #CC3300">&#39;o&#39;</span>)
-plt<span style="color: #555555">.</span>title(<span style="color: #CC3300">&#39;Customized Line Plot&#39;</span>)
-plt<span style="color: #555555">.</span>xlabel(<span style="color: #CC3300">&#39;X-axis&#39;</span>)
-plt<span style="color: #555555">.</span>ylabel(<span style="color: #CC3300">&#39;Y-axis&#39;</span>)
-plt<span style="color: #555555">.</span>show()
-</code></pre></div>
-
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1"># Generate sample data</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>        <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">]}</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="c1"># Create a line plot directly from Pandas DataFrame</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Customized Line Plot&#39;</span><span class="p">)</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X-axis&#39;</span><span class="p">)</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y-axis&#39;</span><span class="p">)</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></code></pre></div>
 <h4 id="can-you-explain-how-seaborn-enhances-the-visual-representation-of-pandas-data-through-its-specialized-plotting-functions">Can you explain how Seaborn enhances the visual representation of Pandas data through its specialized plotting functions?</h4>
 <ul>
 <li>
@@ -3577,16 +3570,15 @@ plt<span style="color: #555555">.</span>show()
 <p><strong>Facet Grids</strong>: Seaborn's <code>FacetGrid</code> feature allows for the creation of multi-plot grids to visualize multiple variables or subsets of data simultaneously, facilitating comprehensive data exploration.</p>
 </li>
 </ul>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code><span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">seaborn</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">sns</span>
-
-<span style="color: #0099FF; font-style: italic"># Using Seaborn to create a box plot from Pandas data</span>
-sns<span style="color: #555555">.</span>boxplot(x<span style="color: #555555">=</span><span style="color: #CC3300">&#39;A&#39;</span>, y<span style="color: #555555">=</span><span style="color: #CC3300">&#39;B&#39;</span>, data<span style="color: #555555">=</span>df)
-plt<span style="color: #555555">.</span>title(<span style="color: #CC3300">&#39;Box Plot using Seaborn&#39;</span>)
-plt<span style="color: #555555">.</span>xlabel(<span style="color: #CC3300">&#39;X-axis&#39;</span>)
-plt<span style="color: #555555">.</span>ylabel(<span style="color: #CC3300">&#39;Y-axis&#39;</span>)
-plt<span style="color: #555555">.</span>show()
-</code></pre></div>
-
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="c1"># Using Seaborn to create a box plot from Pandas data</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Box Plot using Seaborn&#39;</span><span class="p">)</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X-axis&#39;</span><span class="p">)</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y-axis&#39;</span><span class="p">)</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></code></pre></div>
 <h4 id="in-what-ways-does-incorporating-data-visualization-in-pandas-workflows-improve-the-communication-of-analytical-findings-and-trends">In what ways does incorporating data visualization in Pandas workflows improve the communication of analytical findings and trends?</h4>
 <ul>
 <li>
@@ -3706,9 +3698,9 @@ plt<span style="color: #555555">.</span>show()
 <p><strong>Encoding Categorical Variables</strong>:</p>
 </li>
 <li><strong>One-Hot Encoding (get_dummies())</strong>: Converts categorical variables into dummy/indicator variables.
-   <code>python
-   # Example of One-Hot Encoding using Pandas get_dummies()
-   encoded_data = pd.get_dummies(data, columns=['categorical_column'])</code></li>
+   <div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># Example of One-Hot Encoding using Pandas get_dummies()</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">encoded_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;categorical_column&#39;</span><span class="p">])</span>
+</span></code></pre></div></li>
 <li>
 <p><strong>Label Encoding</strong>: Represents each category as a unique numerical value.</p>
 </li>
@@ -3800,9 +3792,9 @@ plt<span style="color: #555555">.</span>show()
 <li><em>Features</em>: Supports various parameters for customization, such as delimiter selection, handling missing values, specifying data types, and more.</li>
 <li>
 <p><em>Example</em>:
-    <code>python
-    import pandas as pd
-    df = pd.read_csv('data.csv')</code></p>
+    <div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">)</span>
+</span></code></pre></div></p>
 </li>
 <li>
 <p><strong><code>to_csv</code> Function</strong>:</p>
@@ -3810,8 +3802,8 @@ plt<span style="color: #555555">.</span>show()
 <li><em>Purpose</em>: Writes DataFrame to a CSV file.</li>
 <li><em>Features</em>: Allows customization options like choosing the delimiter, including/excluding the index, and specifying column selection.</li>
 <li><em>Example</em>:
-    <code>python
-    df.to_csv('output_data.csv', index=False)</code></li>
+    <div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;output_data.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></code></pre></div></li>
 </ul>
 <h3 id="in-what-scenarios-would-you-prefer-using-pandas-for-data-extraction-and-manipulation-over-specialized-database-querying-tools-or-etl-processes">In What Scenarios Would You Prefer Using Pandas for Data Extraction and Manipulation over Specialized Database Querying Tools or ETL Processes?</h3>
 <ul>
@@ -3843,27 +3835,31 @@ plt<span style="color: #555555">.</span>show()
 <p>Pandas provides robust functionality for data indexing, slicing, and selection, allowing users to extract specific subsets of data efficiently. Key tools like <code>loc</code>, <code>iloc</code>, and boolean indexing enable seamless manipulation of data based on labels, positions, or conditions.</p>
 <ol>
 <li><strong>Label-based vs. Integer-based Indexing</strong>:</li>
-<li>
-<p><em>Label-based Indexing (<code>loc</code>)</em>:</p>
-<ul>
+<li><em>Label-based Indexing (<code>loc</code>)</em>:<ul>
 <li>Uses row and column labels for data selection.</li>
 <li>Examples:
- ```python
- import pandas as pd</li>
+ <div class="language-python highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="c1"># Creating a DataFrame</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]}</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">])</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="c1"># Using loc to select data based on labels</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="n">selected_data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">]</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">selected_data</span><span class="p">)</span>
+</span></code></pre></div></li>
 </ul>
-<p># Creating a DataFrame
- data = {'A': [1, 2, 3], 'B': [4, 5, 6]}
- df = pd.DataFrame(data, index=['X', 'Y', 'Z'])</p>
-<p># Using loc to select data based on labels
- selected_data = df.loc['Y', 'B']
- print(selected_data)
- <code>- *Integer-based Indexing (`iloc`)*:
- - Utilizes integer indices for data retrieval.
- - Examples:</code>python
- # Using iloc for integer-based selection
- selected_data = df.iloc[1, 1]
- print(selected_data)
- ```</p>
+</li>
+<li>
+<p><em>Integer-based Indexing (<code>iloc</code>)</em>:</p>
+<ul>
+<li>Utilizes integer indices for data retrieval.</li>
+<li>Examples:
+ <div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># Using iloc for integer-based selection</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="n">selected_data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">selected_data</span><span class="p">)</span>
+</span></code></pre></div></li>
+</ul>
 </li>
 <li>
 <p><strong>Boolean Indexing</strong>:</p>
@@ -3871,10 +3867,10 @@ plt<span style="color: #555555">.</span>show()
 <li>Helps filter dataset rows based on specified conditions.</li>
 <li>
 <p>Examples:
-   <code>python
-   # Filtering data with boolean indexing
-   filtered_data = df[df['A'] &gt; 1]
-   print(filtered_data)</code></p>
+   <div class="language-python highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># Filtering data with boolean indexing</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">filtered_data</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">filtered_data</span><span class="p">)</span>
+</span></code></pre></div></p>
 </li>
 <li>
 <p><strong>Advantages of Pandas Indexing and Selection</strong>:</p>
@@ -3890,26 +3886,26 @@ plt<span style="color: #555555">.</span>show()
 <li>Uses labels to retrieve data.</li>
 <li>
 <p>Example Application:
-    <code>python
-    # Using loc to select specific rows and columns by labels
-    selected_data = df.loc['Y', 'B']</code></p>
+    <div class="language-python highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1"># Using loc to select specific rows and columns by labels</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="n">selected_data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">]</span>
+</span></code></pre></div></p>
 </li>
 <li>
 <p><strong>Integer-based Indexing (<code>iloc</code>)</strong>:</p>
 </li>
 <li>Utilizes integer positions to access data.</li>
 <li>Example Application:
-    <code>python
-    # Using iloc to select data by integer positions
-    selected_data = df.iloc[1, 1]</code></li>
+    <div class="language-python highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1"># Using iloc to select data by integer positions</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="n">selected_data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+</span></code></pre></div></li>
 </ul>
 <h4 id="how-does-boolean-indexing-in-pandas-help-filter-dataset-rows-based-on-specified-conditions-and-logical-operations">How does boolean indexing in Pandas help filter dataset rows based on specified conditions and logical operations?</h4>
 <ul>
 <li>Boolean indexing allows users to filter rows based on conditions.</li>
 <li>Example:
-  <code>python
-  # Filtering data based on a condition using boolean indexing
-  filtered_data = df[df['A'] &gt; 1]</code></li>
+  <div class="language-python highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="c1"># Filtering data based on a condition using boolean indexing</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="n">filtered_data</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span>
+</span></code></pre></div></li>
 </ul>
 <h4 id="in-what-ways-do-pandas-indexing-and-selection-mechanisms-improve-the-efficiency-and-precision-of-data-exploration-and-extraction-in-complex-datasets-compared-to-traditional-indexing-methods">In what ways do Pandas indexing and selection mechanisms improve the efficiency and precision of data exploration and extraction in complex datasets compared to traditional indexing methods?</h4>
 <ul>
@@ -3954,9 +3950,55 @@ plt<span style="color: #555555">.</span>show()
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
       </main>
       
         <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Home
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../pandas_installation/" class="md-footer__link md-footer__link--next" aria-label="Next: Pandas Installation">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Pandas Installation
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -3966,6 +4008,65 @@ plt<span style="color: #555555">.</span>show()
     Made with
     <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
       Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://teach-me-codes.github.io" target="_blank" rel="noopener" title="teach-me-codes.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://x.com/TeachMeCodes" target="_blank" rel="noopener" title="x.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.facebook.com/teachmecodes" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/teach-me-codes" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/@teach-me-codes" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
     </a>
   
 </div>
@@ -3980,7 +4081,81 @@ plt<span style="color: #555555">.</span>show()
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+  
+    
+  
+
+
+  
+    
+  
+
+
+
+  
+
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="analytics" checked>
+          <span class="task-list-indicator"></span>
+          Google Analytics
+        </label>
+      </li>
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="github" checked>
+          <span class="task-list-indicator"></span>
+          GitHub
+        </label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Manage settings</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.081f42fc.min.js"></script>
